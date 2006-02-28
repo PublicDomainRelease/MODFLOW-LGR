@@ -1,0 +1,17 @@
+release.txt
+
+                           MODFLOW-LGR Release Notes
+
+     This file describes changes introduced into MODFLOW-LGR with each
+official release; these changes may substantially affect users. In this
+file, packages are referred to by their 3-or 4-character abbreviation. 
+For information and references related to these packages, see mflgr.txt
+("Summary of MODFLOW-LGR").
+
+NOTE: Any use of trade, product or firm names is for descriptive purposes 
+      only and does not imply endorsement by the U.S. Government.
+
+o Version 1.00 03/01/2006:
+
+This version is the initial release.
+

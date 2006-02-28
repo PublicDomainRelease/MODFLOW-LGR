@@ -1,0 +1,13 @@
+LIST   26 ex3_child.out
+BAS6    2 ex3_child.ba6
+BCF6   21 ex3_child.bc6
+DIS    29 ex3_child.dis
+OC     20 ex3_child.oc
+DATA(BINARY) 31 ex3_child.hed
+DATA(BINARY) 41 ex3_child.flw  
+PCG    22 ex3_child.pcg
+RIV    25 ex3_child.riv
+#BFH  80 ex3_child_bfh.hed
+DATA 80 ex3_child_bfh.hed
+DATA 81 ex3_child_bfh.flw
+DATA 51 ex3_child.bot
