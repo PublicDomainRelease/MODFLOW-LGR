@@ -1,0 +1,14 @@
+list 26 child.lst
+BAS6        25 CHILD.ba6
+LPF        27 CHILDh.lpf
+WEL 22 CHILD.WEL
+GMG 23 CHILD.gmg
+#PCG 23 child.pcg
+#DE4 23 CHILD.DE4
+OC  24 CHILD.OC
+DATA 80 cbhead
+DATA 81 cbflux_chk
+DATA(BINARY) 86 headc
+DATA(BINARY) 88 flowc
+DIS         20 CHILD.dis
+ZONE        28 CHILD.zon

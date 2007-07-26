@@ -58,7 +58,7 @@
 C  Data definitions for Named Parameters
 C  Explicitly declare all variables to enable subroutines that include
 C  this file to use the IMPLICIT NONE statement.
-        PARAMETER (MXPAR=500,MXCLST=1000,MXINST=1000)
+        PARAMETER (MXPAR=999,MXCLST=1000,MXINST=1000)
         INTEGER,SAVE,POINTER ::ICLSUM,IPSUM,INAMLOC,NMLTAR,NZONAR,NPVAL
         REAL,          SAVE,    DIMENSION(:),    POINTER ::B
         INTEGER,       SAVE,    DIMENSION(:),    POINTER ::IACTIVE
@@ -115,7 +115,7 @@ C  this file to use the IMPLICIT NONE statement.
 
 
       SUBROUTINE GWF2BAS7AR(INUNIT,CUNIT,VERSION,IUDIS,IUZON,IUMLT,
-     2              MAXUNIT,IGRID,IUOC,HEADNG,IUPVAL)
+     2              MAXUNIT,IGRID,IUOC,HEADNG,IUPVAL,MFVNAM)
 C     ******************************************************************
 C     Allocate and Read for GWF Basic Package
 C     ******************************************************************
@@ -140,6 +140,7 @@ C
       CHARACTER*4 CUNIT(NIUNIT)
       CHARACTER*(*) VERSION
       CHARACTER*80 HEADNG(2)
+      CHARACTER*(*) MFVNAM
       CHARACTER*200 LINE
 C
       DOUBLE PRECISION HNF
@@ -171,7 +172,7 @@ C
 C
 C2------Open all files in name file.
       CALL SGWF2BAS7OPEN(INUNIT,IOUT,IUNIT,CUNIT,NIUNIT,
-     &                 VERSION,INBAS,MAXUNIT)
+     &                 VERSION,INBAS,MAXUNIT,MFVNAM)
 C
 C3------PRINT A MESSAGE IDENTIFYING THE BASIC PACKAGE.
       WRITE(IOUT,1)INBAS
@@ -1702,7 +1703,7 @@ C5------RETURN.
       RETURN
       END
       SUBROUTINE SGWF2BAS7OPEN(INUNIT,IOUT,IUNIT,CUNIT,
-     1              NIUNIT,VERSION,INBAS,MAXUNIT)
+     1              NIUNIT,VERSION,INBAS,MAXUNIT,MFVNAM)
 C     ******************************************************************
 C     OPEN FILES.
 C     ******************************************************************
@@ -1714,7 +1715,8 @@ C     ------------------------------------------------------------------
       CHARACTER*4 CUNIT(NIUNIT)
       CHARACTER*7 FILSTAT
       CHARACTER*20 FILACT, FMTARG, ACCARG
-      CHARACTER*40 VERSION, SPACES
+      CHARACTER*(*) VERSION,MFVNAM
+      CHARACTER*40 SPACES
       CHARACTER*300 LINE, FNAME
       CHARACTER*20 FILTYP
       LOGICAL LOP
@@ -1774,8 +1776,8 @@ C6------SPECIAL CHECK FOR 1ST FILE.
           IOUT=IU
           OPEN(UNIT=IU,FILE=FNAME(1:IFLEN),STATUS='REPLACE',
      1          FORM='FORMATTED',ACCESS='SEQUENTIAL')
-          WRITE(IOUT,60) SPACES(1:INDENT),VERSION(1:LENVER)
-60        FORMAT(34X,'MODFLOW-2005',/,
+          WRITE(IOUT,60) MFVNAM,SPACES(1:INDENT),VERSION(1:LENVER)
+60        FORMAT(34X,'MODFLOW',A,/,
      &             6X,'U.S. GEOLOGICAL SURVEY MODULAR',
      &             ' FINITE-DIFFERENCE GROUND-WATER FLOW MODEL',/,
      &             A,'VERSION ',A,/)

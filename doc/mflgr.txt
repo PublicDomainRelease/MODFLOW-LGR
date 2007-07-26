@@ -25,6 +25,9 @@ ABSTRACT
 
 HISTORY
 
+      MODFLOW-LGR Version 1.1 08/8/2007 - Added support for multiple
+         non-overlapping child grids.
+
       MODFLOW-LGR Version 1.0 03/01/2006 - Initial release.
 
 
@@ -57,7 +60,13 @@ Techniques and Methods 6-A16, variously p.
 Mehl, S.W. and Hill, M.C., 2005, MODFLOW-2005, the U.S. Geological Survey modular
 ground-water model -- documentation of shared node local grid refinement (LGR)
 and the Boundary Flow and Head (BFH) Package: U.S. Geological Survey Techniques
-and Methods 6-A16, 68 p.
+and Methods 6-A12, 68 p.
+
+Mehl, S.W. and Hill, M.C., 2007, MODFLOW-2005, the U.S. Geological Survey modular
+ground-water model -- documentation of the multiple-refined-areas capability of
+local grid refinement (LGR) and the Boundary Flow and Head (BFH) Package: U.S.
+Geological Survey Techniques and Methods 6-A21
+
 
 CONTACT
     U.S. Geological Survey

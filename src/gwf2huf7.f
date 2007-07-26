@@ -273,11 +273,7 @@ C6------ALLOCATE SPACE FOR ARRAYS.
         ALLOCATE(VDHT(1,1,1,1))
         ALLOCATE(A9(1,1,1,1))
       ENDIF
-      IF(IKDEP .NE. 0)THEN
-        ALLOCATE(GS(NCOL,NROW))
-      ELSE
-        ALLOCATE(GS(1,1))
-      ENDIF
+      ALLOCATE(GS(NCOL,NROW))
 C7------READ DATA FOR HYDROGEOLOGIC-UNIT FLOW PACKAGE 
 
 C---Read rewetting information

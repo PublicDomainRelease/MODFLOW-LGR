@@ -1,9 +1,9 @@
-! $Id: gwf2mnw7.f,v 1.6 2005/11/09 01:12:24 swmehl Exp $      
-! Time of File Save by ERB: 4/6/2005 2:28PM
-C KJH  20030327 -- Patched Hyd.K term in LPF option -- cel2wel function
-C KJH  20030717 -- Patched budget output switch -- subroutine GWF1MNW1bd
-c                       Cleaned output so outrageous pointers are not printed
-c Last change: GZH  20050405 -- Converted calculations to use double precision
+C Time of File Save by ERB: 4/6/2005 2:28PM
+C                  KJH  20030327      -- Patched Hyd.K term in LPF option -- cel2wel function
+C                  KJH  20030717      -- Patched budget output switch -- subroutine GWF1MNW1bd
+c                                        Cleaned output so outrageous pointers are not printed
+c                  GZH  20050405      -- Converted calculations to use double precision
+c                  KJH  20050419      -- Array WELL2 dimensioned to 18 to store well id
 c
       MODULE GWFMNWMODULE
         DOUBLE PRECISION, PARAMETER :: TWOPI=2.0D0*3.1415926535897932D0
@@ -12,7 +12,8 @@ c
         CHARACTER(LEN=200),SAVE,POINTER:: MNWNAME
         INTEGER,          SAVE,POINTER :: NWELL2, MXWEL2, IWL2CB, KSPREF
         INTEGER,          SAVE,POINTER :: IWELPT, NOMOITER
-        REAL,             SAVE,POINTER :: PLOSS, HDRY
+        REAL,             SAVE,POINTER :: HDRY
+        DOUBLE PRECISION, SAVE,POINTER :: PLOSS
         DOUBLE PRECISION, SAVE,POINTER :: SMALL, HMAX
         CHARACTER(LEN=32),SAVE,DIMENSION(:),    POINTER :: MNWSITE
         INTEGER,          SAVE,DIMENSION(:),    POINTER :: IOWELL2
@@ -22,7 +23,8 @@ c
         CHARACTER(LEN=200),    POINTER :: MNWNAME
         INTEGER,               POINTER :: NWELL2, MXWEL2, IWL2CB, KSPREF
         INTEGER,               POINTER :: IWELPT, NOMOITER
-        REAL,                  POINTER :: PLOSS, HDRY
+        REAL,                  POINTER :: HDRY
+        DOUBLE PRECISION,      POINTER :: PLOSS
         DOUBLE PRECISION,      POINTER :: SMALL, HMAX
         CHARACTER(LEN=32),     DIMENSION(:),    POINTER :: MNWSITE
         INTEGER,               DIMENSION(:),    POINTER :: IOWELL2
@@ -132,9 +134,9 @@ c   Define well model to be used
 c
       CALL NCREAD(In, txt, ierr)
       CALL UPCASE(txt)
-      PLOSS = 0.0   !!  Default use of Skin so linear loss varies with T
+      PLOSS = 0.0D0   !!  Default use of Skin so linear loss varies with T
       IF ( INDEX(txt, 'LINEAR').GT.0 ) THEN
-        PLOSS = 1.0 !!  ADD THIS LINE to make sure that the power term is 1 for the linear model
+        PLOSS = 1.0D0 !!  ADD THIS LINE to make sure that the power term is 1 for the linear model
         ki = INDEX(txt, ':') + 1
         tx2 = txt(ki:256)
         CALL QREAD(rn, 1, tx2, ierr)
@@ -239,7 +241,9 @@ c
  9009 FORMAT ('SiteID', 31x, 'Entry', 5x, 'Total_Time', 10x, 'Qin', 
      +        10x, 'Qout', 10x, 'Qsum', 5x, 'H-Well', 5x, 'QW-Avg')
 c
-      ALLOCATE (WELL2(17, MXWEL2+1), MNWSITE(MXWEL2))
+C  4/18/2005 - KJH:  Explicit well tracking addition changed 1st WELL2
+C                    dimension from 17 to 18
+      ALLOCATE (WELL2(18, MXWEL2+1), MNWSITE(MXWEL2))
 c
 C-------SET SMALL DEPENDING ON CLOSURE CRITERIA OF THE SOLVER
       IF ( Iusip.NE.0 ) SMALL = HCLOSE
@@ -269,10 +273,12 @@ c        specifications:
 c     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NODES,NCOL,NROW,NLAY,IBOUND,HOLD,HNEW,IOUT
       USE GWFBASMODULE,ONLY:TOTIM
-      USE GWFMNWMODULE
+      USE GWFMNWMODULE, ONLY:NWELL2,MXWEL2,IWELPT,PLOSS,HDRY,HMAX,
+     1                       MNWSITE,IOWELL2,WELL2,HREF,KSPREF,
+     2                       BIG,ZERO25
       USE GWFLPFMODULE,ONLY:HDRYLPF=>HDRY
       USE GWFBCFMODULE,ONLY:HDRYBCF=>HDRY
-      USE GWFBCFMODULE,ONLY:HDRYHUF=>HDRY
+      USE GWFHUFMODULE,ONLY:HDRYHUF=>HDRY
       IMPLICIT NONE
       INTRINSIC ABS, MAX, MOD, INT
       INTEGER, EXTERNAL :: IFRL, IDIRECT
@@ -292,6 +298,7 @@ c     ------------------------------------------------------------------
       INTEGER :: itmp, j, k, kblk, kcp, kfini, ki, kpc, kqc, ksiteid
       INTEGER :: ktab, m, mstep, n, n1, nb, ne, ngrp, nl, nn, node
       INTEGER :: nqreject, nstart
+      INTEGER :: idwell,mm
       CHARACTER(LEN=1) :: tab
       CHARACTER(LEN=32) :: tempsite
       CHARACTER(LEN=256) :: txt, tx2, txtraw
@@ -303,13 +310,15 @@ cswm: SET POINTERS FOR FLOW PACKAGE TO GET HDRY AND K's FOR CEL2WEL
       IF ( Iulpf.NE.0 ) CALL SGWF2LPF7PNT(Igrid)
       IF ( Iuhuf.NE.0 ) CALL SGWF2HUF7PNT(Igrid)
 C
+      icmn = 1
+      kfini = 1
       tab = CHAR(9)
       qfrcmn = ZERO25
       qfrcmx = ZERO25
       qreject = 0.0D0
       nqreject = 0
       nl = 0
-      IF ( PLOSS.GT.1.001 ) nl = 1 !!  Read NL loss Coefficient after Skin
+      IF ( PLOSS.GT.1.001D0 ) nl = 1 !!  Read NL loss Coefficient after Skin
 c
 c  Check for setting the HREFerence array
 CERB     IN FIRST STRESS PERIOD, HOLD IS UNDEFINED, SO USE HNEW INSTEAD
@@ -340,7 +349,7 @@ cswm:  SET HDRY DEPENDING ON FLOW PACKAGE
       ENDIF
 c
 c------------------------------------------------------------------
-c     The 16 rows of the well array store:
+c     The 18 rows of the well array store:
 c      Row #  = Description
 c------------------------------------------------------------------
 c         1   = Well node locator
@@ -361,6 +370,7 @@ c        15   = Reserve Desired flow rate
 c        16   = Non-linear loss term
 c        17   = Actual flow rate to individual nodes of a multi-node well
 c               kept for transport or other purposes !!7/13/2003 - CZ
+c        18   = Explicit well identifier -- Same value for all nodes in a well 
 c------------------------------------------------------------------
 c
 c1------read itmp(number of wells or flag saying reuse well data)
@@ -373,7 +383,7 @@ c
       IF ( itmp.LT.0 ) THEN
 c        if itmp less than zero reuse data. print message and return.
         WRITE (IOUT, 9001)
- 9001   FORMAT ('0REUSING MNW7  FROM LAST STRESS PERIOD')
+ 9001   FORMAT (1X,/1X,'REUSING MNW7  FROM LAST STRESS PERIOD')
         RETURN
       ELSE
 c  If itmp > 0,  Test if wells are to replace old ones or be added.
@@ -412,8 +422,6 @@ c    Test for if well is in active grid ......
           IF (iok.GT.0 .AND. ABS(drytest).GT.ZERO25) iok = IBOUND(i,j,k)
 c
 c  Should MNW wells be allowed in specified-head cells?
-!rsr???, added, icmn never initialized, should it be here?
-          icmn = 1
           IF ( iok.NE.0 ) THEN      !! Allow SH now, "gt" for no SH
 c    Test for redundant info ......
             ipt = 0
@@ -474,8 +482,6 @@ c   Look for Site Identifier   -- Set to NO-PRINT  if not present.
               MNWSITE(ipt) = txtraw(ksiteid+5:256)
               kblk = INDEX(MNWSITE(ipt), ' ')
               ktab = INDEX(MNWSITE(ipt), tab)
-!rsr??? added next line to be sure kfini has a value              
-              kfini = 1
               IF ( kblk.GT.0 ) kfini = kblk
               IF ( ktab.GT.0 .AND. ktab.LT.kblk ) kfini = ktab
               IF ( kfini.LE.32 ) THEN
@@ -591,7 +597,8 @@ c
 c  nwell2>mxwel2.  print message. stop.
       IF ( NWELL2.GT.MXWEL2 ) THEN
         WRITE (IOUT, 9002) NWELL2, MXWEL2
- 9002   FORMAT ('0nwell2(', i4, ') IS GREATER THAN mxwel2(', i4, ')')
+ 9002   FORMAT (1X,/
+     1     1X,'nwell2(', i4, ') IS GREATER THAN mxwel2(', i4, ')')
 C
 C       When compiling MNW with Modflow-96, comment out the call to
 C       USTOP and uncomment the STOP statement
@@ -606,17 +613,33 @@ c
         WELL2(15, m) = WELL2(2, m)
       ENDDO
 c
+c--assign unique well id for use with MT3DMS link package (cdl: 4/19/05)
+        m=0
+        IDwell=1
+        do while (m.lt.nwell2)
+           m=m+1
+           if(well2(8,m).gt.1.D30) then
+              do mm=m,ifrl(well2(7,m))
+                 well2(18,mm)=IDwell
+              enddo
+              m=ifrl(well2(7,m))
+           else
+              well2(18,m)=IDwell
+           endif
+           IDwell=IDwell+1
+        enddo
+c
 c   Echo input to iout file
 c
       IF ( IWELPT.EQ.0 ) THEN
         IF ( nqreject.GT.0 ) THEN
           txt = ' wells were outside of the model domain.'
-          WRITE (IOUT, '("0",5x,i5,a50)') nqreject, txt
+          WRITE (IOUT, '(1X,/,5x,i5,a50)') nqreject, txt
           txt = 'The rejected pumpage totaled: '
-          WRITE (IOUT, '("0",a34,g14.5)') txt, qreject
+          WRITE (IOUT, '(1X,/1X,a34,g14.5)') txt, qreject
         ENDIF
 c
-        WRITE (IOUT, '("0",10x,i5," MNW WELLS")') NWELL2
+        WRITE (IOUT, '(1X,/,10x,i5," MNW WELLS")') NWELL2
         WRITE (IOUT, 9003)
  9003   FORMAT ('    No.   Lay   Row   Col    Stress   QW param', 6x, 
      +          'Rw       Skin    WL Limit    WL Refer   NonLinear Cp', 
@@ -1657,9 +1680,9 @@ c
 c
         tpi2 = TWOPI*SQRT(txx*tyy)
         a = LOG(ro/Rw) / tpi2
-        IF ( PLOSS.GT.0.99 ) THEN
+        IF ( PLOSS.GT.0.99D0 ) THEN
           b = Skin
-          c = Cf*ABS(Q)**(PLOSS-1.0)
+          c = Cf*ABS(Q)**(PLOSS-1.0D0)
         ELSE
           b = Skin / tpi2
           c = 0.0D0
@@ -1753,9 +1776,9 @@ c
 c
         tpi2 = TWOPI*SQRT(txx*tyy)
         a = LOG(ro/rw) / tpi2
-        IF ( PLOSS.GT.0.99 ) THEN
+        IF ( PLOSS.GT.0.99D0 ) THEN
           b = Skin
-          c = Cf*ABS(Q)**(PLOSS-1.0)
+          c = Cf*ABS(Q)**(PLOSS-1.0D0)
         ELSE
           b = Skin / tpi2
           c = 0.0D0
@@ -1847,9 +1870,9 @@ c
 c
         tpi2 = TWOPI*SQRT(txx*tyy)
         a = LOG(ro/rw) / tpi2
-        IF ( PLOSS.GT.0.99 ) THEN
+        IF ( PLOSS.GT.0.99D0 ) THEN
           b = Skin
-          c = Cf*ABS(Q)**(PLOSS-1.0)
+          c = Cf*ABS(Q)**(PLOSS-1.0D0)
         ELSE
           b = Skin / tpi2
           c = 0.0D0

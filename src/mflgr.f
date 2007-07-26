@@ -1,5 +1,5 @@
 C     ******************************************************************
-C     MAIN CODE FOR U.S. GEOLOGICAL SURVEY MODULAR MODEL -- MODFLOW-2005
+C     MAIN CODE FOR U.S. GEOLOGICAL SURVEY MODULAR MODEL -- MODFLOW-LGR
 C     ******************************************************************
 C
 C        SPECIFICATIONS:
@@ -8,6 +8,10 @@ C1------USE package modules.
       USE GLOBAL
       USE GWFBASMODULE
       USE GWFHUFMODULE, ONLY:IOHUFHDS,IOHUFFLWS
+      USE GWFEVTMODULE, ONLY:NEVTOP
+      USE GWFRCHMODULE, ONLY:NRCHOP
+      USE GWFLAKMODULE, ONLY:NLAKESAR,THETA,STGOLD,STGNEW,VOL
+      USE GWFUZFMODULE, ONLY: IUZFBND, FINF, VKS
       USE PCGMODULE
       USE SIPMODULE
       USE DE4MODULE
@@ -17,7 +21,9 @@ C1------USE package modules.
 C
 C-------ASSIGN VERSION NUMBER AND DATE
       CHARACTER*40 VERSION
-      PARAMETER (VERSION='1.00 01/15/2006')
+      CHARACTER*10 MFVNAM
+      PARAMETER (VERSION='1.1 08/8/2007')
+      PARAMETER (MFVNAM='-LGR')
 C
       CHARACTER*80 HEADNG(2)
       CHARACTER*200 FNAME
@@ -26,18 +32,18 @@ C
       CHARACTER*4 CUNIT(NIUNIT)
       DATA CUNIT/'BCF6', 'WEL ', 'DRN ', 'RIV ', 'EVT ', '    ', 'GHB ',  !  7
      &           'RCH ', 'SIP ', 'DE4 ', '    ', 'OC  ', 'PCG ', 'lmg ',  ! 14
-     &           'gwt ', 'FHB ', '    ', 'STR ', 'IBS ', 'CHD ', 'HFB6',  ! 21
-     &           'lak ', 'LPF ', 'DIS ', '    ', 'PVAL', '    ', '    ',  ! 28
-     &           '    ', '    ', 'ZONE', 'MULT', '    ', '    ', '    ',  ! 35
-     &           '    ', 'HUF2', '    ', '    ', '    ', '    ', 'GMG ',  ! 42
-     &           '    ', 'sfr ', '    ', 'gage', 'LVDA', 'BFH ', 'lmt6',  ! 49
-     &           'MNW1', '    ', '    ', 'KDEP', 'sub ', 'uzf ', '    ',  ! 56
+     &           'gwt ', 'FHB ', 'RES ', 'STR ', 'IBS ', 'CHD ', 'HFB6',  ! 21
+     &           'LAK ', 'LPF ', 'DIS ', '    ', 'PVAL', '    ', 'HOB ',  ! 28
+     &           '    ', '    ', 'ZONE', 'MULT', 'DROB', 'RVOB', 'GBOB',  ! 35
+     &           '    ', 'HUF2', 'CHOB', 'ETS ', 'DRT ', '    ', 'GMG ',  ! 42
+     &           'hyd ', 'SFR ', '    ', 'GAGE', 'LVDA', 'BFH ', 'lmt6',  ! 49
+     &           'MNW1', '    ', '    ', 'KDEP', 'SUB ', 'UZF ', 'gwm ',  ! 56
      &           44*'    '/
 C     ------------------------------------------------------------------
 C
 C2------WRITE BANNER TO SCREEN AND DEFINE CONSTANTS.
-      WRITE (*,1) VERSION
-    1 FORMAT (/,34X,'MODFLOW-2005',/,
+      WRITE (*,1) MFVNAM,VERSION
+    1 FORMAT (/,34X,'MODFLOW',A,/,
      &4X,'U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE',
      &' GROUND-WATER FLOW MODEL',/,29X,'Version ',A/)
       INUNIT = 99
@@ -67,8 +73,8 @@ C5B------OPEN NAME FILE.
 C
 C6------ALLOCATE AND READ (AR) PROCEDURE
         CALL GWF2BAS7AR(INUNIT,CUNIT,VERSION,24,31,32,MAXUNIT,IGRID,12,
-     1                  HEADNG,26)
-        IF(ILGR .NE.0) CALL GWF2LGR1AR(ILUNIT,FNAME,IGRID)
+     1                  HEADNG,26,MFVNAM)
+        IF(ILGR .NE.0) CALL GWF2LGR1AR(ILUNIT,FNAME,NGRIDS,IGRID)
         IF(IUNIT(1).GT.0) CALL GWF2BCF7AR(IUNIT(1),IGRID)
         IF(IUNIT(23).GT.0) CALL GWF2LPF7AR(IUNIT(23),IGRID)
         IF(IUNIT(37).GT.0) CALL GWF2HUF7AR(IUNIT(37),IUNIT(47),
@@ -80,10 +86,22 @@ C6------ALLOCATE AND READ (AR) PROCEDURE
         IF(IUNIT(7).GT.0) CALL GWF2GHB7AR(IUNIT(7),IGRID)
         IF(IUNIT(8).GT.0) CALL GWF2RCH7AR(IUNIT(8),IGRID)
         IF(IUNIT(16).GT.0) CALL GWF2FHB7AR(IUNIT(16),IGRID)
+        IF(IUNIT(17).GT.0) CALL GWF2RES7AR(IUNIT(17),IGRID)
         IF(IUNIT(18).GT.0) CALL GWF2STR7AR(IUNIT(18),IGRID)
         IF(IUNIT(19).GT.0) CALL GWF2IBS7AR(IUNIT(19),IUNIT(54),IGRID)
         IF(IUNIT(20).GT.0) CALL GWF2CHD7AR(IUNIT(20),IGRID)
         IF(IUNIT(21).GT.0) CALL GWF2HFB7AR(IUNIT(21),IGRID)
+        IF(IUNIT(44).GT.0) CALL GWF2SFR7AR(IUNIT(44),IUNIT(1),IUNIT(23),
+     1                             IUNIT(37),IUNIT(15),NSOL,IOUTS,IGRID)
+        IF(IUNIT(55).GT.0) CALL GWF2UZF1AR(IUNIT(55),IUNIT(1),
+     1                                     IUNIT(23),IUNIT(37),IGRID)
+        IF(IUNIT(22).GT.0 .OR. IUNIT(44).GT.0) CALL GWF2LAK7AR(
+     1               IUNIT(22),IUNIT(44),IUNIT(15),IUNIT(55),NSOL,IGRID)
+        IF(IUNIT(46).GT.0) CALL GWF2GAG7AR(IUNIT(46),IUNIT(44),
+     1                                     IUNIT(22),IGRID)
+        IF(IUNIT(39).GT.0) CALL GWF2ETS7AR(IUNIT(39),IGRID)
+        IF(IUNIT(40).GT.0) CALL GWF2DRT7AR(IUNIT(40),IGRID)
+        IF(IUNIT(54).GT.0) CALL GWF2SUB7AR(IUNIT(54),IGRID)
         IF(IUNIT(48).GT.0) CALL GWF2BFH1AR(IUNIT(48),ILGR,IGRID)
         IF(IUNIT(9).GT.0) CALL SIP7AR(IUNIT(9),MXITER,IGRID)
         IF(IUNIT(10).GT.0) CALL DE47AR(IUNIT(10),MXITER,IGRID)
@@ -92,6 +110,14 @@ C6------ALLOCATE AND READ (AR) PROCEDURE
         IF(IUNIT(50).GT.0) CALL GWF2MNW7AR(IUNIT(50),IUNIT(9),
      1                                     IUNIT(10),0,IUNIT(13),
      2                                     0,IUNIT(42),FNAME,IGRID)
+C  Observation allocate and read
+        CALL OBS2BAS7AR(IUNIT(28),IGRID)
+        IF(IUNIT(33).GT.0) CALL OBS2DRN7AR(IUNIT(33),IUNIT(3),IGRID)
+        IF(IUNIT(34).GT.0) CALL OBS2RIV7AR(IUNIT(34),IUNIT(4),IGRID)
+        IF(IUNIT(35).GT.0) CALL OBS2GHB7AR(IUNIT(35),IUNIT(7),IGRID)
+        IF(IUNIT(38).GT.0) CALL OBS2CHD7AR(IUNIT(38),IGRID)
+C
+
 C END LOOP FOR ALLOCATING AND READING DATA FOR EACH GRID
       ENDDO
       CLOSE(ILUNIT)
@@ -102,6 +128,7 @@ C7------SIMULATE EACH STRESS PERIOD.
         DO IGRID = 1, NGRIDS
           CALL GWF2BAS7ST(KKPER,IGRID)
           IF(IUNIT(19).GT.0) CALL GWF2IBS7ST(KKPER,IGRID)
+          IF(IUNIT(54).GT.0) CALL GWF2SUB7ST(KKPER,IGRID)
 C
 C7B-----READ AND PREPARE INFORMATION FOR STRESS PERIOD.
 C----------READ USING PACKAGE READ AND PREPARE MODULES.
@@ -112,8 +139,20 @@ C----------READ USING PACKAGE READ AND PREPARE MODULES.
           IF(IUNIT(5).GT.0) CALL GWF2EVT7RP(IUNIT(5),IGRID)
           IF(IUNIT(7).GT.0) CALL GWF2GHB7RP(IUNIT(7),IGRID)
           IF(IUNIT(8).GT.0) CALL GWF2RCH7RP(IUNIT(8),IGRID)
+          IF(IUNIT(17).GT.0) CALL GWF2RES7RP(IUNIT(17),IGRID)
           IF(IUNIT(18).GT.0) CALL GWF2STR7RP(IUNIT(18),IGRID)
           IF(IUNIT(20).GT.0) CALL GWF2CHD7RP(IUNIT(20),IGRID)
+          IF(IUNIT(44).GT.0) CALL GWF2SFR7RP(IUNIT(44),IUNIT(15),
+     1                                       IUNIT(22),KKPER,NSOL,
+     2                                       IOUTS,IGRID)
+          IF(IUNIT(55).GT.0) CALL GWF2UZF1RP(IUNIT(55),KKPER,IGRID)
+          IF(IUNIT(22).GT.0) CALL GWF2LAK7RP(IUNIT(22),IUNIT(1),
+     1                 IUNIT(15),IUNIT(23),IUNIT(37),IUNIT(44),
+     2                 IUNIT(55),KKPER,NSOL,IOUTS,IGRID)
+          IF(IUNIT(46).GT.0.AND.KKPER.EQ.1) CALL GWF2GAG7RP(IUNIT(15),
+     1               IUNIT(22),IUNIT(55),NSOL,IGRID)
+          IF(IUNIT(39).GT.0) CALL GWF2ETS7RP(IUNIT(39),IGRID)
+          IF(IUNIT(40).GT.0) CALL GWF2DRT7RP(IUNIT(40),IGRID)
           IF(IUNIT(50).GT.0) CALL GWF2MNW7RP(IUNIT(50),IUNIT(1),
      1                                       IUNIT(23),IUNIT(37),KKPER,
      2                                       IGRID)
@@ -133,6 +172,9 @@ C7C1----CALCULATE TIME STEP LENGTH. SET HOLD=HNEW.
             IF(IUNIT(23).GT.0) CALL GWF2LPF7AD(KKPER,IGRID)
             IF(IUNIT(37).GT.0) CALL GWF2HUF7AD(KKPER,IGRID)
             IF(IUNIT(16).GT.0) CALL GWF2FHB7AD(IGRID)
+            IF(IUNIT(17).GT.0) CALL GWF2RES7AD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(22).GT.0) CALL GWF2LAK7AD(KKPER,KKSTP,IUNIT(15),
+     1                                         IGRID)
             IF(IUNIT(50).GT.0) CALL GWF2MNW7AD(IUNIT(1),IUNIT(23),
      1                                         IUNIT(37),IGRID)
             IF(IUNIT(48).GT.0) CALL GWF2BFH1AD(IUNIT(48),IGRID)
@@ -172,10 +214,10 @@ C-----------------PUT PARENT HEAD TO CHILD GRID SHARED NODES AND RELAX
 C---------------ADJUST STORAGE IF LGR IS ACTIVE AND TR SIMULATION
                 IF(ITRSS .NE. 0)THEN 
                   IF(ISCHILD .EQ. -1)THEN
-                    DO II =2,NGRIDS
-                      CALL GWF2LGR1FMPBS(KKPER,KKSTP,LGRITER,IUNIT(1),
-     1                                   IUNIT(23),IUNIT(37),
-     2                                   -LGRDAT(II)%IBFLG,IGRID)
+                    DO LG =2,NGRIDS
+                      IF(LGRDAT(IGRID)%IBPFLG(LG) .NE. 0)
+     1                  CALL GWF2LGR1FMPBS(KKPER,KKSTP,LGRITER,IUNIT(1),
+     2                                   IUNIT(23),IUNIT(37),LG,IGRID)
                     ENDDO
                   ELSE
                     CALL GWF2LGR1FMCBS(KKPER,KKSTP,LGRITER,IUNIT(1),
@@ -184,6 +226,7 @@ C---------------ADJUST STORAGE IF LGR IS ACTIVE AND TR SIMULATION
                 ENDIF
               ENDIF
 C-------------BEGIN CAGE-SHELL INTERPOLATION LOOP
+              IBSKIP2 = 0
               DO IBSOLV =1, ISHELL             
                 IF(ILGR.NE.0 .AND. IGRID.GT.1) CALL GWF2LGR1FMIB(IBSOLV,
      1                                                          IBSKIP2)
@@ -204,13 +247,14 @@ C7C2A---FORMULATE THE FINITE DIFFERENCE EQUATIONS.
 C-----------------ADJUST CONDUCTANCES IF LGR IS ACTIVE
                   IF(ILGR .NE. 0)THEN
                     IF(IGRID .EQ. 1)THEN  
-                      DO II =2,NGRIDS
-                        CALL GWF2LGR1FMPBC(KKPER,KKSTP,KKITER,LGRITER,
-     1                     IUNIT(1),LGRDAT(II)%NPCBEG,LGRDAT(II)%NPRBEG,
-     2                     LGRDAT(II)%NPLBEG,LGRDAT(II)%NPCEND,
-     3                     LGRDAT(II)%NPREND,LGRDAT(II)%NPLEND,
-     4                     LGRDAT(II)%IBOTFLG,-LGRDAT(II)%IBFLG,
-     5                     LGRDAT(II)%PFLUX)
+                      DO LG =2,NGRIDS
+                        IF(LGRDAT(IGRID)%IBPFLG(LG) .NE. 0)
+     1                    CALL GWF2LGR1FMPBC(KKPER,KKSTP,KKITER,LGRITER,
+     2                       IUNIT(1),LGRDAT(LG)%NPCBEG,
+     3                       LGRDAT(LG)%NPRBEG,LGRDAT(LG)%NPLBEG,
+     4                       LGRDAT(LG)%NPCEND,LGRDAT(LG)%NPREND,
+     5                       LGRDAT(LG)%NPLEND,LGRDAT(LG)%IBOTFLG,
+     6                       LGRDAT(LG)%PFLUX,LG)
                       ENDDO
                     ELSEIF(ISCHILD .GE. 0)THEN    
                       CALL GWF2LGR1FMCBC(KKPER,KKSTP,KKITER,LGRITER,
@@ -222,14 +266,39 @@ C
                   IF(IUNIT(2).GT.0) CALL GWF2WEL7FM(IGRID)
                   IF(IUNIT(3).GT.0) CALL GWF2DRN7FM(IGRID)
                   IF(IUNIT(4).GT.0) CALL GWF2RIV7FM(IGRID)
-                  IF(IUNIT(5).GT.0) CALL GWF2EVT7FM(IGRID)
+                  IF(IUNIT(5).GT.0) THEN
+                    IF(IUNIT(22).GT.0.AND.NEVTOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                      0,IGRID)
+                    CALL GWF2EVT7FM(IGRID)
+                    IF(IUNIT(22).GT.0.AND.NEVTOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                      1,IGRID)
+                  END IF
                   IF(IUNIT(7).GT.0) CALL GWF2GHB7FM(IGRID)
-                  IF(IUNIT(8).GT.0) CALL GWF2RCH7FM(IGRID)
+                  IF(IUNIT(8).GT.0) THEN
+                    IF(IUNIT(22).GT.0.AND.NRCHOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                         0,IGRID)
+                    CALL GWF2RCH7FM(IGRID)
+                    IF(IUNIT(22).GT.0.AND.NRCHOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                         1,IGRID)
+                  END IF
                   IF(IUNIT(16).GT.0) CALL GWF2FHB7FM(IGRID)
+                  IF(IUNIT(17).GT.0) CALL GWF2RES7FM(IGRID)
                   IF(IUNIT(18).GT.0) CALL GWF2STR7FM(IGRID)
                   IF(IUNIT(19).GT.0) CALL GWF2IBS7FM(KKPER,IGRID)
+                  IF(IUNIT(39).GT.0) CALL GWF2ETS7FM(IGRID)
+                  IF(IUNIT(40).GT.0) CALL GWF2DRT7FM(IGRID)
+                  IF(IUNIT(55).GT.0) CALL GWF2UZF1FM(KKPER,KKSTP,
+     1                                     IUNIT(44),IUNIT(22),IGRID)
+                  IF(IUNIT(44).GT.0) CALL GWF2SFR7FM(KKITER,KKPER,KKSTP,
+     1                                     IUNIT(22),NLAKESAR,THETA,
+     2                                     STGOLD,STGNEW,VOL,IGRID)
+                  IF(IUNIT(22).GT.0) CALL GWF2LAK7FM(KKITER,KKPER,
+     1                                     IUNIT(44),IUNIT(55),
+     2                                     IUZFBND,FINF,VKS,IGRID)
                   IF(IUNIT(50).GT.0) CALL GWF2MNW7FM(KKITER,IUNIT(1),
      1                                     IUNIT(23),IUNIT(37),IGRID)
+                  IF(IUNIT(54).GT.0) CALL GWF2SUB7FM(KKPER,KKITER,
+     1                                               IUNIT(9),IGRID)
                   IF(IUNIT(48).GT.0) CALL GWF2BFH1FM(KKPER,KKSTP,KKITER,
      1                                              IUNIT(1),IGRID) 
 C
@@ -247,7 +316,8 @@ C7C2B---MAKE ONE CUT AT AN APPROXIMATE SOLUTION.
      1                MXUP,MXLOW,MXEQ,MXBW,CR,CC,CV,HCOF,RHS,ACCLDE4,
      2                KITER,ITMX,MXITER,NITERDE4,HCLOSEDE4,IPRD4,ICNVG,
      3                NCOL,NROW,NLAY,IOUT,LRCHDE4,HDCGDE4,IFREQ,KKSTP,
-     4                KKPER,DELT,NSTP(KKPER),ID4DIR,ID4DIM,MUTD4,IERR)
+     4                KKPER,DELT,NSTP(KKPER),ID4DIR,ID4DIM,MUTD4,DELTL,
+     5                NBWL,NUPL,NLOWL,NLOW,NEQ,NUP,NBW,IERR)
                   END IF
                   IF (IUNIT(13).GT.0) THEN
                     CALL PCG7PNT(IGRID)
@@ -277,13 +347,13 @@ C-------------END CAGE-SHELL INTERPOLATION LOOOP
 C-------------PREPARE THE NEXT GRID FOR LGR ITERATION
               IF(ILGR.NE.0)THEN 
                 IF(ISCHILD .EQ. -1)THEN
-                  DO II =2,NGRIDS
-                    CALL GWF2LGR1INITP(IGRID,KKPER,KKSTP,LGRITER,
-     1                      LGRDAT(II)%NPCBEG,LGRDAT(II)%NPRBEG,
-     2                      LGRDAT(II)%NPLBEG,LGRDAT(II)%NPCEND,
-     3                      LGRDAT(II)%NPREND,LGRDAT(II)%NPLEND,
-     4                      LGRDAT(II)%IBOTFLG,-LGRDAT(II)%IBFLG,
-     5                      LGRDAT(II)%ISHFLG,LGRDAT(II)%MXLGRITER)
+                  DO LG =2,NGRIDS
+                    CALL GWF2LGR1INITP(KKPER,KKSTP,LGRITER,
+     1                      LGRDAT(LG)%NPCBEG,LGRDAT(LG)%NPRBEG,
+     2                      LGRDAT(LG)%NPLBEG,LGRDAT(LG)%NPCEND,
+     3                      LGRDAT(LG)%NPREND,LGRDAT(LG)%NPLEND,
+     4                      LGRDAT(LG)%IBOTFLG,LGRDAT(LG)%ISHFLG,
+     5                      LGRDAT(LG)%MXLGRITER,LG,IGRID) 
                   ENDDO
                 ELSEIF(IGRID.NE.1)THEN
 C-----------------CALCULATE FLUX ENTERING THE CHILD INTERFACE AND RELAX
@@ -305,7 +375,8 @@ C---------END LGR ITERATION LOOP
 C
 C7C3----DETERMINE WHICH OUTPUT IS NEEDED.FOR EACH GRID
           DO IGRID = 1, NGRIDS
-            CALL GWF2BAS7OC(KKSTP,KKPER,ICNVG,IUNIT(12),IGRID)
+            CALL GWF2BAS7OC(KKSTP,KKPER,ICNVG,
+     1                      GLOBALDAT(IGRID)%IUNIT(12),IGRID)
 C
 C7C4----CALCULATE BUDGET TERMS. SAVE CELL-BY-CELL FLOW TERMS.
             MSUM = 1
@@ -357,27 +428,51 @@ C7C4----CALCULATE BUDGET TERMS. SAVE CELL-BY-CELL FLOW TERMS.
             IF(IUNIT(2).GT.0) CALL GWF2WEL7BD(KKSTP,KKPER,IGRID)
             IF(IUNIT(3).GT.0) CALL GWF2DRN7BD(KKSTP,KKPER,IGRID)
             IF(IUNIT(4).GT.0) CALL GWF2RIV7BD(KKSTP,KKPER,IGRID)
-            IF(IUNIT(5).GT.0) CALL GWF2EVT7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(5).GT.0) THEN
+               IF(IUNIT(22).GT.0.AND.NEVTOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                    0,IGRID)
+               CALL GWF2EVT7BD(KKSTP,KKPER,IGRID)
+               IF(IUNIT(22).GT.0.AND.NEVTOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                    1,IGRID)
+            END IF
             IF(IUNIT(7).GT.0) CALL GWF2GHB7BD(KKSTP,KKPER,IGRID)
-            IF(IUNIT(8).GT.0) CALL GWF2RCH7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(8).GT.0) THEN
+               IF(IUNIT(22).GT.0.AND.NRCHOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                    0,IGRID)
+               CALL GWF2RCH7BD(KKSTP,KKPER,IGRID)
+               IF(IUNIT(22).GT.0.AND.NRCHOP.EQ.3) CALL GWF2LAK7ST(
+     1                                                    1,IGRID)
+            END IF
             IF(IUNIT(16).GT.0) CALL GWF2FHB7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(17).GT.0) CALL GWF2RES7BD(KKSTP,KKPER,IGRID)
             IF(IUNIT(18).GT.0) CALL GWF2STR7BD(KKSTP,KKPER,IGRID)
             IF(IUNIT(19).GT.0) CALL GWF2IBS7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(39).GT.0) CALL GWF2ETS7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(40).GT.0) CALL GWF2DRT7BD(KKSTP,KKPER,IGRID)
+            IF(IUNIT(55).GT.0) CALL GWF2UZF1BD(KKSTP,KKPER,IUNIT(22),
+     1                                         IGRID)
+            IF(IUNIT(44).GT.0) CALL GWF2SFR7BD(KKSTP,KKPER,IUNIT(15),
+     1                               IUNIT(22),IUNIT(46),IUNIT(55),
+     2                               NLAKESAR,VOL,NSOL,IGRID)
+            IF(IUNIT(22).GT.0) CALL GWF2LAK7BD(KKSTP,KKPER,IUNIT(15),
+     1                               IUNIT(46),IUNIT(44),IUNIT(55),NSOL,
+     2                               IUZFBND,FINF,VKS,IGRID)
             IF(IUNIT(50).GT.0) CALL GWF2MNW7BD(NSTP(KPER),KKSTP,KKPER,
      1                                         IGRID)
+            IF(IUNIT(54).GT.0) CALL GWF2SUB7BD(KKSTP,KKPER,IGRID)
             IF(IUNIT(48).GT.0) CALL GWF2BFH1BD(KKSTP,KKPER,IUNIT(1),
      1                                        IUNIT(23),IUNIT(37),IGRID)
             IF(ILGR .NE.0)THEN 
               CALL SGWF2LGR1PNT(IGRID)
-              DO II=2,NGRIDS
-                IF(ISCHILD .LE. 0) CALL GWF2LGR1PBD(KKSTP,KKPER,II,
-     1                 NGRIDS,LGRDAT(II)%NPCBEG,
-     2                 LGRDAT(II)%NPRBEG,LGRDAT(II)%NPLBEG,
-     3                 LGRDAT(II)%NPCEND,LGRDAT(II)%NPREND,
-     4                 LGRDAT(II)%NPLEND,LGRDAT(II)%IBOTFLG,
-     5                 -LGRDAT(II)%IBFLG,LGRDAT(II)%PFLUX)
-              ENDDO
+                IF(ISCHILD .LE. 0) CALL GWF2LGR1PBD(KKSTP,KKPER,NGRIDS)
             ENDIF
+C
+C  Observation simulated equivalents
+            CALL OBS2BAS7SE(IUNIT(28),IGRID)
+            IF(IUNIT(33).GT.0) CALL OBS2DRN7SE(IGRID)
+            IF(IUNIT(34).GT.0) CALL OBS2RIV7SE(IGRID)
+            IF(IUNIT(35).GT.0) CALL OBS2GHB7SE(IGRID)
+            IF(IUNIT(38).GT.0) CALL OBS2CHD7SE(KKPER,IGRID)
 C
 C7C5---PRINT AND/OR SAVE DATA.
             CALL GWF2BAS7OT(KKSTP,KKPER,ICNVG,1,IGRID)
@@ -388,6 +483,8 @@ C------PRINT AND/OR SAVE HEADS INTERPOLATED TO HYDROGEOLOGIC UNITS
               IF(IOHUFHDS .NE.0 .OR.IOHUFFLWS .NE.0)
      1           CALL GWF2HUF7OT(KKSTP,KKPER,ICNVG,1,IGRID)
             ENDIF
+            IF(IUNIT(54).GT.0) CALL GWF2SUB7OT(KKSTP,KKPER,IUNIT(54),
+     1                                         IGRID)
 C
 C------PRINT FLUXES FROM CHILD SPECIFIED HEAD BOUNDARY CONDITIONS 
             IF(ILGR.NE.0)THEN 
@@ -411,13 +508,20 @@ C-----END OF TIME STEP (KSTP) AND STRESS PERIOD (KPER) LOOPS
    90   CONTINUE
   100 CONTINUE
 C
-      DO IGRID = 1, NGRIDS
+  110 DO IGRID = 1, NGRIDS
         CALL SGWF2BAS7PNT(IGRID)
-        IF(IUNIT(50) .NE. 0) CALL GWF2MNW7OT(IGRID)
+        IF(IUNIT(50).NE.0) CALL GWF2MNW7OT(IGRID)
+        IF(IUNIT(54).GT.0) CALL GWF2SUB7SV(IGRID)
+C  Observation output
+        IF(IUNIT(28).GT.0) CALL OBS2BAS7OT(IUNIT(28),IGRID)
+        IF(IUNIT(33).GT.0) CALL OBS2DRN7OT(IGRID)
+        IF(IUNIT(34).GT.0) CALL OBS2RIV7OT(IGRID)
+        IF(IUNIT(35).GT.0) CALL OBS2GHB7OT(IGRID)
+        IF(IUNIT(38).GT.0) CALL OBS2CHD7OT(IGRID)
       ENDDO
 C
 C8------END OF SIMULATION
-  110 CALL GLO1BAS6ET(IOUT,IBDT,1)
+      CALL GLO1BAS6ET(IOUT,IBDT,1)
 C
       DO IGRID = 1, NGRIDS
 C9------CLOSE FILES AND DEALLOCATE MEMORY.  GWF2BAS7DA MUST BE CALLED
@@ -435,15 +539,29 @@ C9------LAST BECAUSE IT DEALLOCATES IUNIT.
         IF(IUNIT(10).GT.0) CALL DE47DA(IGRID)
         IF(IUNIT(13).GT.0) CALL PCG7DA(IGRID)
         IF(IUNIT(16).GT.0) CALL GWF2FHB7DA(IGRID)
+        IF(IUNIT(17).GT.0) CALL GWF2RES7DA(IGRID)
         IF(IUNIT(18).GT.0) CALL GWF2STR7DA(IGRID)
         IF(IUNIT(19).GT.0) CALL GWF2IBS7DA(IGRID)
         IF(IUNIT(20).GT.0) CALL GWF2CHD7DA(IGRID)
         IF(IUNIT(21).GT.0) CALL GWF2HFB7DA(IGRID)
+        IF(IUNIT(22).GT.0 .OR. IUNIT(44).GT.0)CALL GWF2LAK7DA(IUNIT(22),
+     1                                                IGRID)
         IF(IUNIT(23).GT.0) CALL GWF2LPF7DA(IGRID)
         IF(IUNIT(37).GT.0) CALL GWF2HUF7DA(IGRID)
+        IF(IUNIT(39).GT.0) CALL GWF2ETS7DA(IGRID)
+        IF(IUNIT(40).GT.0) CALL GWF2DRT7DA(IGRID)
         IF(IUNIT(42).GT.0) CALL GMG7DA(IGRID)
+        IF(IUNIT(44).GT.0) CALL GWF2SFR7DA(IGRID)
+        IF(IUNIT(46).GT.0) CALL GWF2GAG7DA(IGRID)
         IF(IUNIT(48).GT.0) CALL GWF2BFH1DA(IGRID)
         IF(IUNIT(50).GT.0) CALL GWF2MNW7DA(IGRID)
+        IF(IUNIT(54).GT.0) CALL GWF2SUB7DA(IGRID)
+        IF(IUNIT(55).GT.0) CALL GWF2UZF1DA(IGRID)
+        CALL OBS2BAS7DA(IUNIT(28),IGRID)
+        IF(IUNIT(33).GT.0) CALL OBS2DRN7DA(IGRID)
+        IF(IUNIT(34).GT.0) CALL OBS2RIV7DA(IGRID)
+        IF(IUNIT(35).GT.0) CALL OBS2GHB7DA(IGRID)
+        IF(IUNIT(38).GT.0) CALL OBS2CHD7DA(IGRID)
         CALL GWF2BAS7DA(IGRID)
       ENDDO
 C

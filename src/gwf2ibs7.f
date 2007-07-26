@@ -290,7 +290,7 @@ C
 C     SPECIFICATIONS:
 C     ------------------------------------------------------------------
       USE GLOBAL,       ONLY:NCOL,NROW,NLAY,IBOUND,HOLD,HNEW,BUFF,
-     1                       DELR,DELC,BUFF,ISSFLG,IOUT
+     1                       DELR,DELC,ISSFLG,IOUT
       USE GWFBASMODULE, ONLY:DELT,VBVL,VBNM,MSUM,ICBCFL
       USE GWFIBSMODULE, ONLY:HC,SCE,SCV,SUB,IBQ,IIBSCB
 C
