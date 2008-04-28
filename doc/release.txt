@@ -1,22 +1,28 @@
-release.txt
-
-                           MODFLOW-LGR Release Notes
-
-     This file describes changes introduced into MODFLOW-LGR with each
-official release; these changes may substantially affect users. In this
-file, packages are referred to by their 3-or 4-character abbreviation. 
-For information and references related to these packages, see mflgr.txt
-("Summary of MODFLOW-LGR").
-
-NOTE: Any use of trade, product or firm names is for descriptive purposes 
-      only and does not imply endorsement by the U.S. Government.
-      
-o Version 1.1:
-
-Added capability for multiple non-overlapping child grids.  This version
-is based on MODFLOW-2005 release 1.3.01.
-
-o Version 1.00 03/01/2006:
-
-This version is the initial release.
-
+release.txt
+
+                           MODFLOW-LGR Release Notes
+
+     This file describes changes introduced into MODFLOW-LGR with each
+official release; these changes may substantially affect users. In this
+file, packages are referred to by their 3-or 4-character abbreviation. 
+For information and references related to these packages, see mflgr.txt
+("Summary of MODFLOW-LGR").
+
+NOTE: Any use of trade, product or firm names is for descriptive purposes 
+      only and does not imply endorsement by the U.S. Government.
+      
+o Version 1.1.1 /4/15/2008:
+
+Fixed a bug that caused incorrect printing of head at the location of 
+maximum head change in simulations with multiple child grids.  This
+version is based on MODFLOW-2005 release 1.3.
+
+o Version 1.1 /7/15/2007:
+
+Added capability for multiple non-overlapping child grids.  This version
+is based on MODFLOW-2005 release 1.3.
+
+o Version 1.00 03/01/2006:
+
+This version is the initial release.
+

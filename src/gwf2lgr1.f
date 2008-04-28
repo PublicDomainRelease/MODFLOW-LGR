@@ -1757,7 +1757,7 @@ C     ******************************************************************
 C
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
-      USE GLOBAL,      ONLY:HNEW,GLOBALDAT
+      USE GLOBAL,      ONLY:HNEW,IOUT
       USE LGRMODULE,   ONLY:MXLGRITER,IOUTLGR,HCLOSELGR,FCLOSELGR,
      1                      HDIFFM,FDIFFM,NODEH,NODEF,PFLUX
 C     ------------------------------------------------------------------
@@ -1789,6 +1789,7 @@ C2------C: EXIT AND PRINT A MESSAGE IF MXLGRITER IS EXCEEDED
       IOFLG=0
       DO LG=2,NGRIDS
         CALL SGWF2LGR1PNT(LG)            
+        CALL SGWF2BAS7PNT(LG)            
 C2A
         IF(IOUTLGR .LT. 0 .AND. IOFLG .EQ. 0)THEN
           WRITE(*,500) LGRITER
@@ -1801,11 +1802,10 @@ C2A
           WRITE(*,510) FCLOSELGR,FDIFFM,NODEF(1),NODEF(2),NODEF(3),
      &                 PFLUX(NODEF(3),NODEF(2),NODEF(1))
         ELSEIF(IOUTLGR .GT. 0)THEN
-          IOU=GLOBALDAT(LG)%IOUT
-          WRITE(IOU,500) LGRITER
-          WRITE(IOU,505) HCLOSELGR,HDIFFM,NODEH(1),NODEH(2),NODEH(3),
+          WRITE(IOUT,500) LGRITER
+          WRITE(IOUT,505) HCLOSELGR,HDIFFM,NODEH(1),NODEH(2),NODEH(3),
      &                   HNEW(NODEH(3),NODEH(2),NODEH(1))
-          WRITE(IOU,510) FCLOSELGR,FDIFFM,NODEF(1),NODEF(2),NODEF(3),
+          WRITE(IOUT,510) FCLOSELGR,FDIFFM,NODEF(1),NODEF(2),NODEF(3),
      &                   PFLUX(NODEF(3),NODEF(2),NODEF(1))
         ENDIF
 C2
@@ -1821,9 +1821,9 @@ C2B-----(FORCE INITIAL LGR ITERATION)
 C2 
 C2C-----IF MXLGRITER IS EXCEEDED, END ITERATION AND PRINT MESSAGE
         IF(LGRITER .GE. MXLGRITER)THEN
-          LGRCNVG = 1
+          LGRCNVG = 2
           IF(IOUTLGR .LT. 0)WRITE(*,515) LG
-          IF(IOUTLGR .GE. 0)WRITE(IOU,515) LG
+          IF(IOUTLGR .GE. 0)WRITE(IOUT,515) LG
         ENDIF
       ENDDO
 C3

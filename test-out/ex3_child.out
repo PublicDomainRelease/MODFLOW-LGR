@@ -1,6 +1,6 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                              VERSION 1.1 08/8/2007
+                            VERSION 1.1.1 04/15/2008
 
  LIST FILE: ex3_child.out
                          UNIT   26
@@ -1225,6 +1225,6 @@
  TOTAL OUT TO PARENT =          51.1394   TOTAL OUT TO PARENT =          51.1394
 
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2007/08/03 11:10:49
- Elapsed run time:  0.843 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2008/04/28 12:53:15
+ Elapsed run time:  0.406 Seconds
 

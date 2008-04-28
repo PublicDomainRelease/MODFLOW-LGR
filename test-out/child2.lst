@@ -1,6 +1,6 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                              VERSION 1.1 08/8/2007
+                            VERSION 1.1.1 04/15/2008
 
  LIST FILE: child2.lst
                          UNIT   36
@@ -2838,6 +2838,6 @@
  TOTAL OUT TO PARENT =           0.0000   TOTAL OUT TO PARENT =           0.0000
 
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2007/08/03 11:11:14
- Elapsed run time:  5.796 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2008/04/28 12:53:48
+ Elapsed run time:  6.815 Seconds
 
