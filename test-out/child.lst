@@ -1,6 +1,6 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                            VERSION 1.1.1 04/15/2008
+                            VERSION 1.1.02 06/18/2009
 
  LIST FILE: child.lst
                          UNIT   26
@@ -92,7 +92,7 @@
                      BOUNDARY ARRAY FOR LAYER   1
  READING ON UNIT   99 WITH FORMAT: (154I3)             
 
- AQUIFER HEAD WILL BE SET TO -999.00     AT ALL NO-FLOW NODES (IBOUND=0).
+ AQUIFER HEAD WILL BE SET TO  -999.00     AT ALL NO-FLOW NODES (IBOUND=0).
 
              INITIAL HEAD =   5.50000     FOR LAYER   1
 
@@ -253,23 +253,23 @@
  
  SOLVING FOR HEAD 
  ITER:   0  RES: 3.7683E-04  CFAC: 1.000
- ITER:   1  RES: 8.4212E-20  CFAC: 0.000
+ ITER:   1  RES: 2.7454E-20  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.4212E-20
+ L2-NORM OF RESIDUAL               : 2.7454E-20
  MAX HEAD CHANGE                   : 1.3549E-01
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    24,   100,     1)
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    23,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.8790E-18  CFAC: 1.000
- ITER:   1  RES: 1.3393E-33  CFAC: 0.000
+ ITER:   0  RES: 4.2492E-18  CFAC: 1.000
+ ITER:   1  RES: 2.2542E-33  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.3393E-33
- MAX HEAD CHANGE                   : 4.5563E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    23,     1,     1)
+ L2-NORM OF RESIDUAL               : 2.2542E-33
+ MAX HEAD CHANGE                   : 8.1221E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    15,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -319,7 +319,7 @@
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
  L2-NORM OF RESIDUAL               : 1.4007E-13
- MAX HEAD CHANGE                   : 8.9659E-10
+ MAX HEAD CHANGE                   : 8.9660E-10
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    28,    95,     1)
  ---------------------------------------------------------
 
@@ -333,23 +333,23 @@
  -------------------------------
 
  ITER:   0  RES: 6.6732E-06  CFAC: 1.000
- ITER:   1  RES: 2.2942E-21  CFAC: 0.000
+ ITER:   1  RES: 2.2110E-21  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.2942E-21
+ L2-NORM OF RESIDUAL               : 2.2110E-21
  MAX HEAD CHANGE                   : 7.6299E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.8668E-18  CFAC: 1.000
- ITER:   1  RES: 1.2825E-33  CFAC: 0.000
+ ITER:   0  RES: 3.9391E-18  CFAC: 1.000
+ ITER:   1  RES: 5.9343E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.2825E-33
- MAX HEAD CHANGE                   : 3.9383E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    52,     1)
+ L2-NORM OF RESIDUAL               : 5.9343E-34
+ MAX HEAD CHANGE                   : 3.0006E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    60,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -362,43 +362,43 @@
  -------------------------------
 
  ITER:   0  RES: 2.8504E-05  CFAC: 1.000
- ITER:   1  RES: 5.1325E-07  CFAC: 0.018
- ITER:   2  RES: 5.8466E-09  CFAC: 0.011
+ ITER:   1  RES: 5.1326E-07  CFAC: 0.018
+ ITER:   2  RES: 5.8471E-09  CFAC: 0.011
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.8466E-09
- MAX HEAD CHANGE                   : 7.1139E-03
+ L2-NORM OF RESIDUAL               : 5.8471E-09
+ MAX HEAD CHANGE                   : 7.1140E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 5.8466E-09  CFAC: 1.000
- ITER:   1  RES: 2.8964E-10  CFAC: 0.050
+ ITER:   0  RES: 5.8471E-09  CFAC: 1.000
+ ITER:   1  RES: 2.8967E-10  CFAC: 0.050
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.8964E-10
- MAX HEAD CHANGE                   : 4.8955E-06
+ L2-NORM OF RESIDUAL               : 2.8967E-10
+ MAX HEAD CHANGE                   : 4.8959E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    39,    94,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.8964E-10  CFAC: 1.000
- ITER:   1  RES: 1.1897E-11  CFAC: 0.041
+ ITER:   0  RES: 2.8967E-10  CFAC: 1.000
+ ITER:   1  RES: 1.1899E-11  CFAC: 0.041
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.1897E-11
- MAX HEAD CHANGE                   : 1.7022E-07
+ L2-NORM OF RESIDUAL               : 1.1899E-11
+ MAX HEAD CHANGE                   : 1.7023E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.1897E-11  CFAC: 1.000
- ITER:   1  RES: 6.0218E-13  CFAC: 0.051
+ ITER:   0  RES: 1.1899E-11  CFAC: 1.000
+ ITER:   1  RES: 6.0225E-13  CFAC: 0.051
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.0218E-13
- MAX HEAD CHANGE                   : 3.4841E-09
+ L2-NORM OF RESIDUAL               : 6.0225E-13
+ MAX HEAD CHANGE                   : 3.4844E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    46,    94,     1)
  ---------------------------------------------------------
 
@@ -412,23 +412,23 @@
  -------------------------------
 
  ITER:   0  RES: 1.9173E-06  CFAC: 1.000
- ITER:   1  RES: 8.3641E-22  CFAC: 0.000
+ ITER:   1  RES: 5.8025E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.3641E-22
- MAX HEAD CHANGE                   : 2.6740E-03
+ L2-NORM OF RESIDUAL               : 5.8025E-22
+ MAX HEAD CHANGE                   : 2.6741E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.1427E-18  CFAC: 1.000
- ITER:   1  RES: 1.1545E-33  CFAC: 0.000
+ ITER:   0  RES: 4.0159E-18  CFAC: 1.000
+ ITER:   1  RES: 7.0079E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.1545E-33
- MAX HEAD CHANGE                   : 3.5632E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    51,     1)
+ L2-NORM OF RESIDUAL               : 7.0079E-34
+ MAX HEAD CHANGE                   : 3.5658E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    12,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -440,43 +440,43 @@
  TOTAL PCG ITERATIONS :     17
  -------------------------------
 
- ITER:   0  RES: 8.2945E-06  CFAC: 1.000
+ ITER:   0  RES: 8.2946E-06  CFAC: 1.000
  ITER:   1  RES: 1.8278E-07  CFAC: 0.022
- ITER:   2  RES: 2.4098E-09  CFAC: 0.013
+ ITER:   2  RES: 2.4099E-09  CFAC: 0.013
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.4098E-09
- MAX HEAD CHANGE                   : 2.5183E-03
+ L2-NORM OF RESIDUAL               : 2.4099E-09
+ MAX HEAD CHANGE                   : 2.5184E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.4098E-09  CFAC: 1.000
- ITER:   1  RES: 1.1130E-10  CFAC: 0.046
+ ITER:   0  RES: 2.4099E-09  CFAC: 1.000
+ ITER:   1  RES: 1.1131E-10  CFAC: 0.046
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.1130E-10
- MAX HEAD CHANGE                   : 1.6403E-06
+ L2-NORM OF RESIDUAL               : 1.1131E-10
+ MAX HEAD CHANGE                   : 1.6404E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    37,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.1130E-10  CFAC: 1.000
- ITER:   1  RES: 5.3105E-12  CFAC: 0.048
+ ITER:   0  RES: 1.1131E-10  CFAC: 1.000
+ ITER:   1  RES: 5.3109E-12  CFAC: 0.048
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.3105E-12
- MAX HEAD CHANGE                   : 7.0278E-08
+ L2-NORM OF RESIDUAL               : 5.3109E-12
+ MAX HEAD CHANGE                   : 7.0279E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 5.3105E-12  CFAC: 1.000
- ITER:   1  RES: 2.4162E-13  CFAC: 0.045
+ ITER:   0  RES: 5.3109E-12  CFAC: 1.000
+ ITER:   1  RES: 2.4163E-13  CFAC: 0.045
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.4162E-13
+ L2-NORM OF RESIDUAL               : 2.4163E-13
  MAX HEAD CHANGE                   : 1.4787E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    46,    95,     1)
  ---------------------------------------------------------
@@ -490,24 +490,24 @@
  TOTAL PCG ITERATIONS :     22
  -------------------------------
 
- ITER:   0  RES: 8.1756E-07  CFAC: 1.000
- ITER:   1  RES: 3.7511E-22  CFAC: 0.000
+ ITER:   0  RES: 8.1753E-07  CFAC: 1.000
+ ITER:   1  RES: 3.6757E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 3.7511E-22
- MAX HEAD CHANGE                   : 5.7915E-04
+ L2-NORM OF RESIDUAL               : 3.6757E-22
+ MAX HEAD CHANGE                   : 5.7944E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    36,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0509E-18  CFAC: 1.000
- ITER:   1  RES: 1.4631E-33  CFAC: 0.000
+ ITER:   0  RES: 4.0042E-18  CFAC: 1.000
+ ITER:   1  RES: 5.4619E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4631E-33
- MAX HEAD CHANGE                   : 3.0006E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    33,     1)
+ L2-NORM OF RESIDUAL               : 5.4619E-34
+ MAX HEAD CHANGE                   : 3.8630E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    22,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -519,44 +519,44 @@
  TOTAL PCG ITERATIONS :     24
  -------------------------------
 
- ITER:   0  RES: 3.5256E-06  CFAC: 1.000
+ ITER:   0  RES: 3.5258E-06  CFAC: 1.000
  ITER:   1  RES: 7.7564E-08  CFAC: 0.022
- ITER:   2  RES: 1.0604E-09  CFAC: 0.014
+ ITER:   2  RES: 1.0603E-09  CFAC: 0.014
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.0604E-09
- MAX HEAD CHANGE                   : 5.5736E-04
+ L2-NORM OF RESIDUAL               : 1.0603E-09
+ MAX HEAD CHANGE                   : 5.5738E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   115,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.0604E-09  CFAC: 1.000
- ITER:   1  RES: 4.5762E-11  CFAC: 0.043
+ ITER:   0  RES: 1.0603E-09  CFAC: 1.000
+ ITER:   1  RES: 4.5757E-11  CFAC: 0.043
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.5762E-11
- MAX HEAD CHANGE                   : 6.5807E-07
+ L2-NORM OF RESIDUAL               : 4.5757E-11
+ MAX HEAD CHANGE                   : 6.5809E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   149,    67,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.5762E-11  CFAC: 1.000
- ITER:   1  RES: 2.3917E-12  CFAC: 0.052
+ ITER:   0  RES: 4.5757E-11  CFAC: 1.000
+ ITER:   1  RES: 2.3914E-12  CFAC: 0.052
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.3917E-12
- MAX HEAD CHANGE                   : 2.0918E-08
+ L2-NORM OF RESIDUAL               : 2.3914E-12
+ MAX HEAD CHANGE                   : 2.0916E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    27,    94,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.3917E-12  CFAC: 1.000
- ITER:   1  RES: 9.7186E-14  CFAC: 0.041
+ ITER:   0  RES: 2.3914E-12  CFAC: 1.000
+ ITER:   1  RES: 9.7173E-14  CFAC: 0.041
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.7186E-14
- MAX HEAD CHANGE                   : 5.9603E-10
+ L2-NORM OF RESIDUAL               : 9.7173E-14
+ MAX HEAD CHANGE                   : 5.9593E-10
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     6,    83,     1)
  ---------------------------------------------------------
 
@@ -569,24 +569,24 @@
  TOTAL PCG ITERATIONS :     29
  -------------------------------
 
- ITER:   0  RES: 6.3429E-07  CFAC: 1.000
- ITER:   1  RES: 2.4633E-22  CFAC: 0.000
+ ITER:   0  RES: 6.3418E-07  CFAC: 1.000
+ ITER:   1  RES: 1.8464E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.4633E-22
- MAX HEAD CHANGE                   : 6.1359E-04
+ L2-NORM OF RESIDUAL               : 1.8464E-22
+ MAX HEAD CHANGE                   : 6.1327E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.1597E-18  CFAC: 1.000
- ITER:   1  RES: 7.8604E-34  CFAC: 0.000
+ ITER:   0  RES: 3.8055E-18  CFAC: 1.000
+ ITER:   1  RES: 8.6906E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.8604E-34
- MAX HEAD CHANGE                   : 3.1696E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    12,   100,     1)
+ L2-NORM OF RESIDUAL               : 8.6906E-34
+ MAX HEAD CHANGE                   : 3.3757E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    44,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -598,34 +598,34 @@
  TOTAL PCG ITERATIONS :     31
  -------------------------------
 
- ITER:   0  RES: 2.7175E-06  CFAC: 1.000
- ITER:   1  RES: 4.5271E-08  CFAC: 0.017
- ITER:   2  RES: 2.5306E-10  CFAC: 0.006
+ ITER:   0  RES: 2.7176E-06  CFAC: 1.000
+ ITER:   1  RES: 4.5269E-08  CFAC: 0.017
+ ITER:   2  RES: 2.5315E-10  CFAC: 0.006
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.5306E-10
- MAX HEAD CHANGE                   : 5.6827E-04
+ L2-NORM OF RESIDUAL               : 2.5315E-10
+ MAX HEAD CHANGE                   : 5.6799E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.5306E-10  CFAC: 1.000
- ITER:   1  RES: 8.0961E-12  CFAC: 0.032
+ ITER:   0  RES: 2.5315E-10  CFAC: 1.000
+ ITER:   1  RES: 8.1011E-12  CFAC: 0.032
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.0961E-12
- MAX HEAD CHANGE                   : 2.0588E-07
+ L2-NORM OF RESIDUAL               : 8.1011E-12
+ MAX HEAD CHANGE                   : 2.0590E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   148,    84,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 8.0961E-12  CFAC: 1.000
- ITER:   1  RES: 3.1473E-13  CFAC: 0.039
+ ITER:   0  RES: 8.1011E-12  CFAC: 1.000
+ ITER:   1  RES: 3.1491E-13  CFAC: 0.039
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 3.1473E-13
- MAX HEAD CHANGE                   : 4.7360E-09
+ L2-NORM OF RESIDUAL               : 3.1491E-13
+ MAX HEAD CHANGE                   : 4.7362E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   102,    95,     1)
  ---------------------------------------------------------
 
@@ -638,24 +638,24 @@
  TOTAL PCG ITERATIONS :     35
  -------------------------------
 
- ITER:   0  RES: 4.0322E-07  CFAC: 1.000
- ITER:   1  RES: 1.4618E-22  CFAC: 0.000
+ ITER:   0  RES: 4.0330E-07  CFAC: 1.000
+ ITER:   1  RES: 1.3002E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4618E-22
- MAX HEAD CHANGE                   : 5.8055E-04
+ L2-NORM OF RESIDUAL               : 1.3002E-22
+ MAX HEAD CHANGE                   : 5.8056E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.1371E-18  CFAC: 1.000
- ITER:   1  RES: 6.7120E-34  CFAC: 0.000
+ ITER:   0  RES: 4.0856E-18  CFAC: 1.000
+ ITER:   1  RES: 7.0605E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.7120E-34
- MAX HEAD CHANGE                   : 3.3757E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    12,     1)
+ L2-NORM OF RESIDUAL               : 7.0605E-34
+ MAX HEAD CHANGE                   : 3.1881E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    84,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -668,43 +668,43 @@
  -------------------------------
 
  ITER:   0  RES: 1.7457E-06  CFAC: 1.000
- ITER:   1  RES: 3.5265E-08  CFAC: 0.020
- ITER:   2  RES: 4.1728E-10  CFAC: 0.012
+ ITER:   1  RES: 3.5274E-08  CFAC: 0.020
+ ITER:   2  RES: 4.1742E-10  CFAC: 0.012
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.1728E-10
- MAX HEAD CHANGE                   : 5.4586E-04
+ L2-NORM OF RESIDUAL               : 4.1742E-10
+ MAX HEAD CHANGE                   : 5.4588E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.1728E-10  CFAC: 1.000
- ITER:   1  RES: 1.9700E-11  CFAC: 0.047
+ ITER:   0  RES: 4.1742E-10  CFAC: 1.000
+ ITER:   1  RES: 1.9706E-11  CFAC: 0.047
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.9700E-11
- MAX HEAD CHANGE                   : 3.4960E-07
+ L2-NORM OF RESIDUAL               : 1.9706E-11
+ MAX HEAD CHANGE                   : 3.4962E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    39,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.9700E-11  CFAC: 1.000
- ITER:   1  RES: 9.0256E-13  CFAC: 0.046
+ ITER:   0  RES: 1.9706E-11  CFAC: 1.000
+ ITER:   1  RES: 9.0284E-13  CFAC: 0.046
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.0256E-13
- MAX HEAD CHANGE                   : 1.3550E-08
+ L2-NORM OF RESIDUAL               : 9.0284E-13
+ MAX HEAD CHANGE                   : 1.3553E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 9.0256E-13  CFAC: 1.000
- ITER:   1  RES: 4.3361E-14  CFAC: 0.048
+ ITER:   0  RES: 9.0284E-13  CFAC: 1.000
+ ITER:   1  RES: 4.3373E-14  CFAC: 0.048
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.3361E-14
- MAX HEAD CHANGE                   : 2.7861E-10
+ L2-NORM OF RESIDUAL               : 4.3373E-14
+ MAX HEAD CHANGE                   : 2.7858E-10
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    44,    95,     1)
  ---------------------------------------------------------
 
@@ -717,24 +717,24 @@
  TOTAL PCG ITERATIONS :     42
  -------------------------------
 
- ITER:   0  RES: 2.1711E-07  CFAC: 1.000
- ITER:   1  RES: 7.0825E-23  CFAC: 0.000
+ ITER:   0  RES: 2.1714E-07  CFAC: 1.000
+ ITER:   1  RES: 7.9165E-23  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.0825E-23
+ L2-NORM OF RESIDUAL               : 7.9165E-23
  MAX HEAD CHANGE                   : 2.9777E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.9983E-18  CFAC: 1.000
- ITER:   1  RES: 6.9693E-34  CFAC: 0.000
+ ITER:   0  RES: 3.9271E-18  CFAC: 1.000
+ ITER:   1  RES: 7.9410E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.9693E-34
- MAX HEAD CHANGE                   : 4.1258E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    41,     1)
+ L2-NORM OF RESIDUAL               : 7.9410E-34
+ MAX HEAD CHANGE                   : 3.9383E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    15,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -746,34 +746,34 @@
  TOTAL PCG ITERATIONS :     44
  -------------------------------
 
- ITER:   0  RES: 9.4365E-07  CFAC: 1.000
- ITER:   1  RES: 2.2448E-08  CFAC: 0.024
- ITER:   2  RES: 2.3707E-10  CFAC: 0.011
+ ITER:   0  RES: 9.4360E-07  CFAC: 1.000
+ ITER:   1  RES: 2.2446E-08  CFAC: 0.024
+ ITER:   2  RES: 2.3689E-10  CFAC: 0.011
  ---------------------------------------------------------
  PCG ITERATIONS                    :    2
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.3707E-10
- MAX HEAD CHANGE                   : 2.8173E-04
+ L2-NORM OF RESIDUAL               : 2.3689E-10
+ MAX HEAD CHANGE                   : 2.8164E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.3707E-10  CFAC: 1.000
- ITER:   1  RES: 1.0909E-11  CFAC: 0.046
+ ITER:   0  RES: 2.3689E-10  CFAC: 1.000
+ ITER:   1  RES: 1.0899E-11  CFAC: 0.046
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.0909E-11
- MAX HEAD CHANGE                   : 1.5514E-07
+ L2-NORM OF RESIDUAL               : 1.0899E-11
+ MAX HEAD CHANGE                   : 1.5516E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   108,    95,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.0909E-11  CFAC: 1.000
- ITER:   1  RES: 4.7544E-13  CFAC: 0.044
+ ITER:   0  RES: 1.0899E-11  CFAC: 1.000
+ ITER:   1  RES: 4.7504E-13  CFAC: 0.044
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.7544E-13
- MAX HEAD CHANGE                   : 7.2650E-09
+ L2-NORM OF RESIDUAL               : 4.7504E-13
+ MAX HEAD CHANGE                   : 7.2614E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    95,     1)
  ---------------------------------------------------------
 
@@ -786,24 +786,24 @@
  TOTAL PCG ITERATIONS :     48
  -------------------------------
 
- ITER:   0  RES: 7.3050E-08  CFAC: 1.000
- ITER:   1  RES: 2.6889E-23  CFAC: 0.000
+ ITER:   0  RES: 7.3097E-08  CFAC: 1.000
+ ITER:   1  RES: 2.4210E-23  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.6889E-23
- MAX HEAD CHANGE                   : 7.4930E-05
+ L2-NORM OF RESIDUAL               : 2.4210E-23
+ MAX HEAD CHANGE                   : 7.4885E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.7432E-18  CFAC: 1.000
- ITER:   1  RES: 1.1371E-33  CFAC: 0.000
+ ITER:   0  RES: 4.2768E-18  CFAC: 1.000
+ ITER:   1  RES: 9.1671E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.1371E-33
- MAX HEAD CHANGE                   : 3.7508E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    32,     1)
+ L2-NORM OF RESIDUAL               : 9.1671E-34
+ MAX HEAD CHANGE                   : 3.9383E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    94,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -815,44 +815,44 @@
  TOTAL PCG ITERATIONS :     50
  -------------------------------
 
- ITER:   0  RES: 3.1866E-07  CFAC: 1.000
- ITER:   1  RES: 8.1073E-09  CFAC: 0.025
+ ITER:   0  RES: 3.1924E-07  CFAC: 1.000
+ ITER:   1  RES: 8.1209E-09  CFAC: 0.025
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.1073E-09
- MAX HEAD CHANGE                   : 7.1210E-05
+ L2-NORM OF RESIDUAL               : 8.1209E-09
+ MAX HEAD CHANGE                   : 7.1423E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 8.1073E-09  CFAC: 1.000
- ITER:   1  RES: 4.2112E-10  CFAC: 0.052
+ ITER:   0  RES: 8.1209E-09  CFAC: 1.000
+ ITER:   1  RES: 4.2196E-10  CFAC: 0.052
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.2112E-10
- MAX HEAD CHANGE                   : 3.5344E-06
+ L2-NORM OF RESIDUAL               : 4.2196E-10
+ MAX HEAD CHANGE                   : 3.5403E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    94,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.2112E-10  CFAC: 1.000
- ITER:   1  RES: 1.4277E-11  CFAC: 0.034
+ ITER:   0  RES: 4.2196E-10  CFAC: 1.000
+ ITER:   1  RES: 1.4298E-11  CFAC: 0.034
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4277E-11
- MAX HEAD CHANGE                   : 8.4749E-08
+ L2-NORM OF RESIDUAL               : 1.4298E-11
+ MAX HEAD CHANGE                   : 8.5061E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.4277E-11  CFAC: 1.000
- ITER:   1  RES: 7.8430E-13  CFAC: 0.055
+ ITER:   0  RES: 1.4298E-11  CFAC: 1.000
+ ITER:   1  RES: 7.8568E-13  CFAC: 0.055
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.8430E-13
- MAX HEAD CHANGE                   : 4.7839E-09
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    75,    93,     1)
+ L2-NORM OF RESIDUAL               : 7.8568E-13
+ MAX HEAD CHANGE                   : 4.7883E-09
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    93,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -864,24 +864,24 @@
  TOTAL PCG ITERATIONS :     54
  -------------------------------
 
- ITER:   0  RES: 2.1222E-08  CFAC: 1.000
- ITER:   1  RES: 7.2949E-24  CFAC: 0.000
+ ITER:   0  RES: 2.1211E-08  CFAC: 1.000
+ ITER:   1  RES: 6.9596E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.2949E-24
- MAX HEAD CHANGE                   : 2.0234E-05
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
+ L2-NORM OF RESIDUAL               : 6.9596E-24
+ MAX HEAD CHANGE                   : 1.9983E-05
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.1314E-18  CFAC: 1.000
- ITER:   1  RES: 8.9675E-34  CFAC: 0.000
+ ITER:   0  RES: 4.0218E-18  CFAC: 1.000
+ ITER:   1  RES: 5.9106E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.9675E-34
- MAX HEAD CHANGE                   : 3.7508E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,     5,     1)
+ L2-NORM OF RESIDUAL               : 5.9106E-34
+ MAX HEAD CHANGE                   : 3.3757E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    60,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -893,44 +893,44 @@
  TOTAL PCG ITERATIONS :     56
  -------------------------------
 
- ITER:   0  RES: 9.2226E-08  CFAC: 1.000
- ITER:   1  RES: 1.6454E-09  CFAC: 0.018
+ ITER:   0  RES: 9.2209E-08  CFAC: 1.000
+ ITER:   1  RES: 1.6483E-09  CFAC: 0.018
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.6454E-09
- MAX HEAD CHANGE                   : 1.8839E-05
+ L2-NORM OF RESIDUAL               : 1.6483E-09
+ MAX HEAD CHANGE                   : 1.8814E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.6454E-09  CFAC: 1.000
- ITER:   1  RES: 7.3655E-11  CFAC: 0.045
+ ITER:   0  RES: 1.6483E-09  CFAC: 1.000
+ ITER:   1  RES: 7.4167E-11  CFAC: 0.045
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.3655E-11
- MAX HEAD CHANGE                   : 6.9432E-07
+ L2-NORM OF RESIDUAL               : 7.4167E-11
+ MAX HEAD CHANGE                   : 6.9400E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   117,     7,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 7.3655E-11  CFAC: 1.000
- ITER:   1  RES: 2.7024E-12  CFAC: 0.037
+ ITER:   0  RES: 7.4167E-11  CFAC: 1.000
+ ITER:   1  RES: 2.7193E-12  CFAC: 0.037
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.7024E-12
- MAX HEAD CHANGE                   : 1.4952E-08
+ L2-NORM OF RESIDUAL               : 2.7193E-12
+ MAX HEAD CHANGE                   : 1.4966E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    75,     7,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.7024E-12  CFAC: 1.000
- ITER:   1  RES: 1.3540E-13  CFAC: 0.050
+ ITER:   0  RES: 2.7193E-12  CFAC: 1.000
+ ITER:   1  RES: 1.3659E-13  CFAC: 0.050
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.3540E-13
- MAX HEAD CHANGE                   : 7.0934E-10
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    33,     8,     1)
+ L2-NORM OF RESIDUAL               : 1.3659E-13
+ MAX HEAD CHANGE                   : 7.1536E-10
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    35,     8,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -942,24 +942,24 @@
  TOTAL PCG ITERATIONS :     60
  -------------------------------
 
- ITER:   0  RES: 2.5073E-08  CFAC: 1.000
- ITER:   1  RES: 7.3937E-24  CFAC: 0.000
+ ITER:   0  RES: 2.5033E-08  CFAC: 1.000
+ ITER:   1  RES: 7.7419E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.3937E-24
- MAX HEAD CHANGE                   : 3.2667E-05
+ L2-NORM OF RESIDUAL               : 7.7419E-24
+ MAX HEAD CHANGE                   : 3.2633E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0276E-18  CFAC: 1.000
- ITER:   1  RES: 6.0547E-34  CFAC: 0.000
+ ITER:   0  RES: 3.6349E-18  CFAC: 1.000
+ ITER:   1  RES: 7.1224E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.0547E-34
- MAX HEAD CHANGE                   : 3.1696E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     8,   100,     1)
+ L2-NORM OF RESIDUAL               : 7.1224E-34
+ MAX HEAD CHANGE                   : 3.9620E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    15,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -971,43 +971,43 @@
  TOTAL PCG ITERATIONS :     62
  -------------------------------
 
- ITER:   0  RES: 1.0829E-07  CFAC: 1.000
- ITER:   1  RES: 2.2208E-09  CFAC: 0.021
+ ITER:   0  RES: 1.0835E-07  CFAC: 1.000
+ ITER:   1  RES: 2.2305E-09  CFAC: 0.021
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.2208E-09
- MAX HEAD CHANGE                   : 3.0877E-05
+ L2-NORM OF RESIDUAL               : 2.2305E-09
+ MAX HEAD CHANGE                   : 3.0837E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.2208E-09  CFAC: 1.000
- ITER:   1  RES: 9.3363E-11  CFAC: 0.042
+ ITER:   0  RES: 2.2305E-09  CFAC: 1.000
+ ITER:   1  RES: 9.4015E-11  CFAC: 0.042
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.3363E-11
- MAX HEAD CHANGE                   : 1.2428E-06
+ L2-NORM OF RESIDUAL               : 9.4015E-11
+ MAX HEAD CHANGE                   : 1.2489E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,    94,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 9.3363E-11  CFAC: 1.000
- ITER:   1  RES: 2.8233E-12  CFAC: 0.030
+ ITER:   0  RES: 9.4015E-11  CFAC: 1.000
+ ITER:   1  RES: 2.8608E-12  CFAC: 0.030
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.8233E-12
- MAX HEAD CHANGE                   : 2.3918E-08
+ L2-NORM OF RESIDUAL               : 2.8608E-12
+ MAX HEAD CHANGE                   : 2.4024E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.8233E-12  CFAC: 1.000
- ITER:   1  RES: 1.4531E-13  CFAC: 0.051
+ ITER:   0  RES: 2.8608E-12  CFAC: 1.000
+ ITER:   1  RES: 1.4746E-13  CFAC: 0.052
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4531E-13
- MAX HEAD CHANGE                   : 1.2873E-09
+ L2-NORM OF RESIDUAL               : 1.4746E-13
+ MAX HEAD CHANGE                   : 1.2986E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,    94,     1)
  ---------------------------------------------------------
 
@@ -1020,24 +1020,24 @@
  TOTAL PCG ITERATIONS :     66
  -------------------------------
 
- ITER:   0  RES: 1.4097E-08  CFAC: 1.000
- ITER:   1  RES: 5.5080E-24  CFAC: 0.000
+ ITER:   0  RES: 1.4101E-08  CFAC: 1.000
+ ITER:   1  RES: 5.9626E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.5080E-24
- MAX HEAD CHANGE                   : 1.8343E-05
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
+ L2-NORM OF RESIDUAL               : 5.9626E-24
+ MAX HEAD CHANGE                   : 1.8395E-05
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.7745E-18  CFAC: 1.000
- ITER:   1  RES: 1.1012E-33  CFAC: 0.000
+ ITER:   0  RES: 4.0971E-18  CFAC: 1.000
+ ITER:   1  RES: 6.5207E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.1012E-33
- MAX HEAD CHANGE                   : 3.7508E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    23,     1)
+ L2-NORM OF RESIDUAL               : 6.5207E-34
+ MAX HEAD CHANGE                   : 2.9715E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    23,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -1049,44 +1049,44 @@
  TOTAL PCG ITERATIONS :     68
  -------------------------------
 
- ITER:   0  RES: 6.2828E-08  CFAC: 1.000
- ITER:   1  RES: 1.3132E-09  CFAC: 0.021
+ ITER:   0  RES: 6.3092E-08  CFAC: 1.000
+ ITER:   1  RES: 1.3185E-09  CFAC: 0.021
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.3132E-09
- MAX HEAD CHANGE                   : 1.7116E-05
+ L2-NORM OF RESIDUAL               : 1.3185E-09
+ MAX HEAD CHANGE                   : 1.7357E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.3132E-09  CFAC: 1.000
- ITER:   1  RES: 5.7884E-11  CFAC: 0.044
+ ITER:   0  RES: 1.3185E-09  CFAC: 1.000
+ ITER:   1  RES: 5.8328E-11  CFAC: 0.044
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.7884E-11
- MAX HEAD CHANGE                   : 6.6981E-07
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,    94,     1)
+ L2-NORM OF RESIDUAL               : 5.8328E-11
+ MAX HEAD CHANGE                   : 6.7374E-07
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    94,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 5.7884E-11  CFAC: 1.000
- ITER:   1  RES: 1.8794E-12  CFAC: 0.032
+ ITER:   0  RES: 5.8328E-11  CFAC: 1.000
+ ITER:   1  RES: 1.8985E-12  CFAC: 0.033
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.8794E-12
- MAX HEAD CHANGE                   : 1.3759E-08
+ L2-NORM OF RESIDUAL               : 1.8985E-12
+ MAX HEAD CHANGE                   : 1.3998E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 1.8794E-12  CFAC: 1.000
- ITER:   1  RES: 9.9557E-14  CFAC: 0.053
+ ITER:   0  RES: 1.8985E-12  CFAC: 1.000
+ ITER:   1  RES: 1.0067E-13  CFAC: 0.053
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.9557E-14
- MAX HEAD CHANGE                   : 7.2544E-10
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,    94,     1)
+ L2-NORM OF RESIDUAL               : 1.0067E-13
+ MAX HEAD CHANGE                   : 7.2848E-10
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    94,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -1098,24 +1098,24 @@
  TOTAL PCG ITERATIONS :     72
  -------------------------------
 
- ITER:   0  RES: 4.4792E-09  CFAC: 1.000
- ITER:   1  RES: 1.4998E-24  CFAC: 0.000
+ ITER:   0  RES: 4.5076E-09  CFAC: 1.000
+ ITER:   1  RES: 1.6875E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4998E-24
- MAX HEAD CHANGE                   : 5.5689E-06
+ L2-NORM OF RESIDUAL               : 1.6875E-24
+ MAX HEAD CHANGE                   : 5.5565E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.7054E-18  CFAC: 1.000
- ITER:   1  RES: 1.2172E-33  CFAC: 0.000
+ ITER:   0  RES: 4.0683E-18  CFAC: 1.000
+ ITER:   1  RES: 9.3375E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.2172E-33
+ L2-NORM OF RESIDUAL               : 9.3375E-34
  MAX HEAD CHANGE                   : 3.3757E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,     7,     1)
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    26,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -1127,33 +1127,33 @@
  TOTAL PCG ITERATIONS :     74
  -------------------------------
 
- ITER:   0  RES: 2.6664E-08  CFAC: 1.000
- ITER:   1  RES: 4.3953E-10  CFAC: 0.016
+ ITER:   0  RES: 2.6619E-08  CFAC: 1.000
+ ITER:   1  RES: 4.4079E-10  CFAC: 0.017
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.3953E-10
- MAX HEAD CHANGE                   : 5.0769E-06
+ L2-NORM OF RESIDUAL               : 4.4079E-10
+ MAX HEAD CHANGE                   : 5.0764E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,    99,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.3953E-10  CFAC: 1.000
- ITER:   1  RES: 2.0201E-11  CFAC: 0.046
+ ITER:   0  RES: 4.4079E-10  CFAC: 1.000
+ ITER:   1  RES: 2.0232E-11  CFAC: 0.046
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.0201E-11
- MAX HEAD CHANGE                   : 2.1014E-07
+ L2-NORM OF RESIDUAL               : 2.0232E-11
+ MAX HEAD CHANGE                   : 2.1109E-07
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,     7,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 2.0201E-11  CFAC: 1.000
- ITER:   1  RES: 6.4858E-13  CFAC: 0.032
+ ITER:   0  RES: 2.0232E-11  CFAC: 1.000
+ ITER:   1  RES: 6.5403E-13  CFAC: 0.032
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.4858E-13
- MAX HEAD CHANGE                   : 3.2205E-09
+ L2-NORM OF RESIDUAL               : 6.5403E-13
+ MAX HEAD CHANGE                   : 3.3160E-09
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    75,     2,     1)
  ---------------------------------------------------------
 
@@ -1391,7 +1391,7 @@
   13    4.597       4.564       4.531       4.497       4.464       4.430       4.397       4.363       4.329       4.295    
         4.261       4.227       4.193       4.158       4.124       4.090       4.055       4.020       3.986       3.951    
         3.916       3.881       3.846       3.811       3.776       3.741       3.705       3.670       3.635       3.600    
-        3.565       3.529       3.494       3.459       3.424       3.389       3.354       3.320       3.285       3.250    
+        3.565       3.530       3.494       3.459       3.424       3.389       3.354       3.320       3.285       3.250    
         3.216       3.182       3.148       3.114       3.081       3.047       3.015       2.982       2.950       2.918    
         2.887       2.856       2.826       2.796       2.767       2.738       2.710       2.683       2.657       2.631    
         2.606       2.582       2.559       2.536       2.515       2.495       2.475       2.457       2.440       2.423    
@@ -1478,7 +1478,7 @@
         2.191       2.176       2.163       2.151       2.140       2.131       2.123       2.117       2.112       2.108    
         2.105       2.104       2.103       2.104       2.106       2.109       2.112       2.117       2.122       2.129    
         2.136       2.143       2.152       2.160       2.170       2.180       2.190       2.201       2.212       2.223    
-        2.235       2.246       2.259       2.271       2.283       2.296       2.308       2.321       2.333       2.346    
+        2.235       2.247       2.259       2.271       2.283       2.296       2.308       2.321       2.333       2.346    
         2.359       2.372       2.384       2.397       2.410       2.422       2.435       2.447       2.460       2.472    
         2.484       2.496       2.508       2.520       2.531       2.543       2.554       2.566       2.577       2.588    
         2.599       2.610       2.620       2.631       2.641       2.651       2.661       2.671       2.681       2.691    
@@ -1763,7 +1763,7 @@
         2.637       2.582       2.526       2.470       2.414       2.357       2.299       2.240       2.182       2.122    
         2.063       2.003       1.942       1.882       1.821       1.761       1.701       1.641       1.582       1.524    
         1.467       1.412       1.358       1.307       1.258       1.212       1.170       1.131       1.096       1.066    
-        1.041       1.021       1.005      0.9955      0.9906      0.9906      0.9955       1.005       1.018       1.036    
+        1.041       1.021       1.006      0.9955      0.9906      0.9906      0.9955       1.005       1.018       1.036    
         1.056       1.080       1.106       1.134       1.165       1.196       1.229       1.263       1.297       1.332    
         1.367       1.403       1.438       1.473       1.508       1.542       1.576       1.610       1.643       1.675    
         1.707       1.739       1.769       1.800       1.829       1.858       1.887       1.914       1.942       1.968    
@@ -1859,7 +1859,7 @@
         2.513       2.452       2.389       2.326       2.261       2.195       2.128       2.060       1.990       1.919    
         1.846       1.773       1.698       1.621       1.544       1.465       1.385       1.304       1.223       1.141    
         1.059      0.9769      0.8960      0.8167      0.7397      0.6661      0.5970      0.5334      0.4768      0.4283    
-       0.3891      0.3602      0.3420      0.3349      0.3387      0.3526      0.3759      0.4072      0.4455      0.4895    
+       0.3891      0.3602      0.3420      0.3349      0.3387      0.3526      0.3759      0.4073      0.4455      0.4895    
        0.5379      0.5896      0.6437      0.6994      0.7559      0.8128      0.8695      0.9258      0.9814       1.036    
         1.090       1.142       1.193       1.243       1.291       1.338       1.384       1.429       1.472       1.514    
         1.554       1.594       1.632       1.669       1.706       1.741       1.775       1.808       1.840       1.871    
@@ -1891,7 +1891,7 @@
         2.479       2.416       2.351       2.285       2.218       2.149       2.079       2.008       1.934       1.859    
         1.783       1.704       1.624       1.542       1.458       1.372       1.284       1.195       1.104       1.011    
        0.9174      0.8229      0.7283      0.6343      0.5418      0.4521      0.3666      0.2872      0.2157      0.1544    
-       0.1052      6.9778E-02  4.9435E-02  4.4541E-02  5.4677E-02  7.8666E-02  0.1148      0.1610      0.2152      0.2754    
+       0.1052      6.9779E-02  4.9435E-02  4.4541E-02  5.4678E-02  7.8667E-02  0.1148      0.1610      0.2152      0.2754    
        0.3399      0.4072      0.4759      0.5453      0.6145      0.6830      0.7503      0.8161      0.8804      0.9428    
         1.003       1.062       1.119       1.174       1.227       1.279       1.329       1.377       1.423       1.468    
         1.511       1.553       1.594       1.633       1.672       1.708       1.744       1.779       1.812       1.845    
@@ -1906,9 +1906,9 @@
         3.045       2.991       2.937       2.881       2.825       2.767       2.709       2.649       2.589       2.527    
         2.464       2.400       2.334       2.267       2.199       2.129       2.057       1.984       1.909       1.832    
         1.753       1.672       1.589       1.504       1.417       1.328       1.236       1.142       1.046      0.9475    
-       0.8474      0.7459      0.6434      0.5407      0.4387      0.3389      0.2430      0.1529      7.1342E-02  9.2265E-04
-      -5.5555E-02 -9.5641E-02 -0.1176     -0.1209     -0.1060     -7.4791E-02 -2.9611E-02  2.6742E-02  9.1526E-02  0.1623    
-       0.2368      0.3135      0.3910      0.4682      0.5446      0.6194      0.6924      0.7634      0.8321      0.8987    
+       0.8474      0.7459      0.6434      0.5407      0.4387      0.3389      0.2430      0.1529      7.1342E-02  9.2323E-04
+      -5.5554E-02 -9.5640E-02 -0.1176     -0.1209     -0.1060     -7.4791E-02 -2.9610E-02  2.6743E-02  9.1527E-02  0.1623    
+       0.2368      0.3135      0.3910      0.4683      0.5446      0.6194      0.6924      0.7634      0.8321      0.8987    
        0.9629       1.025       1.085       1.142       1.198       1.251       1.303       1.353       1.401       1.447    
         1.492       1.535       1.577       1.617       1.656       1.694       1.730       1.766       1.800       1.833    
         1.865       1.897       1.927       1.956       1.985       2.013       2.040       2.066       2.091       2.116    
@@ -1922,8 +1922,8 @@
         3.037       2.983       2.928       2.871       2.815       2.757       2.698       2.637       2.576       2.514    
         2.450       2.385       2.318       2.250       2.181       2.109       2.036       1.962       1.885       1.806    
         1.726       1.642       1.557       1.469       1.379       1.286       1.190       1.091      0.9899      0.8857    
-       0.7789      0.6697      0.5586      0.4463      0.3336      0.2221      0.1137      1.0715E-02 -8.3620E-02 -0.1657    
-      -0.2318     -0.2782     -0.3024     -0.3034     -0.2823     -0.2414     -0.1846     -0.1155     -3.7768E-02  4.5464E-02
+       0.7789      0.6697      0.5586      0.4463      0.3336      0.2221      0.1137      1.0716E-02 -8.3619E-02 -0.1657    
+      -0.2318     -0.2782     -0.3024     -0.3034     -0.2823     -0.2414     -0.1846     -0.1155     -3.7767E-02  4.5465E-02
        0.1317      0.2191      0.3062      0.3921      0.4760      0.5576      0.6365      0.7127      0.7861      0.8566    
        0.9245      0.9897       1.052       1.112       1.170       1.226       1.279       1.331       1.380       1.428    
         1.474       1.518       1.561       1.602       1.642       1.681       1.718       1.754       1.789       1.822    
@@ -1938,8 +1938,8 @@
         3.029       2.975       2.919       2.863       2.805       2.747       2.687       2.627       2.565       2.501    
         2.437       2.371       2.304       2.235       2.164       2.092       2.018       1.941       1.863       1.783    
         1.700       1.615       1.527       1.436       1.343       1.246       1.146       1.043      0.9366      0.8264    
-       0.7126      0.5954      0.4751      0.3521      0.2275      0.1025     -2.0848E-02 -0.1397     -0.2502     -0.3476    
-      -0.4266     -0.4818     -0.5091     -0.5070     -0.4771     -0.4233     -0.3511     -0.2659     -0.1723     -7.4197E-02
+       0.7126      0.5954      0.4751      0.3521      0.2275      0.1025     -2.0847E-02 -0.1397     -0.2502     -0.3476    
+      -0.4266     -0.4818     -0.5091     -0.5070     -0.4771     -0.4233     -0.3511     -0.2659     -0.1723     -7.4196E-02
        2.5567E-02  0.1250      0.2227      0.3178      0.4097      0.4982      0.5832      0.6647      0.7426      0.8172    
        0.8886      0.9568       1.022       1.085       1.145       1.202       1.257       1.310       1.361       1.410    
         1.457       1.503       1.546       1.588       1.629       1.668       1.706       1.743       1.778       1.813    
@@ -1953,10 +1953,10 @@
         3.528       3.481       3.433       3.384       3.334       3.284       3.233       3.182       3.130       3.076    
         3.022       2.967       2.912       2.855       2.797       2.738       2.678       2.617       2.554       2.491    
         2.425       2.359       2.291       2.221       2.149       2.076       2.001       1.923       1.843       1.761    
-        1.677       1.590       1.500       1.406       1.310       1.210       1.106      0.9985      0.8867      0.7704    
+        1.677       1.590       1.500       1.406       1.310       1.210       1.106      0.9986      0.8867      0.7704    
        0.6495      0.5241      0.3940      0.2596      0.1217     -1.8756E-02 -0.1596     -0.2979     -0.4290     -0.5469    
       -0.6439     -0.7118     -0.7437     -0.7370     -0.6944     -0.6226     -0.5300     -0.4241     -0.3111     -0.1954    
-      -8.0262E-02  3.2475E-02  0.1416      0.2464      0.3466      0.4422      0.5333      0.6199      0.7024      0.7808    
+      -8.0261E-02  3.2476E-02  0.1416      0.2464      0.3466      0.4422      0.5333      0.6199      0.7024      0.7808    
        0.8556      0.9268      0.9947       1.060       1.122       1.181       1.238       1.292       1.344       1.394    
         1.442       1.489       1.533       1.576       1.618       1.657       1.696       1.733       1.769       1.804    
         1.838       1.870       1.902       1.932       1.962       1.991       2.019       2.046       2.072       2.097    
@@ -1970,9 +1970,9 @@
         3.016       2.961       2.905       2.848       2.790       2.730       2.670       2.608       2.545       2.481    
         2.415       2.348       2.279       2.209       2.136       2.062       1.985       1.907       1.826       1.742    
         1.656       1.567       1.475       1.379       1.280       1.177       1.070      0.9578      0.8409      0.7187    
-       0.5909      0.4570      0.3170      0.1706      1.8155E-02 -0.1396     -0.3009     -0.4629     -0.6205     -0.7660    
+       0.5909      0.4570      0.3170      0.1706      1.8156E-02 -0.1396     -0.3009     -0.4629     -0.6205     -0.7660    
       -0.8888     -0.9757      -1.015      -1.001     -0.9392     -0.8418     -0.7215     -0.5891     -0.4524     -0.3162    
-      -0.1838     -5.6591E-02  6.4539E-02  0.1794      0.2880      0.3906      0.4875      0.5792      0.6659      0.7480    
+      -0.1838     -5.6590E-02  6.4540E-02  0.1794      0.2880      0.3906      0.4875      0.5792      0.6659      0.7480    
        0.8259      0.8998      0.9702       1.037       1.101       1.162       1.220       1.276       1.329       1.380    
         1.429       1.476       1.522       1.565       1.607       1.648       1.687       1.725       1.761       1.796    
         1.830       1.863       1.895       1.926       1.956       1.985       2.013       2.040       2.067       2.093    
@@ -1988,7 +1988,7 @@
         1.638       1.548       1.454       1.356       1.254       1.148       1.038      0.9217      0.8002      0.6724    
        0.5379      0.3959      0.2459      8.7260E-02 -8.0352E-02 -0.2569     -0.4416     -0.6320     -0.8234      -1.007    
        -1.167      -1.285      -1.337      -1.310      -1.218      -1.082     -0.9244     -0.7582     -0.5930     -0.4336    
-      -0.2823     -0.1399     -6.5368E-03  0.1182      0.2350      0.3443      0.4468      0.5431      0.6337      0.7192    
+      -0.2823     -0.1399     -6.5363E-03  0.1182      0.2350      0.3443      0.4468      0.5431      0.6337      0.7192    
        0.7999      0.8763      0.9488       1.018       1.083       1.145       1.205       1.262       1.316       1.368    
         1.418       1.466       1.512       1.556       1.599       1.640       1.679       1.717       1.754       1.790    
         1.824       1.857       1.889       1.921       1.951       1.980       2.008       2.036       2.063       2.089    
@@ -2002,9 +2002,9 @@
         3.007       2.951       2.895       2.837       2.778       2.718       2.657       2.595       2.531       2.466    
         2.399       2.331       2.261       2.189       2.116       2.040       1.962       1.881       1.798       1.712    
         1.624       1.531       1.436       1.336       1.232       1.124       1.010      0.8910      0.7653      0.6326    
-       0.4919      0.3424      0.1830      1.2439E-02 -0.1704     -0.3666     -0.5768     -0.8003      -1.034      -1.269    
+       0.4919      0.3424      0.1830      1.2440E-02 -0.1704     -0.3666     -0.5768     -0.8003      -1.034      -1.269    
        -1.487      -1.656      -1.732      -1.682      -1.538      -1.345      -1.135     -0.9265     -0.7282     -0.5433    
-      -0.3723     -0.2148     -6.9464E-02  6.4729E-02  0.1890      0.3044      0.4119      0.5124      0.6064      0.6948    
+      -0.3723     -0.2147     -6.9463E-02  6.4730E-02  0.1890      0.3044      0.4119      0.5124      0.6064      0.6948    
        0.7781      0.8566      0.9309       1.001       1.068       1.132       1.192       1.250       1.305       1.358    
         1.409       1.457       1.504       1.548       1.591       1.633       1.673       1.711       1.748       1.784    
         1.819       1.852       1.885       1.916       1.946       1.976       2.004       2.032       2.059       2.085    
@@ -2034,9 +2034,9 @@
         3.001       2.945       2.888       2.830       2.771       2.711       2.649       2.587       2.522       2.457    
         2.390       2.321       2.250       2.177       2.103       2.026       1.947       1.865       1.781       1.694    
         1.603       1.509       1.411       1.309       1.202       1.090      0.9725      0.8482      0.7164      0.5763    
-       0.4264      0.2653      9.0958E-02 -9.9029E-02 -0.3079     -0.5396     -0.7997      -1.095      -1.433      -1.823    
+       0.4264      0.2653      9.0958E-02 -9.9028E-02 -0.3078     -0.5396     -0.7997      -1.095      -1.433      -1.823    
        -2.260      -2.702      -2.984      -2.728      -2.310      -1.898      -1.534      -1.221     -0.9511     -0.7163    
-      -0.5098     -0.3262     -0.1615     -1.2418E-02  0.1235      0.2481      0.3630      0.4695      0.5686      0.6611    
+      -0.5098     -0.3262     -0.1615     -1.2417E-02  0.1235      0.2481      0.3630      0.4695      0.5686      0.6611    
        0.7479      0.8294      0.9063      0.9789       1.048       1.113       1.175       1.234       1.290       1.344    
         1.396       1.445       1.493       1.538       1.582       1.624       1.664       1.703       1.740       1.777    
         1.812       1.846       1.878       1.910       1.941       1.970       1.999       2.027       2.054       2.080    
@@ -2049,10 +2049,10 @@
         3.513       3.465       3.416       3.367       3.317       3.266       3.214       3.162       3.109       3.055    
         3.000       2.944       2.887       2.829       2.769       2.709       2.647       2.584       2.520       2.454    
         2.387       2.318       2.247       2.174       2.099       2.022       1.943       1.861       1.776       1.689    
-        1.598       1.503       1.405       1.302       1.195       1.082      0.9627      0.8370      0.7036      0.5615    
-       0.4091      0.2447      6.6197E-02 -0.1295     -0.3462     -0.5894     -0.8667      -1.190      -1.576      -2.053    
+        1.598       1.503       1.405       1.302       1.195       1.082      0.9627      0.8370      0.7037      0.5615    
+       0.4091      0.2448      6.6197E-02 -0.1295     -0.3462     -0.5894     -0.8667      -1.190      -1.576      -2.053    
        -2.662      -3.440      -4.232      -3.465      -2.713      -2.129      -1.677      -1.316      -1.018     -0.7661    
-      -0.5482     -0.3567     -0.1863     -3.2951E-02  0.1061      0.2333      0.3502      0.4583      0.5587      0.6524    
+      -0.5482     -0.3567     -0.1863     -3.2950E-02  0.1062      0.2333      0.3502      0.4583      0.5587      0.6524    
        0.7401      0.8224      0.8999      0.9731       1.042       1.108       1.171       1.230       1.287       1.341    
         1.393       1.442       1.490       1.535       1.579       1.621       1.662       1.701       1.738       1.775    
         1.810       1.844       1.877       1.908       1.939       1.969       1.998       2.026       2.053       2.079    
@@ -2066,9 +2066,9 @@
         2.999       2.943       2.886       2.828       2.769       2.708       2.647       2.584       2.519       2.453    
         2.386       2.317       2.246       2.173       2.098       2.021       1.942       1.860       1.775       1.687    
         1.596       1.501       1.403       1.300       1.192       1.079      0.9593      0.8331      0.6992      0.5564    
-       0.4031      0.2377      5.7654E-02 -0.1400     -0.3596     -0.6069     -0.8907      -1.225      -1.632      -2.158    
+       0.4031      0.2377      5.7655E-02 -0.1400     -0.3596     -0.6069     -0.8907      -1.225      -1.632      -2.158    
        -2.905      -4.164      -6.954      -4.190      -2.955      -2.234      -1.733      -1.351      -1.042     -0.7836    
-      -0.5615     -0.3672     -0.1948     -4.0035E-02  0.1002      0.2282      0.3458      0.4544      0.5553      0.6493    
+      -0.5615     -0.3672     -0.1948     -4.0034E-02  0.1002      0.2282      0.3458      0.4544      0.5553      0.6493    
        0.7373      0.8199      0.8977      0.9711       1.041       1.106       1.169       1.228       1.285       1.339    
         1.391       1.441       1.488       1.534       1.578       1.620       1.661       1.700       1.738       1.774    
         1.809       1.843       1.876       1.908       1.938       1.968       1.997       2.025       2.052       2.078    
@@ -2098,7 +2098,7 @@
         3.000       2.945       2.888       2.830       2.771       2.710       2.649       2.586       2.522       2.456    
         2.389       2.320       2.249       2.177       2.102       2.025       1.946       1.865       1.780       1.693    
         1.602       1.508       1.410       1.308       1.202       1.090      0.9717      0.8474      0.7157      0.5755    
-       0.4256      0.2645      9.0215E-02 -9.9772E-02 -0.3086     -0.5404     -0.8004      -1.096      -1.434      -1.823    
+       0.4256      0.2645      9.0216E-02 -9.9771E-02 -0.3086     -0.5404     -0.8004      -1.096      -1.434      -1.823    
        -2.261      -2.703      -2.985      -2.728      -2.311      -1.899      -1.535      -1.222     -0.9519     -0.7171    
       -0.5106     -0.3270     -0.1623     -1.3187E-02  0.1227      0.2473      0.3622      0.4687      0.5678      0.6603    
        0.7471      0.8286      0.9055      0.9781       1.047       1.112       1.174       1.233       1.290       1.344    
@@ -2116,7 +2116,7 @@
         1.611       1.517       1.420       1.319       1.214       1.103      0.9874      0.8652      0.7361      0.5991    
        0.4532      0.2972      0.1294     -5.1854E-02 -0.2489     -0.4642     -0.7004     -0.9602      -1.244      -1.548    
        -1.854      -2.118      -2.248      -2.143      -1.905      -1.624      -1.345      -1.086     -0.8519     -0.6409    
-      -0.4509     -0.2791     -0.1230      1.9459E-02  0.1502      0.2709      0.3826      0.4865      0.5834      0.6742    
+      -0.4509     -0.2791     -0.1230      1.9460E-02  0.1502      0.2709      0.3826      0.4865      0.5834      0.6742    
        0.7594      0.8397      0.9155      0.9871       1.055       1.120       1.181       1.240       1.295       1.349    
         1.400       1.449       1.496       1.541       1.584       1.626       1.666       1.705       1.743       1.779    
         1.813       1.847       1.880       1.911       1.942       1.971       2.000       2.028       2.055       2.081    
@@ -2127,12 +2127,12 @@
   59    4.375       4.335       4.295       4.255       4.215       4.174       4.134       4.092       4.051       4.009    
         3.966       3.924       3.880       3.837       3.792       3.748       3.703       3.657       3.611       3.564    
         3.517       3.469       3.420       3.371       3.321       3.271       3.219       3.167       3.114       3.060    
-        3.005       2.950       2.893       2.836       2.777       2.717       2.656       2.593       2.530       2.465    
+        3.006       2.950       2.893       2.836       2.777       2.717       2.656       2.593       2.530       2.465    
         2.398       2.330       2.260       2.188       2.114       2.038       1.960       1.880       1.797       1.711    
         1.622       1.530       1.434       1.335       1.231       1.122       1.009      0.8895      0.7638      0.6311    
-       0.4904      0.3409      0.1815      1.0954E-02 -0.1719     -0.3681     -0.5783     -0.8018      -1.035      -1.270    
+       0.4904      0.3409      0.1815      1.0955E-02 -0.1719     -0.3681     -0.5783     -0.8018      -1.035      -1.270    
        -1.489      -1.658      -1.733      -1.683      -1.539      -1.346      -1.136     -0.9280     -0.7297     -0.5448    
-      -0.3739     -0.2163     -7.0997E-02  6.3190E-02  0.1875      0.3029      0.4104      0.5108      0.6049      0.6933    
+      -0.3739     -0.2163     -7.0997E-02  6.3191E-02  0.1875      0.3029      0.4104      0.5108      0.6049      0.6933    
        0.7765      0.8550      0.9293      0.9997       1.067       1.130       1.191       1.248       1.304       1.356    
         1.407       1.456       1.502       1.547       1.590       1.631       1.671       1.710       1.747       1.782    
         1.817       1.851       1.883       1.914       1.945       1.974       2.003       2.030       2.057       2.083    
@@ -2146,9 +2146,9 @@
         3.009       2.954       2.898       2.840       2.782       2.722       2.661       2.599       2.536       2.471    
         2.405       2.337       2.267       2.196       2.123       2.048       1.971       1.891       1.809       1.724    
         1.637       1.546       1.452       1.354       1.252       1.146       1.036      0.9199      0.7983      0.6706    
-       0.5360      0.3941      0.2440      8.5404E-02 -8.2208E-02 -0.2588     -0.4434     -0.6339     -0.8253      -1.009    
+       0.5360      0.3941      0.2440      8.5405E-02 -8.2208E-02 -0.2588     -0.4434     -0.6339     -0.8253      -1.009    
        -1.169      -1.287      -1.338      -1.312      -1.220      -1.084     -0.9263     -0.7601     -0.5949     -0.4355    
-      -0.2842     -0.1418     -8.4536E-03  0.1163      0.2330      0.3423      0.4448      0.5411      0.6318      0.7172    
+      -0.2842     -0.1418     -8.4530E-03  0.1163      0.2330      0.3423      0.4448      0.5411      0.6318      0.7172    
        0.7979      0.8744      0.9468       1.016       1.081       1.143       1.203       1.260       1.314       1.366    
         1.416       1.464       1.510       1.554       1.597       1.638       1.677       1.715       1.752       1.788    
         1.822       1.855       1.887       1.918       1.949       1.978       2.006       2.034       2.060       2.086    
@@ -2164,7 +2164,7 @@
         1.654       1.565       1.473       1.377       1.278       1.175       1.068      0.9556      0.8387      0.7165    
        0.5886      0.4548      0.3147      0.1684      1.5929E-02 -0.1418     -0.3031     -0.4651     -0.6227     -0.7683    
       -0.8910     -0.9780      -1.017      -1.003     -0.9415     -0.8440     -0.7237     -0.5914     -0.4546     -0.3185    
-      -0.1861     -5.8883E-02  6.2240E-02  0.1771      0.2857      0.3883      0.4852      0.5768      0.6635      0.7456    
+      -0.1861     -5.8882E-02  6.2240E-02  0.1771      0.2857      0.3883      0.4852      0.5768      0.6635      0.7456    
        0.8235      0.8975      0.9678       1.035       1.099       1.159       1.218       1.273       1.327       1.378    
         1.427       1.474       1.519       1.563       1.605       1.645       1.684       1.722       1.759       1.794    
         1.828       1.861       1.892       1.923       1.953       1.982       2.010       2.038       2.064       2.090    
@@ -2178,9 +2178,9 @@
         3.020       2.965       2.909       2.852       2.794       2.735       2.675       2.614       2.552       2.488    
         2.423       2.356       2.288       2.218       2.147       2.073       1.998       1.920       1.841       1.759    
         1.674       1.587       1.497       1.404       1.307       1.207       1.104      0.9959      0.8841      0.7678    
-       0.6469      0.5215      0.3914      0.2570      0.1191     -2.1354E-02 -0.1622     -0.3005     -0.4317     -0.5495    
+       0.6469      0.5215      0.3914      0.2570      0.1191     -2.1353E-02 -0.1622     -0.3005     -0.4317     -0.5495    
       -0.6465     -0.7144     -0.7463     -0.7396     -0.6970     -0.6253     -0.5326     -0.4268     -0.3137     -0.1981    
-      -8.2927E-02  2.9802E-02  0.1389      0.2437      0.3439      0.4395      0.5306      0.6172      0.6996      0.7781    
+      -8.2926E-02  2.9802E-02  0.1389      0.2437      0.3439      0.4395      0.5306      0.6172      0.6996      0.7781    
        0.8528      0.9240      0.9919       1.057       1.119       1.178       1.235       1.289       1.341       1.391    
         1.440       1.486       1.530       1.573       1.615       1.655       1.693       1.730       1.766       1.801    
         1.835       1.867       1.899       1.929       1.959       1.988       2.015       2.043       2.069       2.094    
@@ -2195,8 +2195,8 @@
         2.434       2.368       2.301       2.232       2.161       2.089       2.015       1.938       1.860       1.780    
         1.697       1.612       1.524       1.433       1.340       1.243       1.143       1.040      0.9336      0.8234    
        0.7096      0.5924      0.4721      0.3492      0.2245      9.9516E-02 -2.3816E-02 -0.1426     -0.2531     -0.3506    
-      -0.4296     -0.4848     -0.5121     -0.5100     -0.4801     -0.4263     -0.3541     -0.2689     -0.1753     -7.7233E-02
-       2.2522E-02  0.1219      0.2196      0.3147      0.4066      0.4951      0.5801      0.6615      0.7395      0.8141    
+      -0.4296     -0.4848     -0.5121     -0.5100     -0.4801     -0.4263     -0.3541     -0.2689     -0.1753     -7.7232E-02
+       2.2523E-02  0.1219      0.2196      0.3147      0.4066      0.4951      0.5801      0.6615      0.7395      0.8141    
        0.8854      0.9537       1.019       1.082       1.142       1.199       1.254       1.307       1.358       1.407    
         1.454       1.499       1.543       1.585       1.626       1.665       1.703       1.740       1.775       1.809    
         1.842       1.875       1.906       1.936       1.965       1.994       2.021       2.048       2.074       2.099    
@@ -2210,8 +2210,8 @@
         3.033       2.979       2.924       2.868       2.811       2.753       2.694       2.634       2.573       2.510    
         2.446       2.381       2.315       2.247       2.177       2.106       2.033       1.958       1.882       1.803    
         1.722       1.639       1.554       1.466       1.375       1.282       1.187       1.088      0.9865      0.8824    
-       0.7756      0.6664      0.5553      0.4429      0.3303      0.2188      0.1103      7.3752E-03 -8.6963E-02 -0.1691    
-      -0.2351     -0.2816     -0.3058     -0.3068     -0.2856     -0.2448     -0.1880     -0.1189     -4.1172E-02  4.2050E-02
+       0.7756      0.6664      0.5553      0.4429      0.3303      0.2188      0.1103      7.3758E-03 -8.6962E-02 -0.1691    
+      -0.2351     -0.2816     -0.3058     -0.3068     -0.2856     -0.2448     -0.1880     -0.1189     -4.1171E-02  4.2051E-02
        0.1283      0.2157      0.3028      0.3886      0.4725      0.5541      0.6330      0.7092      0.7825      0.8531    
        0.9209      0.9861       1.049       1.109       1.167       1.222       1.276       1.327       1.377       1.424    
         1.470       1.514       1.557       1.598       1.638       1.677       1.714       1.750       1.785       1.819    
@@ -2226,8 +2226,8 @@
         3.041       2.988       2.933       2.877       2.821       2.764       2.705       2.646       2.585       2.523    
         2.460       2.396       2.330       2.263       2.195       2.125       2.053       1.980       1.905       1.828    
         1.749       1.669       1.586       1.501       1.413       1.324       1.232       1.138       1.042      0.9438    
-       0.8437      0.7422      0.6397      0.5369      0.4350      0.3352      0.2392      0.1492      6.7630E-02 -2.7928E-03
-      -5.9274E-02 -9.9365E-02 -0.1214     -0.1246     -0.1098     -7.8544E-02 -3.3371E-02  2.2972E-02  8.7746E-02  0.1585    
+       0.8437      0.7422      0.6397      0.5370      0.4350      0.3352      0.2392      0.1492      6.7630E-02 -2.7922E-03
+      -5.9274E-02 -9.9365E-02 -0.1214     -0.1246     -0.1098     -7.8543E-02 -3.3371E-02  2.2973E-02  8.7746E-02  0.1585    
        0.2330      0.3097      0.3872      0.4644      0.5407      0.6155      0.6885      0.7595      0.8282      0.8947    
        0.9590       1.021       1.081       1.138       1.194       1.247       1.299       1.349       1.397       1.443    
         1.488       1.531       1.573       1.613       1.652       1.690       1.726       1.762       1.796       1.829    
@@ -2243,8 +2243,8 @@
         2.475       2.412       2.347       2.281       2.214       2.145       2.075       2.003       1.930       1.855    
         1.779       1.700       1.620       1.538       1.454       1.368       1.280       1.191       1.100       1.007    
        0.9133      0.8188      0.7242      0.6302      0.5377      0.4480      0.3625      0.2831      0.2116      0.1503    
-       0.1011      6.5683E-02  4.5334E-02  4.0433E-02  5.0561E-02  7.4542E-02  0.1106      0.1568      0.2110      0.2712    
-       0.3357      0.4030      0.4717      0.5411      0.6103      0.6787      0.7460      0.8118      0.8761      0.9385    
+       0.1011      6.5684E-02  4.5335E-02  4.0433E-02  5.0562E-02  7.4542E-02  0.1106      0.1568      0.2110      0.2713    
+       0.3357      0.4030      0.4717      0.5411      0.6103      0.6787      0.7460      0.8119      0.8761      0.9385    
        0.9991       1.058       1.115       1.170       1.223       1.274       1.324       1.372       1.419       1.463    
         1.507       1.549       1.590       1.629       1.667       1.704       1.740       1.774       1.808       1.840    
         1.872       1.903       1.932       1.961       1.989       2.017       2.043       2.069       2.094       2.119    
@@ -2541,7 +2541,7 @@
         2.615       2.627       2.638       2.648       2.659       2.670       2.680       2.690       2.700       2.709    
         2.719       2.728       2.738       2.747    
   85    4.486       4.450       4.414       4.378       4.342       4.305       4.269       4.232       4.195       4.157    
-        4.120       4.082       4.044       4.006       3.968       3.929       3.891       3.852       3.813       3.773    
+        4.120       4.082       4.044       4.006       3.968       3.930       3.891       3.852       3.813       3.773    
         3.734       3.694       3.654       3.613       3.573       3.532       3.491       3.450       3.409       3.367    
         3.325       3.283       3.241       3.199       3.156       3.113       3.070       3.027       2.984       2.941    
         2.898       2.854       2.811       2.767       2.724       2.681       2.638       2.595       2.552       2.509    

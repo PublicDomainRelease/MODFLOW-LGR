@@ -11,6 +11,12 @@ For information and references related to these packages, see mflgr.txt
 NOTE: Any use of trade, product or firm names is for descriptive purposes 
       only and does not imply endorsement by the U.S. Government.
       
+o Version 1.1.02 /6/18/2009:
+
+Fixed a bug that caused the program to halt with a message indicating
+incorrect vertical grid alignment when the grids were aligned correctly.
+This version is based on MODFLOW-2005 release 1.6.02.
+
 o Version 1.1.1 /4/15/2008:
 
 Fixed a bug that caused incorrect printing of head at the location of 
