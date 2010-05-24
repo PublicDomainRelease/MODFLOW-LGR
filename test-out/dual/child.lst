@@ -1,6 +1,6 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                            VERSION 1.1.02 06/18/2009
+                            VERSION 1.2.0  05/18/2010
 
  LIST FILE: child.lst
                          UNIT   26
@@ -114,7 +114,7 @@
              ZONE ARRAY: rchc      
  READING ON UNIT   28 WITH FORMAT: (154I3)             
 
- LGR -- LOCAL GRID REFINEMENT, VERSION 1.1, 11/10/2006
+ LGR -- LOCAL GRID REFINEMENT, VERSION 1.2.0 05/18/2010
         INPUT READ FOR MODEL  2 DEFINED BY NAME FILE CHILD1.nam
 
  LOCAL GRID REFINEMENT IS ACTIVE FOR CHILD ONLY
@@ -253,23 +253,23 @@
  
  SOLVING FOR HEAD 
  ITER:   0  RES: 3.7683E-04  CFAC: 1.000
- ITER:   1  RES: 2.7454E-20  CFAC: 0.000
+ ITER:   1  RES: 3.1642E-20  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.7454E-20
+ L2-NORM OF RESIDUAL               : 3.1642E-20
  MAX HEAD CHANGE                   : 1.3549E-01
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    23,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.2492E-18  CFAC: 1.000
- ITER:   1  RES: 2.2542E-33  CFAC: 0.000
+ ITER:   0  RES: 4.0798E-18  CFAC: 1.000
+ ITER:   1  RES: 1.9699E-33  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.2542E-33
- MAX HEAD CHANGE                   : 8.1221E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    15,     1,     1)
+ L2-NORM OF RESIDUAL               : 1.9699E-33
+ MAX HEAD CHANGE                   : 6.9389E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    24,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -304,22 +304,22 @@
  ---------------------------------------------------------
 
  ITER:   0  RES: 1.5655E-10  CFAC: 1.000
- ITER:   1  RES: 3.4714E-12  CFAC: 0.022
+ ITER:   1  RES: 3.4713E-12  CFAC: 0.022
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 3.4714E-12
+ L2-NORM OF RESIDUAL               : 3.4713E-12
  MAX HEAD CHANGE                   : 2.7488E-08
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    73,    55,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.4714E-12  CFAC: 1.000
- ITER:   1  RES: 1.4007E-13  CFAC: 0.040
+ ITER:   0  RES: 3.4713E-12  CFAC: 1.000
+ ITER:   1  RES: 1.4008E-13  CFAC: 0.040
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.4007E-13
- MAX HEAD CHANGE                   : 8.9660E-10
+ L2-NORM OF RESIDUAL               : 1.4008E-13
+ MAX HEAD CHANGE                   : 8.9661E-10
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    28,    95,     1)
  ---------------------------------------------------------
 
@@ -333,23 +333,23 @@
  -------------------------------
 
  ITER:   0  RES: 6.6732E-06  CFAC: 1.000
- ITER:   1  RES: 2.2110E-21  CFAC: 0.000
+ ITER:   1  RES: 2.8395E-21  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.2110E-21
+ L2-NORM OF RESIDUAL               : 2.8395E-21
  MAX HEAD CHANGE                   : 7.6299E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.9391E-18  CFAC: 1.000
- ITER:   1  RES: 5.9343E-34  CFAC: 0.000
+ ITER:   0  RES: 3.8302E-18  CFAC: 1.000
+ ITER:   1  RES: 7.4142E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.9343E-34
- MAX HEAD CHANGE                   : 3.0006E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    60,     1)
+ L2-NORM OF RESIDUAL               : 7.4142E-34
+ MAX HEAD CHANGE                   : 3.3757E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    88,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -412,23 +412,23 @@
  -------------------------------
 
  ITER:   0  RES: 1.9173E-06  CFAC: 1.000
- ITER:   1  RES: 5.8025E-22  CFAC: 0.000
+ ITER:   1  RES: 6.9527E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.8025E-22
+ L2-NORM OF RESIDUAL               : 6.9527E-22
  MAX HEAD CHANGE                   : 2.6741E-03
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0159E-18  CFAC: 1.000
- ITER:   1  RES: 7.0079E-34  CFAC: 0.000
+ ITER:   0  RES: 3.7495E-18  CFAC: 1.000
+ ITER:   1  RES: 7.5797E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.0079E-34
- MAX HEAD CHANGE                   : 3.5658E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    12,     1,     1)
+ L2-NORM OF RESIDUAL               : 7.5797E-34
+ MAX HEAD CHANGE                   : 3.3757E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    25,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -491,23 +491,23 @@
  -------------------------------
 
  ITER:   0  RES: 8.1753E-07  CFAC: 1.000
- ITER:   1  RES: 3.6757E-22  CFAC: 0.000
+ ITER:   1  RES: 3.1532E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 3.6757E-22
+ L2-NORM OF RESIDUAL               : 3.1532E-22
  MAX HEAD CHANGE                   : 5.7944E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    36,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0042E-18  CFAC: 1.000
- ITER:   1  RES: 5.4619E-34  CFAC: 0.000
+ ITER:   0  RES: 3.9152E-18  CFAC: 1.000
+ ITER:   1  RES: 6.6745E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.4619E-34
- MAX HEAD CHANGE                   : 3.8630E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    22,     1,     1)
+ L2-NORM OF RESIDUAL               : 6.6745E-34
+ MAX HEAD CHANGE                   : 2.3442E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (   154,    98,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -570,23 +570,23 @@
  -------------------------------
 
  ITER:   0  RES: 6.3418E-07  CFAC: 1.000
- ITER:   1  RES: 1.8464E-22  CFAC: 0.000
+ ITER:   1  RES: 2.5095E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.8464E-22
+ L2-NORM OF RESIDUAL               : 2.5095E-22
  MAX HEAD CHANGE                   : 6.1327E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.8055E-18  CFAC: 1.000
- ITER:   1  RES: 8.6906E-34  CFAC: 0.000
+ ITER:   0  RES: 3.9391E-18  CFAC: 1.000
+ ITER:   1  RES: 7.1008E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 8.6906E-34
- MAX HEAD CHANGE                   : 3.3757E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    44,     1)
+ L2-NORM OF RESIDUAL               : 7.1008E-34
+ MAX HEAD CHANGE                   : 3.0006E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    86,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -639,23 +639,23 @@
  -------------------------------
 
  ITER:   0  RES: 4.0330E-07  CFAC: 1.000
- ITER:   1  RES: 1.3002E-22  CFAC: 0.000
+ ITER:   1  RES: 1.6179E-22  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.3002E-22
+ L2-NORM OF RESIDUAL               : 1.6179E-22
  MAX HEAD CHANGE                   : 5.8056E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0856E-18  CFAC: 1.000
- ITER:   1  RES: 7.0605E-34  CFAC: 0.000
+ ITER:   0  RES: 4.1766E-18  CFAC: 1.000
+ ITER:   1  RES: 1.1424E-33  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.0605E-34
- MAX HEAD CHANGE                   : 3.1881E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    84,     1)
+ L2-NORM OF RESIDUAL               : 1.1424E-33
+ MAX HEAD CHANGE                   : 3.3757E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    93,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -699,11 +699,11 @@
  ---------------------------------------------------------
 
  ITER:   0  RES: 9.0284E-13  CFAC: 1.000
- ITER:   1  RES: 4.3373E-14  CFAC: 0.048
+ ITER:   1  RES: 4.3372E-14  CFAC: 0.048
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 4.3373E-14
+ L2-NORM OF RESIDUAL               : 4.3372E-14
  MAX HEAD CHANGE                   : 2.7858E-10
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    44,    95,     1)
  ---------------------------------------------------------
@@ -718,23 +718,23 @@
  -------------------------------
 
  ITER:   0  RES: 2.1714E-07  CFAC: 1.000
- ITER:   1  RES: 7.9165E-23  CFAC: 0.000
+ ITER:   1  RES: 8.5681E-23  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.9165E-23
+ L2-NORM OF RESIDUAL               : 8.5681E-23
  MAX HEAD CHANGE                   : 2.9777E-04
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.9271E-18  CFAC: 1.000
- ITER:   1  RES: 7.9410E-34  CFAC: 0.000
+ ITER:   0  RES: 4.1766E-18  CFAC: 1.000
+ ITER:   1  RES: 8.8190E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.9410E-34
- MAX HEAD CHANGE                   : 3.9383E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    15,     1)
+ L2-NORM OF RESIDUAL               : 8.8190E-34
+ MAX HEAD CHANGE                   : 4.3582E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    14,   100,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -787,23 +787,23 @@
  -------------------------------
 
  ITER:   0  RES: 7.3097E-08  CFAC: 1.000
- ITER:   1  RES: 2.4210E-23  CFAC: 0.000
+ ITER:   1  RES: 2.1821E-23  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 2.4210E-23
+ L2-NORM OF RESIDUAL               : 2.1821E-23
  MAX HEAD CHANGE                   : 7.4885E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.2768E-18  CFAC: 1.000
- ITER:   1  RES: 9.1671E-34  CFAC: 0.000
+ ITER:   0  RES: 3.9331E-18  CFAC: 1.000
+ ITER:   1  RES: 1.0731E-33  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.1671E-34
- MAX HEAD CHANGE                   : 3.9383E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    94,     1)
+ L2-NORM OF RESIDUAL               : 1.0731E-33
+ MAX HEAD CHANGE                   : 3.5658E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    16,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -865,23 +865,23 @@
  -------------------------------
 
  ITER:   0  RES: 2.1211E-08  CFAC: 1.000
- ITER:   1  RES: 6.9596E-24  CFAC: 0.000
+ ITER:   1  RES: 7.9188E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.9596E-24
+ L2-NORM OF RESIDUAL               : 7.9188E-24
  MAX HEAD CHANGE                   : 1.9983E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0218E-18  CFAC: 1.000
- ITER:   1  RES: 5.9106E-34  CFAC: 0.000
+ ITER:   0  RES: 4.0393E-18  CFAC: 1.000
+ ITER:   1  RES: 9.4317E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.9106E-34
- MAX HEAD CHANGE                   : 3.3757E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    60,     1)
+ L2-NORM OF RESIDUAL               : 9.4317E-34
+ MAX HEAD CHANGE                   : 3.9383E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    67,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -943,23 +943,23 @@
  -------------------------------
 
  ITER:   0  RES: 2.5033E-08  CFAC: 1.000
- ITER:   1  RES: 7.7419E-24  CFAC: 0.000
+ ITER:   1  RES: 7.6972E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.7419E-24
+ L2-NORM OF RESIDUAL               : 7.6972E-24
  MAX HEAD CHANGE                   : 3.2633E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    72,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 3.6349E-18  CFAC: 1.000
- ITER:   1  RES: 7.1224E-34  CFAC: 0.000
+ ITER:   0  RES: 4.2047E-18  CFAC: 1.000
+ ITER:   1  RES: 8.7859E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 7.1224E-34
- MAX HEAD CHANGE                   : 3.9620E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    15,     1,     1)
+ L2-NORM OF RESIDUAL               : 8.7859E-34
+ MAX HEAD CHANGE                   : 4.7544E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    14,   100,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -1021,23 +1021,23 @@
  -------------------------------
 
  ITER:   0  RES: 1.4101E-08  CFAC: 1.000
- ITER:   1  RES: 5.9626E-24  CFAC: 0.000
+ ITER:   1  RES: 6.3370E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 5.9626E-24
+ L2-NORM OF RESIDUAL               : 6.3370E-24
  MAX HEAD CHANGE                   : 1.8395E-05
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0971E-18  CFAC: 1.000
- ITER:   1  RES: 6.5207E-34  CFAC: 0.000
+ ITER:   0  RES: 3.9031E-18  CFAC: 1.000
+ ITER:   1  RES: 1.0717E-33  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 6.5207E-34
- MAX HEAD CHANGE                   : 2.9715E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    23,     1,     1)
+ L2-NORM OF RESIDUAL               : 1.0717E-33
+ MAX HEAD CHANGE                   : 3.5658E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    15,     1,     1)
  ---------------------------------------------------------
 
  -------------------------------
@@ -1099,23 +1099,23 @@
  -------------------------------
 
  ITER:   0  RES: 4.5076E-09  CFAC: 1.000
- ITER:   1  RES: 1.6875E-24  CFAC: 0.000
+ ITER:   1  RES: 1.5613E-24  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 1.6875E-24
+ L2-NORM OF RESIDUAL               : 1.5613E-24
  MAX HEAD CHANGE                   : 5.5565E-06
  MAX HEAD CHANGE AT (COL,ROW,LAY)  : (    74,   100,     1)
  ---------------------------------------------------------
 
- ITER:   0  RES: 4.0683E-18  CFAC: 1.000
- ITER:   1  RES: 9.3375E-34  CFAC: 0.000
+ ITER:   0  RES: 4.0798E-18  CFAC: 1.000
+ ITER:   1  RES: 6.7394E-34  CFAC: 0.000
  ---------------------------------------------------------
  PCG ITERATIONS                    :    1
  DAMPING                           : 1.000
- L2-NORM OF RESIDUAL               : 9.3375E-34
- MAX HEAD CHANGE                   : 3.3757E-15
- MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    26,     1)
+ L2-NORM OF RESIDUAL               : 6.7394E-34
+ MAX HEAD CHANGE                   : 2.6255E-15
+ MAX HEAD CHANGE AT (COL,ROW,LAY)  : (     1,    81,     1)
  ---------------------------------------------------------
 
  -------------------------------

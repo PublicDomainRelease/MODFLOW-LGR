@@ -6,7 +6,7 @@ c                  KJH  20050419      -- Array WELL2 dimensioned to 18 to store 
 C                  AWH  20080411      -- Retrieve HDRY from GWFBASMODULE rather than from
 C                                        LPF, BCF, or HUF
 c
-      MODULE GWFMNWMODULE
+      MODULE GWFMNW1MODULE
         DOUBLE PRECISION, PARAMETER :: TWOPI=2.0D0*3.1415926535897932D0
         DOUBLE PRECISION, PARAMETER :: ZERO25=1.0D-25, ZERO20=1.0D-20
         DOUBLE PRECISION, PARAMETER :: ZERO8=1.0D-8, BIG=1.0D30
@@ -31,11 +31,11 @@ c
         DOUBLE PRECISION,      DIMENSION(:,:,:),POINTER :: HREF
       END TYPE
       TYPE(GWFMNWTYPE), SAVE:: GWFMNWDAT(10)
-      END MODULE GWFMNWMODULE
+      END MODULE GWFMNW1MODULE
 C
 c-------------------------------------------------------------------------
 c
-      SUBROUTINE GWF2MNW7AR(In, Iusip, Iude4, Iusor, Iupcg, Iulmg,
+      SUBROUTINE GWF2MNW17AR(In, Iusip, Iude4, Iusor, Iupcg, Iulmg,
      +                      Iugmg, Fname, Igrid)
 C     VERSION 20020819 KJH
 c
@@ -47,7 +47,7 @@ c
 c        specifications:
 c     ------------------------------------------------------------------
       USE GLOBAL,      ONLY: IOUT,NCOL,NROW,NLAY
-      USE GWFMNWMODULE
+      USE GWFMNW1MODULE
       USE SIPMODULE,ONLY:HCLOSE
       USE DE4MODULE,ONLY:HCLOSEDE4
       USE PCGMODULE,ONLY:HCLOSEPCG
@@ -88,7 +88,7 @@ c
 c
 c1------identify package and initialize nwell2
       WRITE (IOUT, 9001) In
- 9001 FORMAT (/, ' MNW7 -- MULTI-NODE WELL PACKAGE, VERSION 7,', 
+ 9001 FORMAT (/, ' MNW1 -- MULTI-NODE WELL 1 PACKAGE, VERSION 7,', 
      +        ' 11/07/2005.', /, '    INPUT READ FROM UNIT', i4)
       NWELL2 = 0
 c
@@ -253,14 +253,14 @@ C-------SET SMALL DEPENDING ON CLOSURE CRITERIA OF THE SOLVER
       IF ( Iugmg.NE.0 ) SMALL = HCLOSEGMG
 c
 c-----SAVE POINTERS FOR GRID AND RETURN
-      CALL SGWF2MNW7PSV(Igrid)
+      CALL SGWF2MNW1PSV(Igrid)
 c
 c7------return
-      END SUBROUTINE GWF2MNW7AR
+      END SUBROUTINE GWF2MNW17AR
 c
 c_________________________________________________________________________________
 c
-      SUBROUTINE GWF2MNW7RP(In, Iubcf, Iulpf, Iuhuf, Kper, Igrid)
+      SUBROUTINE GWF2MNW17RP(In, Iubcf, Iulpf, Iuhuf, Kper, Igrid)
 c     VERSION 20020819 KJH
 C
 c----- MNW by K.J. Halford        1/31/98
@@ -272,7 +272,7 @@ c        specifications:
 c     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NODES,NCOL,NROW,NLAY,IBOUND,HOLD,HNEW,IOUT
       USE GWFBASMODULE,ONLY:TOTIM,HDRY
-      USE GWFMNWMODULE, ONLY:NWELL2,MXWEL2,IWELPT,PLOSS,HMAX,
+      USE GWFMNW1MODULE, ONLY:NWELL2,MXWEL2,IWELPT,PLOSS,HMAX,
      1                       MNWSITE,IOWELL2,WELL2,HREF,KSPREF,
      2                       BIG,ZERO25
       IMPLICIT NONE
@@ -300,7 +300,7 @@ c     ------------------------------------------------------------------
       CHARACTER(LEN=256) :: txt, tx2, txtraw
 c     ------------------------------------------------------------------
 c-----SET POINTERS FOR THE CURRENT GRID.
-      CALL SGWF2MNW7PNT(Igrid)
+      CALL SGWF2MNW1PNT(Igrid)
 cswm: SET POINTERS FOR FLOW PACKAGE TO GET K's FOR CEL2WEL
       IF ( Iubcf.NE.0 ) CALL SGWF2BCF7PNT(Igrid)
       IF ( Iulpf.NE.0 ) CALL SGWF2LPF7PNT(Igrid)
@@ -705,11 +705,11 @@ c
         ENDDO
       ENDIF
 c
-      END SUBROUTINE GWF2MNW7RP
+      END SUBROUTINE GWF2MNW17RP
 c
 c_________________________________________________________________________________
 c
-      SUBROUTINE GWF2MNW7AD(Iubcf, Iulpf, Iuhuf, Igrid)
+      SUBROUTINE GWF2MNW17AD(Iubcf, Iulpf, Iuhuf, Igrid)
 C     VERSION 20020819 KJH
 c
 c----- MNW by K.J. Halford
@@ -721,7 +721,7 @@ c
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NCOL,NROW,IBOUND,HNEW
-      USE GWFMNWMODULE,ONLY:NWELL2,SMALL,WELL2,ZERO8,BIG
+      USE GWFMNW1MODULE,ONLY:NWELL2,SMALL,WELL2,ZERO8,BIG
       IMPLICIT NONE
       INTRINSIC ABS, MOD
       INTEGER, EXTERNAL :: IFRL
@@ -735,7 +735,7 @@ c Local Variables
       INTEGER iin, m, n, ne, k, j, i
 c     ------------------------------------------------------------------
 c-----SET POINTERS FOR THE CURRENT GRID.
-      CALL SGWF2MNW7PNT(Igrid)
+      CALL SGWF2MNW1PNT(Igrid)
 c
 c
 c1------if number of wells <= 0 then return.
@@ -855,11 +855,11 @@ c  Otherwise leave the flow rate alone
 c
       ENDDO  ! End of overall test loop
 c
-      END SUBROUTINE GWF2MNW7AD
+      END SUBROUTINE GWF2MNW17AD
 c
 c_________________________________________________________________________________
 c
-      SUBROUTINE GWF2MNW7FM(Kiter, Iubcf, Iulpf, Iuhuf, Igrid)
+      SUBROUTINE GWF2MNW17FM(Kiter, Iubcf, Iulpf, Iuhuf, Igrid)
 c     VERSION 20020819 KJH
 c
 c----- MNW by K.J. Halford
@@ -871,7 +871,7 @@ c
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NCOL,NROW,IBOUND,HNEW,HCOF,RHS
-      USE GWFMNWMODULE,ONLY:NWELL2,NOMOITER,SMALL,WELL2,ZERO20,BIG
+      USE GWFMNW1MODULE,ONLY:NWELL2,NOMOITER,SMALL,WELL2,ZERO20,BIG
       IMPLICIT NONE
       INTRINSIC ABS, MOD
       INTEGER, EXTERNAL :: IFRL
@@ -885,7 +885,7 @@ c Local Variables
       DOUBLE PRECISION :: dhc2w
 c     ------------------------------------------------------------------
 c-----SET POINTERS FOR THE CURRENT GRID.
-      CALL SGWF2MNW7PNT(Igrid)
+      CALL SGWF2MNW1PNT(Igrid)
 c
 c                 CR( i, j, k)    ------>   CR  i + 1/2
 c                 CC( i, j, k)    ------>   CC  j + 1/2
@@ -1056,11 +1056,11 @@ c  Specify Q and solve for head;  add Q to RHS accumulator.
         ENDIF
       ENDDO      !    End of DO WHILE loop
 c
-      END SUBROUTINE GWF2MNW7FM
+      END SUBROUTINE GWF2MNW17FM
 c
 c_________________________________________________________________________________
 c
-      SUBROUTINE GWF2MNW7BD(Nstp, Kstp, Kper, Igrid)
+      SUBROUTINE GWF2MNW17BD(Nstp, Kstp, Kper, Igrid)
 c     VERSION 20030710 KJH
 c
 c----- MNW by K.J. Halford        1/31/98
@@ -1072,7 +1072,7 @@ c        specifications:
 c     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NCOL,NROW,NLAY,IBOUND,BUFF,HNEW,IOUT
       USE GWFBASMODULE,ONLY:DELT,PERTIM,TOTIM,ICBCFL,VBVL,VBNM,MSUM,HDRY
-      USE GWFMNWMODULE,ONLY:NWELL2,PLOSS,MNWSITE,IWL2CB,IOWELL2,
+      USE GWFMNW1MODULE,ONLY:NWELL2,PLOSS,MNWSITE,IWL2CB,IOWELL2,
      1                      WELL2,ZERO25,BIG
       IMPLICIT NONE
       INTRINSIC ABS, MOD
@@ -1090,7 +1090,7 @@ c Local Variables
       CHARACTER(LEN=16) :: text, auxtxt(20)
 c     ------------------------------------------------------------------
 c-----SET POINTERS FOR THE CURRENT GRID.
-      CALL SGWF2MNW7PNT(Igrid)
+      CALL SGWF2MNW1PNT(Igrid)
 c
 c             ----+----1----+-
       text = '             MNW'
@@ -1334,11 +1334,11 @@ c10-----increment budget term counter(msum).
       MSUM = MSUM + 1
 c
 c11-----return
-      END SUBROUTINE GWF2MNW7BD
+      END SUBROUTINE GWF2MNW17BD
 c
 c_________________________________________________________________________________
 c
-      SUBROUTINE GWF2MNW7OT(Igrid)
+      SUBROUTINE GWF2MNW17OT(Igrid)
 C     VERSION 20020819 KJH
 c
 c     ******************************************************************
@@ -1347,7 +1347,7 @@ c     ******************************************************************
 c
 c        specifications:
 c     ------------------------------------------------------------------
-      USE GWFMNWMODULE,ONLY:NWELL2,MXWEL2,IOWELL2,WELL2
+      USE GWFMNW1MODULE,ONLY:NWELL2,MXWEL2,IOWELL2,WELL2
       IMPLICIT NONE
       INTRINSIC CHAR, ABS
       INTEGER, EXTERNAL :: IFRL
@@ -1362,7 +1362,7 @@ c Local Variables
       CHARACTER(LEN=1) :: tab
       CHARACTER(LEN=32) :: temptag, tt, lasttag, eoftag
 c     ------------------------------------------------------------------
-      CALL SGWF2MNW7PNT(IGRID)
+      CALL SGWF2MNW1PNT(IGRID)
 c
       tab = CHAR(9)
       iostart = 1000
@@ -1495,12 +1495,12 @@ c   Save Value of TEMPTAG for comparison
 c
 c   Add IO close routine here if needed
 c
-      END SUBROUTINE GWF2MNW7OT
+      END SUBROUTINE GWF2MNW17OT
 c
 c     ******************************************************************
 c     ******************************************************************
       SUBROUTINE IOWELLOUT(Temptag, Iostart, Io)
-      USE GWFMNWMODULE, ONLY : NWELL2,MNWSITE,MNWNAME
+      USE GWFMNW1MODULE, ONLY : NWELL2,MNWSITE,MNWNAME
       IMPLICIT NONE
 c Arguments
       INTEGER, INTENT(IN) :: Iostart
@@ -1563,7 +1563,7 @@ C     ------------------------------------------------------------------
      1                      HNEW
       USE GWFBASMODULE,ONLY:HDRY
       USE GWFBCFMODULE,ONLY:HY,TRPY,LAYCON
-      USE GWFMNWMODULE,ONLY:PLOSS,SMALL,TWOPI,ZERO25
+      USE GWFMNW1MODULE,ONLY:PLOSS,SMALL,TWOPI,ZERO25
 c
       IMPLICIT NONE
       INTRINSIC LOG, ABS, SQRT
@@ -1713,7 +1713,7 @@ C     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:LAYHDT,DELR,DELC,BOTM,LBOTM,HNEW
       USE GWFBASMODULE,ONLY:HDRY
       USE GWFLPFMODULE,ONLY:HK,CHANI,HANI
-      USE GWFMNWMODULE,ONLY:PLOSS,TWOPI,ZERO25
+      USE GWFMNW1MODULE,ONLY:PLOSS,TWOPI,ZERO25
       IMPLICIT NONE
       INTRINSIC LOG, ABS, SQRT
 c Arguments
@@ -1810,7 +1810,7 @@ C     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:LAYHDT,DELR,DELC,BOTM,LBOTM,HNEW
       USE GWFBASMODULE,ONLY:HDRY
       USE GWFHUFMODULE,ONLY:HK,HKCC
-      USE GWFMNWMODULE,ONLY:PLOSS,TWOPI,ZERO25
+      USE GWFMNW1MODULE,ONLY:PLOSS,TWOPI,ZERO25
       IMPLICIT NONE
       INTRINSIC LOG, ABS, SQRT
 c Arguments
@@ -2069,7 +2069,7 @@ c
 c
       END SUBROUTINE QREAD
 C***********************************************************************
-      SUBROUTINE GWF2MNW7DA(Igrid)
+      SUBROUTINE GWF2MNW17DA(Igrid)
 C     ******************************************************************
 C     DEALLOCATE MNW DATA      
 C     ******************************************************************
@@ -2077,7 +2077,7 @@ C     ******************************************************************
 C
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
-      USE GWFMNWMODULE
+      USE GWFMNW1MODULE
 C     ------------------------------------------------------------------
 C Arguments
       INTEGER :: Igrid, IDUM
@@ -2098,16 +2098,16 @@ C     ------------------------------------------------------------------
       DEALLOCATE (GWFMNWDAT(Igrid)%WELL2)
       DEALLOCATE (GWFMNWDAT(Igrid)%MNWSITE)
 C
-      END SUBROUTINE GWF2MNW7DA
+      END SUBROUTINE GWF2MNW17DA
 C***********************************************************************
-      SUBROUTINE SGWF2MNW7PNT(Igrid)
+      SUBROUTINE SGWF2MNW1PNT(Igrid)
 C     ******************************************************************
 C     SET MNW POINTER DATA TO CURRENT GRID
 C     ******************************************************************
 C
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
-      USE GWFMNWMODULE
+      USE GWFMNW1MODULE
 C     ------------------------------------------------------------------
 C Arguments
       INTEGER :: Igrid
@@ -2127,16 +2127,16 @@ C     ------------------------------------------------------------------
       WELL2=>GWFMNWDAT(Igrid)%WELL2
       MNWSITE=>GWFMNWDAT(Igrid)%MNWSITE
 C
-      END SUBROUTINE SGWF2MNW7PNT
+      END SUBROUTINE SGWF2MNW1PNT
 C***********************************************************************
-      SUBROUTINE SGWF2MNW7PSV(Igrid)
+      SUBROUTINE SGWF2MNW1PSV(Igrid)
 C     ******************************************************************
 C     SAVE MNW POINTER DATA
 C     ******************************************************************
 C
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
-      USE GWFMNWMODULE
+      USE GWFMNW1MODULE
 C     ------------------------------------------------------------------
 C Arguments
       INTEGER :: Igrid
@@ -2156,4 +2156,4 @@ C     ------------------------------------------------------------------
       GWFMNWDAT(Igrid)%WELL2=>WELL2
       GWFMNWDAT(Igrid)%MNWSITE=>MNWSITE
 C
-      END SUBROUTINE SGWF2MNW7PSV
+      END SUBROUTINE SGWF2MNW1PSV

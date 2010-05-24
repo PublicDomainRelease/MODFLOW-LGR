@@ -1,86 +1,99 @@
-
-
-
-U.S. Geological Survey (USGS)                     modflow-lgr(1)
-
-NOTE: Any use of trade, product or firm names is for descriptive
-      purposes only and does not imply endorsement by the U.S.
-      Government.
-
-NAME
-     modflow-lgr - MODFLOW with Local Grid Refinement
-
-ABSTRACT
-
-     MODFLOW is a three-dimensional finite-difference ground-
-     water model that was first published in 1984.  It has a modular
-     structure that allows it to be easily modified to adapt the
-     code for a particular application.  Many new capabilities have
-     been added to the original model.  Mehl and Hill (2005) document
-     an enhancement to MODFLOW, which is called Local Grid Refinement
-     (LGR).  The combined code is called MODFLOW-LGR.  MODFLOW-LGR
-     allows a small part of a larger model domain to be refined
-     without refining the entire model.
-
-
-HISTORY
-
-      MODFLOW-LGR Version 1.1.02 06/18/2009 - Fixed a bug that caused the 
+
+
+
+U.S. Geological Survey (USGS)                     modflow-lgr(1)
+
+NOTE: Any use of trade, product or firm names is for descriptive
+      purposes only and does not imply endorsement by the U.S.
+      Government.
+
+NAME
+     modflow-lgr - MODFLOW with Local Grid Refinement
+
+ABSTRACT
+
+     MODFLOW is a three-dimensional finite-difference groundwater
+     model that was first published in 1984.  It has a modular
+     structure that allows it to be easily modified to adapt the
+     code for a particular application.  Many new capabilities have
+     been added to the original model.  Mehl and Hill (2005) document
+     an enhancement to MODFLOW, which is called Local Grid Refinement
+     (LGR).  The combined code is called MODFLOW-LGR.  MODFLOW-LGR
+     allows smaller parts of a larger model domain to be refined
+     without refining the entire model.  Mehl and Hill (2007)
+     expanded the original scope of MODFLOW-LGR to include multiple
+     areas of refinement within a single model domain.
+
+
+HISTORY
+
+      MODFLOW-LGR Version 1.2 05/18/2010 - Added support for routing 
+         of water across parent and child grids with streamflow routing
+         simulated by the SFR Package.  See Mehl and Hill (2010) for 
+         complete details.  Fixed a bug that prevented BFH from running
+         stand-alone simulations.
+         This version is based on MODFLOW-2005 release 1.8.
+   
+     MODFLOW-LGR Version 1.1.02 06/18/2009 - Fixed a bug that caused the 
          program to halt with a message indicating incorrect vertical 
          grid alignment when the grids were aligned correctly.
-         This version is based on MODFLOW-2005 release 1.6.02.
+         This version is based on MODFLOW-2005 release 1.6.02.
 
-      MODFLOW-LGR Version 1.1.1 04/15/2008 - Fixed a bug that caused
-         incorrect printing of head at the location of maximum head 
-         change in simulations with multiple children.
-
-      MODFLOW-LGR Version 1.1 07/15/2007 - Added support for multiple
-         non-overlapping child grids.
-
-      MODFLOW-LGR Version 1.0 03/01/2006 - Initial release.
-
-
-DATA REQUIREMENTS
-     In order to use the LGR capability in MODFLOW-LGR, two model
-     datasets are required.  The first dataset defines the larger
-     model domain, and the second defines the smaller part to be
-     refined.
-
-
-SYSTEM REQUIREMENTS
-
-     MODFLOW-LGR is written primarily in Fortran 90. Only the GMG
-     solver package is written in C.  The code has been used on
-     UNIX-based computers and personal computers running various
-     forms of the Microsoft Windows operating system.
-
-
-DOCUMENTATION
-
-  The basic documentation for MODFLOW-2005 (on which LGR is based) is
-  contained in:
-
-Harbaugh, A.W., 2005, MODFLOW-2005, the U.S. Geological Survey modular
-ground-water model -- the Ground-Water Flow Process: U.S. Geological Survey
-Techniques and Methods 6-A16, variously p.
-
-  The addition of LGR to MODFLOW-2005 is documented in:
-
-Mehl, S.W. and Hill, M.C., 2005, MODFLOW-2005, the U.S. Geological Survey modular
-ground-water model -- documentation of shared node local grid refinement (LGR)
-and the Boundary Flow and Head (BFH) Package: U.S. Geological Survey Techniques
-and Methods 6-A12, 68 p.
-
-Mehl, S.W. and Hill, M.C., 2007, MODFLOW-2005, the U.S. Geological Survey modular
-ground-water model -- documentation of the multiple-refined-areas capability of
-local grid refinement (LGR) and the Boundary Flow and Head (BFH) Package: U.S.
-Geological Survey Techniques and Methods 6-A21
-
-
-CONTACT
-    U.S. Geological Survey
-    Office of Ground Water
-    411 National Center
-    Reston, VA 20192
-
-    http://water.usgs.gov/ogw/
+      MODFLOW-LGR Version 1.1.1 04/15/2008 - Fixed a bug that caused
+         incorrect printing of head at the location of maximum head 
+         change in simulations with multiple children.
+
+      MODFLOW-LGR Version 1.1 07/15/2007 - Added support for multiple
+         non-overlapping child grids.
+
+      MODFLOW-LGR Version 1.0 03/01/2006 - Initial release.
+
+
+DATA REQUIREMENTS
+     In order to use the LGR capability in MODFLOW-LGR, two model
+     datasets are required.  The first dataset defines the larger
+     model domain, and the second defines the smaller part to be
+     refined.
+
+
+SYSTEM REQUIREMENTS
+
+     MODFLOW-LGR is written primarily in Fortran 90. Only the GMG
+     solver package is written in C.  The code has been used on
+     UNIX-based computers and personal computers running various
+     forms of the Microsoft Windows operating system.
+
+
+DOCUMENTATION
+
+  The basic documentation for MODFLOW-2005 (on which LGR is based) is
+  contained in:
+
+Harbaugh, A.W., 2005, MODFLOW-2005, the U.S. Geological Survey modular
+ground-water model -- the Ground-Water Flow Process: U.S. Geological Survey
+Techniques and Methods 6-A16, variously p.
+
+  The addition of LGR to MODFLOW-2005 is documented in:
+
+Mehl, S.W. and Hill, M.C., 2005, MODFLOW-2005, the U.S. Geological Survey modular
+ground-water model -- documentation of shared node local grid refinement (LGR)
+and the Boundary Flow and Head (BFH) Package: U.S. Geological Survey Techniques
+and Methods 6-A12, 68 p.
+
+Mehl, S.W. and Hill, M.C., 2007, MODFLOW-2005, the U.S. Geological Survey modular
+ground-water model -- documentation of the multiple-refined-areas capability of
+local grid refinement (LGR) and the Boundary Flow and Head (BFH) Package: U.S.
+Geological Survey Techniques and Methods 6-A21
+
+Mehl, S.W. and Hill, M.C., 2010, MODFLOW-LGR -- Modifications to the Streamflow-
+Routing Package (SFR2) to Route Streamflow through Locally Refined Grids: U.S.
+Geological Survey Techniques and Methods 6-A34, 15 p.
+
+
+CONTACT
+    U.S. Geological Survey
+    Office of Ground Water
+    411 National Center
+    Reston, VA 20192
+
+    http://water.usgs.gov/ogw/

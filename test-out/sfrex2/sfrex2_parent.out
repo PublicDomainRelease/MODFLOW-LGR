@@ -1,46 +1,51 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                            VERSION 1.1.02 06/18/2009
+                            VERSION 1.2.0  05/18/2010
 
- LIST FILE: ex3_parent.out
+ LIST FILE: sfrex2_parent.out
                          UNIT   16
 
- OPENING ex3_parent.ba6
+ OPENING sfrex2_parent.ba6
  FILE TYPE:BAS6   UNIT    1   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
- OPENING ex3_parent.bc6
+ OPENING sfrex2_parent.bc6
  FILE TYPE:BCF6   UNIT   11   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
- OPENING ex3_parent.dis
+ OPENING sfrex2_parent.dis
  FILE TYPE:DIS   UNIT    9   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
- OPENING ex3_parent.oc
+ OPENING sfrex2_parent.oc
  FILE TYPE:OC   UNIT   10   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
- OPENING ex3_parent.hed
- FILE TYPE:DATA(BINARY)   UNIT   30   STATUS:UNKNOWN
- FORMAT:BINARY                 ACCESS:SEQUENTIAL          
-
- OPENING ex3_parent.flw
- FILE TYPE:DATA(BINARY)   UNIT   40   STATUS:UNKNOWN
- FORMAT:BINARY                 ACCESS:SEQUENTIAL          
-
- OPENING ex3_parent.pcg
+ OPENING sfrex2_parent.pcg
  FILE TYPE:PCG   UNIT   12   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
- OPENING ex3_parent.riv
- FILE TYPE:RIV   UNIT   15   STATUS:OLD    
+ OPENING sfrex2_parent.sfr
+ FILE TYPE:SFR   UNIT   15   STATUS:OLD    
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
-#DATA 70 ex3_parent_bfh.hed                                                                                                                                                                                                                                                                                 
-#DATA 71 ex3_parent_bfh.flw                                                                                                                                                                                                                                                                                 
 
- OPENING ex3_parent.bot
+ OPENING sfrex2_parent.bot
  FILE TYPE:DATA   UNIT   50   STATUS:UNKNOWN
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+#                                                                                                                                                                                                                                                                                                           
+
+ OPENING sfrex2_parent.hed
+ FILE TYPE:DATA(BINARY)   UNIT   30   STATUS:UNKNOWN
+ FORMAT:BINARY                 ACCESS:SEQUENTIAL          
+
+ OPENING sfrex2_parent.flw
+ FILE TYPE:DATA(BINARY)   UNIT   40   STATUS:UNKNOWN
+ FORMAT:BINARY                 ACCESS:SEQUENTIAL          
+#DATA 70 sfrex2_parent_bfh.hed                                                                                                                                                                                                                                                                              
+#DATA 71 sfrex2_parent_bfh.flw                                                                                                                                                                                                                                                                              
+
+ OPENING sfrex2_parent_sfr.out
+ FILE TYPE:DATA   UNIT   19   STATUS:UNKNOWN
  FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
 
  BAS -- BASIC PACKAGE, VERSION 7, 5/2/2005 INPUT READ FROM UNIT    1
@@ -164,7 +169,7 @@
  CALCULATE FLOW BETWEEN ADJACENT CONSTANT-HEAD CELLS
 
  OPENING FILE ON UNIT   99:
- ex3_parent.ib                                                                                                                                                                                           
+ sfrex2_parent.ib                                                                                                                                                                                        
 
 
 
@@ -190,7 +195,7 @@
   15    -1    1    1    1    1    1    1    1    1    1    1    1    1    1   -1
 
  OPENING FILE ON UNIT   99:
- ex3_parent.ib                                                                                                                                                                                           
+ sfrex2_parent.ib                                                                                                                                                                                        
 
 
 
@@ -216,7 +221,7 @@
   15    -1    1    1    1    1    1    1    1    1    1    1    1    1    1   -1
 
  OPENING FILE ON UNIT   99:
- ex3_parent.ib                                                                                                                                                                                           
+ sfrex2_parent.ib                                                                                                                                                                                        
 
 
 
@@ -241,10 +246,10 @@
   14    -1    1    1    1    1    1    1    1    1    1    1    1    1    1   -1
   15    -1    1    1    1    1    1    1    1    1    1    1    1    1    1   -1
 
- AQUIFER HEAD WILL BE SET TO  -999.00     AT ALL NO-FLOW NODES (IBOUND=0).
+ AQUIFER HEAD WILL BE SET TO  -9.9900     AT ALL NO-FLOW NODES (IBOUND=0).
 
  OPENING FILE ON UNIT   99:
- ex3_parent.shd                                                                                                                                                                                          
+ sfrex2_parent.shd                                                                                                                                                                                       
 
 
 
@@ -252,7 +257,7 @@
  READING ON UNIT   99 WITH FORMAT: (FREE)              
 
  OPENING FILE ON UNIT   99:
- ex3_parent.shd                                                                                                                                                                                          
+ sfrex2_parent.shd                                                                                                                                                                                       
 
 
 
@@ -260,7 +265,7 @@
  READING ON UNIT   99 WITH FORMAT: (FREE)              
 
  OPENING FILE ON UNIT   99:
- ex3_parent.shd                                                                                                                                                                                          
+ sfrex2_parent.shd                                                                                                                                                                                       
 
 
 
@@ -271,8 +276,8 @@
  HEAD PRINT FORMAT CODE IS   6    DRAWDOWN PRINT FORMAT CODE IS   0
  HEADS WILL BE SAVED ON UNIT   30    DRAWDOWNS WILL BE SAVED ON UNIT    0
 
- LGR -- LOCAL GRID REFINEMENT, VERSION 1.1, 11/10/2006
-        INPUT READ FOR MODEL  1 DEFINED BY NAME FILE ex3_parent.nam
+ LGR -- LOCAL GRID REFINEMENT, VERSION 1.2.0 05/18/2010
+        INPUT READ FOR MODEL  1 DEFINED BY NAME FILE sfrex2_parent.nam
 
  LOCAL GRID REFINEMENT IS ACTIVE FOR PARENT ONLY
 
@@ -300,39 +305,113 @@
 
     HYD. COND. ALONG ROWS =   1.00000     FOR LAYER   3
 
- RIV -- RIVER PACKAGE, VERSION 7, 5/2/2005 INPUT READ FROM UNIT   15
- #       CoverageX       Y
- #GMSCOMM      29507.2693272.3961
- No named parameters
- MAXIMUM OF     43 ACTIVE RIVER REACHES AT ONE TIME
- CELL-BY-CELL FLOWS WILL BE PRINTED WHEN ICBCFL NOT 0
- AUXILIARY RIVER VARIABLE: IFACE           
- AUXILIARY RIVER VARIABLE: CONDFACT        
- AUXILIARY RIVER VARIABLE: CELLGRP         
+ SFR7 -- STREAMFLOW ROUTING PACKAGE, VERSION 7.1.02, 06/29/2009
+         INPUT READ FROM UNIT  15
+ # MEANDERING STREAM--> ROUTING FROM PARENT TO CHILD THEN CHILD TO PARENT
+ # STEFFEN MEHL: 07/10/2009
+ AUXILIARY STREAM FLOW ROUTING VARIABLE: LGRGRID         
+ AUXILIARY STREAM FLOW ROUTING VARIABLE: LGRSEG          
 
 
-     0 River parameters
+ NUMBER OF STREAM REACHES IS   43
+
+ NUMBER OF STREAM SEGMENTS IS    3
+
+ NUMBER OF STREAM PARAMETERS IS    0
+
+ NUMBER OF STREAM SEGMENTS DEFINED USING PARAMETERS IS    0
+
+ MAXIMUM ERROR FOR STREAM LEAKAGE RATES IS  1.00E-04
+
+ CONSTANT FOR MANNINGS EQUATION IS  1.0000E+00
+
+
+
+ STREAM OUTPUT WILL BE WRITTEN TO FILE ON UNIT  19
+
+
+   STREAM NETWORK DESCRIPTION: 
+
+   LAYER    ROW    COL   SEGMENT   REACH     LENGTH
+                          NUMBER   NUMBER    IN CELL
+   --------------------------------------------------
+      1      1      2       1        1    6.5613E+01
+      1      2      2       1        2    7.2489E+01
+      1      3      2       1        3    8.1425E+01
+      1      3      3       1        4    3.5850E+01
+      1      4      3       1        5    7.5027E+01
+      1      5      3       1        6    9.0888E+01
+      1      5      4       1        7    7.7566E+01
+      1      6      4       1        8    7.4860E+01
+      1      7      4       2        1    5.6604E+01
+      1      7      3       2        2    6.1072E+01
+      1      8      3       2        3    7.2018E+01
+      1      9      3       2        4    8.4038E+01
+      1      9      4       2        5    6.9725E+01
+      1      8      4       2        6    1.0750E+02
+      1      8      5       2        7    1.1834E+02
+      1      9      5       2        8    1.0632E+02
+      1      9      4       2        9    5.8971E+01
+      1     10      4       2       10    7.8229E+01
+      1     11      4       2       11    1.1961E+02
+      1     11      5       2       12    7.6940E+01
+      1     10      5       2       13    7.7807E+01
+      1      9      5       2       14    2.6219E+01
+      1      9      6       2       15    4.5779E+01
+      1      8      6       2       16    7.0136E+01
+      1      7      6       2       17    1.0178E+02
+      1      7      7       2       18    9.4653E+01
+      1      8      7       2       19    7.4320E+01
+      1      9      7       2       20    7.9365E+01
+      1     10      7       2       21    7.1140E+01
+      1     11      7       2       22    1.0617E+02
+      1     11      8       2       23    3.9795E+01
+      1     10      8       2       24    8.1773E+01
+      1      9      8       2       25    1.2843E+02
+      1      9      9       3        1    1.2045E+02
+      1      9     10       3        2    1.1231E+02
+      1      9     11       3        3    1.0900E+02
+      1      9     12       3        4    9.1235E+01
+      1      8     12       3        5    6.7486E+01
+      1      8     13       3        6    2.4603E+01
+      1      7     13       3        7    9.7548E+01
+      1      7     14       3        8    1.0498E+02
+      1      7     15       3        9    8.9454E+00
+      1      6     15       3       10    9.2638E+01
+
+ *** WARNING *** STREAM SEGMENT    3 REACH NO.    9 IS CONNECTED TO A CONSTANT HEAD CELL.
+ IBOUND ARRAY VALUE IS   -1 AT LAYER    1; ROW    7; COLUMN   15.
+ NO STREAM LEAKAGE WILL BE ALLOWED-- SUGGEST REMOVING STREAM REACH FROM CELL OR CHANGE CELL TO VARIABLE HEAD.
+
+
+ *** WARNING *** STREAM SEGMENT    3 REACH NO.   10 IS CONNECTED TO A CONSTANT HEAD CELL.
+ IBOUND ARRAY VALUE IS   -1 AT LAYER    1; ROW    6; COLUMN   15.
+ NO STREAM LEAKAGE WILL BE ALLOWED-- SUGGEST REMOVING STREAM REACH FROM CELL OR CHANGE CELL TO VARIABLE HEAD.
+
+
+
+
 
  PCG -- CONJUGATE-GRADIENT SOLUTION PACKAGE, VERSION 7, 5/2/2005
- MAXIMUM OF     25 CALLS OF SOLUTION ROUTINE
- MAXIMUM OF    500 INTERNAL ITERATIONS PER CALL TO SOLUTION ROUTINE
+ MAXIMUM OF   2525 CALLS OF SOLUTION ROUTINE
+ MAXIMUM OF      1 INTERNAL ITERATIONS PER CALL TO SOLUTION ROUTINE
  MATRIX PRECONDITIONING TYPE :    1
 
 
 
                                     SOLUTION BY THE CONJUGATE-GRADIENT METHOD
                                    -------------------------------------------
-                    MAXIMUM NUMBER OF CALLS TO PCG ROUTINE =       25
-                        MAXIMUM ITERATIONS PER CALL TO PCG =      500
+                    MAXIMUM NUMBER OF CALLS TO PCG ROUTINE =     2525
+                        MAXIMUM ITERATIONS PER CALL TO PCG =        1
                                MATRIX PRECONDITIONING TYPE =        1
         RELAXATION FACTOR (ONLY USED WITH PRECOND. TYPE 1) =    0.10000E+01
  PARAMETER OF POLYNOMIAL PRECOND. = 2 (2) OR IS CALCULATED :        0
-                         HEAD CHANGE CRITERION FOR CLOSURE =    0.10000E-08
-                     RESIDUAL CHANGE CRITERION FOR CLOSURE =    0.10000E-08
+                         HEAD CHANGE CRITERION FOR CLOSURE =    0.10000E-07
+                     RESIDUAL CHANGE CRITERION FOR CLOSURE =    0.10000E-07
             PCG HEAD AND RESIDUAL CHANGE PRINTOUT INTERVAL =      999
      PRINTING FROM SOLVER IS LIMITED(1) OR SUPPRESSED (>1) =        1
-                            STEADY-STATE DAMPING PARAMETER =    0.10000E+01
-                               TRANSIENT DAMPING PARAMETER =    0.10000E+01
+                            STEADY-STATE DAMPING PARAMETER =    0.50000E+00
+                               TRANSIENT DAMPING PARAMETER =    0.50000E+00
 1
                             STRESS PERIOD NO.    1, LENGTH =   1.000000    
                             -----------------------------------------------
@@ -343,103 +422,47 @@
 
                             INITIAL TIME STEP SIZE =   1.000000    
 
- REACH NO.  LAYER   ROW   COL     STAGE      CONDUCTANCE     BOTTOM EL.         IFACE           CONDFACT        CELLGRP         
- -------------------------------------------------------------------------------------------------------------------------------
-      1      1      1      2       49.95           131.2           49.45           6.000           65.61           1.000    
-      2      1      2      2       49.85           145.0           49.35           6.000           72.49           2.000    
-      3      1      3      2       49.74           162.8           49.24           6.000           81.42           3.000    
-      4      1      3      3       49.65           71.70           49.15           6.000           35.85           4.000    
-      5      1      4      3       49.57           150.1           49.07           6.000           75.03           5.000    
-      6      1      5      3       49.45           181.8           48.95           6.000           90.89           6.000    
-      7      1      5      4       49.33           155.1           48.83           6.000           77.57           7.000    
-      8      1      6      4       49.21           74.86           48.71           6.000           74.86           8.000    
-      9      1      7      4       49.12           113.2           48.62           6.000           56.60           11.00    
-     10      1      7      3       49.03           122.1           48.53           6.000           61.07           10.00    
-     11      1      8      3       48.93           144.0           48.43           6.000           72.02           17.00    
-     12      1      9      3       48.82           168.1           48.32           6.000           84.04           24.00    
-     13      1      9      4       48.71           139.5           48.21           6.000           69.73           26.00    
-     14      1      8      4       48.58           215.0           48.08           6.000           107.5           18.00    
-     15      1      8      5       48.41           236.7           47.91           6.000           118.3           19.00    
-     16      1      9      5       48.25           212.6           47.75           6.000           106.3           28.00    
-     17      1      9      4       48.12           117.9           47.62           6.000           58.97           25.00    
-     18      1     10      4       48.02           156.5           47.52           6.000           78.23           36.00    
-     19      1     11      4       47.88           239.2           47.38           6.000           119.6           40.00    
-     20      1     11      5       47.73           153.9           47.23           6.000           76.94           41.00    
-     21      1     10      5       47.62           155.6           47.12           6.000           77.81           37.00    
-     22      1      9      5       47.55           52.44           47.05           6.000           26.22           27.00    
-     23      1      9      6       47.49           91.56           46.99           6.000           45.78           29.00    
-     24      1      8      6       47.41           140.3           46.91           6.000           70.14           20.00    
-     25      1      7      6       47.28           203.6           46.78           6.000           101.8           12.00    
-     26      1      7      7       47.14           189.3           46.64           6.000           94.65           13.00    
-     27      1      8      7       47.01           148.6           46.51           6.000           74.32           21.00    
-     28      1      9      7       46.90           158.7           46.40           6.000           79.36           30.00    
-     29      1     10      7       46.79           142.3           46.29           6.000           71.14           38.00    
-     30      1     11      7       46.66           212.3           46.16           6.000           106.2           42.00    
-     31      1     11      8       46.55           79.59           46.05           6.000           39.79           43.00    
-     32      1     10      8       46.46           163.5           45.96           6.000           81.77           39.00    
-     33      1      9      8       46.31           256.9           45.81           6.000           128.4           31.00    
-     34      1      9      9       46.13           120.4           45.63           6.000           120.4           32.00    
-     35      1      9     10       45.96           224.6           45.46           6.000           112.3           33.00    
-     36      1      9     11       45.79           218.0           45.29           6.000           109.0           34.00    
-     37      1      9     12       45.65           182.5           45.15           6.000           91.23           35.00    
-     38      1      8     12       45.53           135.0           45.03           6.000           67.49           22.00    
-     39      1      8     13       45.46           49.21           44.96           6.000           24.60           23.00    
-     40      1      7     13       45.37           195.1           44.87           6.000           97.55           14.00    
-     41      1      7     14       45.23           210.0           44.73           6.000           105.0           15.00    
-     42      1      7     15       45.14           17.89           44.64           6.000           8.945           16.00    
-     43      1      6     15       45.07           185.3           44.57           6.000           92.64           9.000    
 
-     43 RIVER REACHES
+
+ CLASSIFICATION & COUNT OF STREAM SEGMENTS BASED ON SOURCE OF INFLOW:
+
+                HEADWATER     DIVERSION     RECEIVES TRIBUTARY FLOW
+                ---------     ---------     -----------------------
+                     1              0               2
+
+
+
+
  
  SOLVING FOR HEAD 
 
 
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   129 TOTAL ITERATIONS
+   100 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+   100 TOTAL ITERATIONS
 
 
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   114 TOTAL ITERATIONS
+    82 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    82 TOTAL ITERATIONS
 
 
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   115 TOTAL ITERATIONS
-
-
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   107 TOTAL ITERATIONS
-
-
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-    84 TOTAL ITERATIONS
-
-
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   102 TOTAL ITERATIONS
-
-
-     6 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-   101 TOTAL ITERATIONS
-
-
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-    79 TOTAL ITERATIONS
-
-
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-    85 TOTAL ITERATIONS
-
-
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-    84 TOTAL ITERATIONS
-
-
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    73 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
     73 TOTAL ITERATIONS
 
 
-     5 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
-    78 TOTAL ITERATIONS
+    79 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    79 TOTAL ITERATIONS
+
+
+    65 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    65 TOTAL ITERATIONS
+
+
+    69 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    69 TOTAL ITERATIONS
+
+
+    68 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+    68 TOTAL ITERATIONS
 
  OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   1
     PRINT HEAD FOR ALL LAYERS
@@ -450,87 +473,69 @@
  UBUDSV SAVING "FLOW RIGHT FACE " ON UNIT 40 AT TIME STEP  1, STRESS PERIOD    1
  UBUDSV SAVING "FLOW FRONT FACE " ON UNIT 40 AT TIME STEP  1, STRESS PERIOD    1
  UBUDSV SAVING "FLOW LOWER FACE " ON UNIT 40 AT TIME STEP  1, STRESS PERIOD    1
-
-    RIVER LEAKAGE   PERIOD    1   STEP   1
- REACH      1   LAYER   1   ROW     1   COL     2   RATE    18.3828    
- REACH      2   LAYER   1   ROW     2   COL     2   RATE    12.8304    
- REACH      3   LAYER   1   ROW     3   COL     2   RATE    6.68251    
- REACH      4   LAYER   1   ROW     3   COL     3   RATE    13.0784    
- REACH      5   LAYER   1   ROW     4   COL     3   RATE    14.6473    
- REACH      6   LAYER   1   ROW     5   COL     3   RATE    8.75730    
- REACH      7   LAYER   1   ROW     5   COL     4   RATE    28.9066    
- REACH      8   LAYER   1   ROW     6   COL     4   RATE    13.9656    
- REACH     34   LAYER   1   ROW     9   COL     9   RATE   -7.86616    
- REACH     35   LAYER   1   ROW     9   COL    10   RATE   -7.12228    
- REACH     36   LAYER   1   ROW     9   COL    11   RATE   -1.67775    
- REACH     37   LAYER   1   ROW     9   COL    12   RATE    6.39337    
- REACH     38   LAYER   1   ROW     8   COL    12   RATE   -5.62295    
- REACH     39   LAYER   1   ROW     8   COL    13   RATE    4.39950    
- REACH     40   LAYER   1   ROW     7   COL    13   RATE   0.329501    
- REACH     41   LAYER   1   ROW     7   COL    14   RATE    13.6925    
 1
               HEAD IN LAYER   1 AT END OF TIME STEP   1 IN STRESS PERIOD    1
   ---------------------------------------------------------------------------
 
            1       2       3       4       5       6       7       8       9      10      11      12      13      14      15
  ...........................................................................................................................
-   1  49.7500 49.8118 49.3759 48.9233 48.4432 47.9646 47.5098 47.0881 46.6997 46.3402 46.0030 45.6813 45.3685 45.0591 44.7500
-   2  49.7500 49.7621 49.3930 48.9354 48.4420 47.9535 47.4948 47.0732 46.6868 46.3302 45.9963 45.6775 45.3671 45.0591 44.7500
-   3  49.7500 49.6967 49.4694 48.9637 48.4381 47.9287 47.4630 47.0423 46.6606 46.3103 45.9828 45.6701 45.3648 45.0597 44.7500
-   4  49.7500 49.6186 49.4729 49.0078 48.4265 47.8840 47.4107 46.9939 46.6205 46.2803 45.9628 45.6595 45.3627 45.0625 44.7500
-   5  49.7500 49.5616 49.4007 49.1390 48.3981 47.8077 47.3329 46.9260 46.5656 46.2401 45.9367 45.6461 45.3622 45.0708 44.7500
-   6  49.7500 49.4975 49.2572 49.0270 48.3131 47.6784 47.2239 46.8372 46.4949 46.1902 45.9051 45.6300 45.3652 45.0931 44.7500
-   7  49.7500 49.4353 ******* ******* ******* ******* ******* ******* 46.4101 46.1317 45.8692 45.6092 45.3727 45.1607 44.7500
-   8  49.7500 49.3732 ******* ******* ******* ******* ******* ******* 46.3083 46.0659 45.8322 45.5732 45.3746 45.0898 44.7500
-   9  49.7500 49.3178 ******* ******* ******* ******* ******* ******* 46.1930 45.9887 45.8024 45.6128 45.3404 45.0590 44.7500
-  10  49.7500 49.2732 ******* ******* ******* ******* ******* ******* 46.2418 46.0190 45.8018 45.5766 45.3175 45.0415 44.7500
-  11  49.7500 49.2466 ******* ******* ******* ******* ******* ******* 46.2794 46.0393 45.8032 45.5617 45.3028 45.0310 44.7500
-  12  49.7500 49.2383 48.7030 48.1546 47.7493 47.3347 46.9137 46.5904 46.3150 46.0579 45.8072 45.5551 45.2942 45.0248 44.7500
-  13  49.7500 49.2408 48.7257 48.2215 47.7861 47.3713 46.9766 46.6403 46.3457 46.0737 45.8121 45.5527 45.2895 45.0214 44.7500
-  14  49.7500 49.2452 48.7424 48.2565 47.8132 47.3987 47.0133 46.6716 46.3665 46.0850 45.8163 45.5521 45.2871 45.0195 44.7500
-  15  49.7500 49.2481 48.7510 48.2721 47.8271 47.4129 47.0305 46.6866 46.3769 46.0909 45.8186 45.5522 45.2862 45.0187 44.7500
+   1  49.7500 49.5871 49.2071 48.8309 48.4533 48.0773 47.7039 47.3331 46.9642 46.5962 46.2284 45.8601 45.4910 45.1209 44.7500
+   2  49.7500 49.5779 49.2093 48.8316 48.4526 48.0760 47.7028 47.3323 46.9637 46.5960 46.2285 45.8605 45.4915 45.1212 44.7500
+   3  49.7500 49.5571 49.2220 48.8331 48.4506 48.0732 47.7003 47.3306 46.9627 46.5958 46.2289 45.8613 45.4924 45.1218 44.7500
+   4  49.7500 49.5043 49.2222 48.8332 48.4465 48.0684 47.6964 47.3279 46.9614 46.5956 46.2295 45.8626 45.4940 45.1230 44.7500
+   5  49.7500 49.4768 49.1995 48.8379 48.4385 48.0608 47.6908 47.3244 46.9596 46.5954 46.2306 45.8646 45.4966 45.1250 44.7500
+   6  49.7500 49.4538 49.1512 48.8117 48.4224 48.0495 47.6835 47.3202 46.9577 46.5954 46.2321 45.8675 45.5008 45.1286 44.7500
+   7  49.7500 49.4360 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 46.9558 46.5958 46.2342 45.8712 45.5085 45.1363 44.7500
+   8  49.7500 49.4220 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 46.9544 46.5969 46.2371 45.8758 45.5060 45.1299 44.7500
+   9  49.7500 49.4117 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 46.9563 46.5997 46.2419 45.8784 45.5013 45.1265 44.7500
+  10  49.7500 49.4044 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 46.9515 46.5925 46.2323 45.8677 45.4966 45.1239 44.7500
+  11  49.7500 49.3998 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 -9.9900 46.9454 46.5865 46.2257 45.8612 45.4926 45.1219 44.7500
+  12  49.7500 49.3976 49.0401 48.6874 48.3459 47.9963 47.6433 47.2915 46.9395 46.5815 46.2207 45.8567 45.4895 45.1203 44.7500
+  13  49.7500 49.3971 49.0431 48.6922 48.3445 47.9943 47.6423 47.2896 46.9355 46.5777 46.2171 45.8535 45.4872 45.1191 44.7500
+  14  49.7500 49.3972 49.0444 48.6933 48.3438 47.9931 47.6411 47.2880 46.9331 46.5753 46.2147 45.8514 45.4858 45.1184 44.7500
+  15  49.7500 49.3973 49.0449 48.6937 48.3435 47.9926 47.6405 47.2871 46.9319 46.5741 46.2136 45.8505 45.4851 45.1180 44.7500
 1
               HEAD IN LAYER   2 AT END OF TIME STEP   1 IN STRESS PERIOD    1
   ---------------------------------------------------------------------------
 
            1       2       3       4       5       6       7       8       9      10      11      12      13      14      15
  ...........................................................................................................................
-   1  49.7500 49.7845 49.3752 48.9233 48.4431 47.9645 47.5098 47.0881 46.6997 46.3402 46.0030 45.6814 45.3685 45.0591 44.7500
-   2  49.7500 49.7428 49.3918 48.9353 48.4420 47.9535 47.4948 47.0731 46.6868 46.3302 45.9963 45.6775 45.3672 45.0591 44.7500
-   3  49.7500 49.6863 49.4502 48.9631 48.4380 47.9287 47.4629 47.0423 46.6606 46.3103 45.9828 45.6701 45.3649 45.0597 44.7500
-   4  49.7500 49.6178 49.4513 49.0055 48.4263 47.8839 47.4107 46.9939 46.6205 46.2803 45.9628 45.6595 45.3627 45.0625 44.7500
-   5  49.7500 49.5614 49.3869 49.0978 48.3972 47.8076 47.3329 46.9260 46.5656 46.2401 45.9368 45.6461 45.3622 45.0708 44.7500
-   6  49.7500 49.4978 49.2569 49.0061 48.3139 47.6788 47.2243 46.8373 46.4950 46.1903 45.9051 45.6300 45.3651 45.0923 44.7500
-   7  49.7500 49.4353 49.1241 48.8113 48.2204 47.4774 47.1019 46.7279 46.4099 46.1317 45.8693 45.6095 45.3717 45.1416 44.7500
-   8  49.7500 49.3733 48.9783 48.6144 48.2010 47.3976 46.9927 46.5865 46.3081 46.0663 45.8325 45.5806 45.3685 45.0889 44.7500
-   9  49.7500 49.3179 48.8651 48.4270 48.0663 47.3649 46.8536 46.4272 46.2040 45.9990 45.8048 45.6043 45.3400 45.0590 44.7500
-  10  49.7500 49.2734 48.7463 48.1406 47.8205 47.3192 46.7827 46.4585 46.2420 46.0194 45.8019 45.5763 45.3175 45.0415 44.7500
-  11  49.7500 49.2469 48.6931 48.0444 47.7295 47.3072 46.7988 46.5212 46.2794 46.0394 45.8032 45.5617 45.3029 45.0310 44.7500
-  12  49.7500 49.2383 48.7031 48.1549 47.7494 47.3348 46.9139 46.5906 46.3152 46.0579 45.8072 45.5551 45.2942 45.0249 44.7500
-  13  49.7500 49.2407 48.7256 48.2215 47.7861 47.3713 46.9766 46.6403 46.3458 46.0737 45.8121 45.5527 45.2895 45.0214 44.7500
-  14  49.7500 49.2452 48.7423 48.2565 47.8132 47.3987 47.0133 46.6716 46.3665 46.0850 45.8163 45.5521 45.2872 45.0195 44.7500
-  15  49.7500 49.2480 48.7510 48.2720 47.8271 47.4129 47.0305 46.6866 46.3769 46.0909 45.8187 45.5522 45.2863 45.0188 44.7500
+   1  49.7500 49.5761 49.2069 48.8309 48.4533 48.0773 47.7039 47.3331 46.9641 46.5962 46.2284 45.8601 45.4910 45.1209 44.7500
+   2  49.7500 49.5676 49.2089 48.8316 48.4526 48.0760 47.7028 47.3323 46.9637 46.5960 46.2285 45.8605 45.4915 45.1212 44.7500
+   3  49.7500 49.5479 49.2178 48.8330 48.4506 48.0732 47.7003 47.3305 46.9627 46.5958 46.2289 45.8613 45.4924 45.1218 44.7500
+   4  49.7500 49.5038 49.2152 48.8328 48.4464 48.0684 47.6964 47.3279 46.9614 46.5956 46.2295 45.8626 45.4940 45.1230 44.7500
+   5  49.7500 49.4767 49.1932 48.8330 48.4384 48.0608 47.6908 47.3244 46.9596 46.5954 46.2306 45.8646 45.4966 45.1250 44.7500
+   6  49.7500 49.4539 49.1505 48.8055 48.4225 48.0498 47.6836 47.3202 46.9577 46.5954 46.2321 45.8674 45.5008 45.1286 44.7500
+   7  49.7500 49.4361 49.1126 48.7591 48.4016 48.0410 47.6776 47.3152 46.9558 46.5958 46.2342 45.8712 45.5071 45.1345 44.7500
+   8  49.7500 49.4220 49.0908 48.7443 48.3814 48.0330 47.6675 47.3102 46.9542 46.5968 46.2370 45.8751 45.5054 45.1298 44.7500
+   9  49.7500 49.4117 49.0694 48.7297 48.3693 48.0151 47.6742 47.3323 46.9557 46.5987 46.2404 45.8766 45.5013 45.1265 44.7500
+  10  49.7500 49.4044 49.0521 48.7334 48.3671 48.0014 47.6639 47.3140 46.9515 46.5924 46.2322 45.8677 45.4966 45.1239 44.7500
+  11  49.7500 49.3998 49.0445 48.7336 48.3714 47.9953 47.6605 47.3052 46.9453 46.5865 46.2257 45.8612 45.4926 45.1219 44.7500
+  12  49.7500 49.3976 49.0403 48.6901 48.3463 47.9962 47.6436 47.2917 46.9395 46.5815 46.2207 45.8567 45.4895 45.1203 44.7500
+  13  49.7500 49.3971 49.0431 48.6923 48.3446 47.9943 47.6423 47.2896 46.9355 46.5777 46.2171 45.8535 45.4872 45.1191 44.7500
+  14  49.7500 49.3972 49.0444 48.6933 48.3438 47.9931 47.6411 47.2880 46.9331 46.5753 46.2147 45.8514 45.4858 45.1184 44.7500
+  15  49.7500 49.3973 49.0449 48.6937 48.3435 47.9926 47.6405 47.2871 46.9319 46.5741 46.2136 45.8505 45.4851 45.1180 44.7500
 1
               HEAD IN LAYER   3 AT END OF TIME STEP   1 IN STRESS PERIOD    1
   ---------------------------------------------------------------------------
 
            1       2       3       4       5       6       7       8       9      10      11      12      13      14      15
  ...........................................................................................................................
-   1  49.7500 49.7713 49.3747 48.9232 48.4431 47.9645 47.5098 47.0881 46.6997 46.3402 46.0030 45.6814 45.3685 45.0591 44.7500
-   2  49.7500 49.7334 49.3908 48.9352 48.4419 47.9534 47.4948 47.0731 46.6868 46.3302 45.9963 45.6775 45.3672 45.0591 44.7500
-   3  49.7500 49.6811 49.4410 48.9627 48.4380 47.9286 47.4629 47.0423 46.6606 46.3103 45.9828 45.6701 45.3649 45.0597 44.7500
-   4  49.7500 49.6171 49.4409 49.0038 48.4262 47.8838 47.4106 46.9939 46.6205 46.2803 45.9628 45.6595 45.3627 45.0625 44.7500
-   5  49.7500 49.5611 49.3800 49.0782 48.3965 47.8075 47.3329 46.9260 46.5656 46.2401 45.9368 45.6461 45.3622 45.0708 44.7500
-   6  49.7500 49.4981 49.2558 48.9896 48.3143 47.6800 47.2252 46.8373 46.4951 46.1903 45.9052 45.6300 45.3651 45.0917 44.7500
-   7  49.7500 49.4354 49.1233 48.8040 48.2201 47.4924 47.1029 46.7277 46.4100 46.1318 45.8693 45.6097 45.3711 45.1328 44.7500
-   8  49.7500 49.3733 48.9805 48.6130 48.1859 47.4095 46.9918 46.5892 46.3093 46.0667 45.8327 45.5839 45.3658 45.0882 44.7500
-   9  49.7500 49.3180 48.8653 48.4242 48.0526 47.3690 46.8598 46.4421 46.2121 46.0039 45.8060 45.6004 45.3397 45.0589 44.7500
-  10  49.7500 49.2732 48.7483 48.1575 47.8241 47.3206 46.7929 46.4635 46.2423 46.0198 45.8020 45.5760 45.3175 45.0415 44.7500
-  11  49.7500 49.2467 48.6947 48.0634 47.7333 47.3077 46.8095 46.5228 46.2794 46.0394 45.8033 45.5617 45.3029 45.0310 44.7500
-  12  49.7500 49.2383 48.7036 48.1568 47.7503 47.3352 46.9140 46.5908 46.3153 46.0579 45.8073 45.5551 45.2942 45.0249 44.7500
-  13  49.7500 49.2407 48.7256 48.2215 47.7861 47.3713 46.9766 46.6403 46.3458 46.0737 45.8121 45.5527 45.2895 45.0214 44.7500
-  14  49.7500 49.2451 48.7423 48.2564 47.8132 47.3987 47.0133 46.6716 46.3665 46.0851 45.8163 45.5522 45.2872 45.0196 44.7500
-  15  49.7500 49.2480 48.7509 48.2720 47.8271 47.4129 47.0305 46.6867 46.3769 46.0910 45.8187 45.5522 45.2863 45.0188 44.7500
+   1  49.7500 49.5708 49.2067 48.8309 48.4533 48.0773 47.7039 47.3331 46.9641 46.5962 46.2284 45.8601 45.4910 45.1209 44.7500
+   2  49.7500 49.5626 49.2086 48.8316 48.4526 48.0760 47.7028 47.3323 46.9637 46.5960 46.2285 45.8605 45.4915 45.1212 44.7500
+   3  49.7500 49.5435 49.2157 48.8329 48.4506 48.0732 47.7003 47.3305 46.9627 46.5958 46.2289 45.8613 45.4924 45.1218 44.7500
+   4  49.7500 49.5034 49.2119 48.8325 48.4464 48.0684 47.6964 47.3279 46.9614 46.5956 46.2295 45.8626 45.4940 45.1230 44.7500
+   5  49.7500 49.4766 49.1902 48.8307 48.4384 48.0608 47.6908 47.3244 46.9596 46.5954 46.2306 45.8646 45.4966 45.1250 44.7500
+   6  49.7500 49.4539 49.1497 48.8036 48.4225 48.0501 47.6837 47.3202 46.9577 46.5954 46.2321 45.8674 45.5007 45.1285 44.7500
+   7  49.7500 49.4360 49.1127 48.7605 48.4016 48.0410 47.6775 47.3154 46.9558 46.5958 46.2342 45.8711 45.5065 45.1337 44.7500
+   8  49.7500 49.4221 49.0905 48.7441 48.3821 48.0322 47.6685 47.3115 46.9544 46.5968 46.2369 45.8748 45.5051 45.1297 44.7500
+   9  49.7500 49.4118 49.0698 48.7301 48.3700 48.0156 47.6733 47.3295 46.9558 46.5982 46.2396 45.8758 45.5012 45.1265 44.7500
+  10  49.7500 49.4045 49.0534 48.7320 48.3674 48.0025 47.6639 47.3141 46.9514 46.5924 46.2321 45.8676 45.4966 45.1239 44.7500
+  11  49.7500 49.3998 49.0457 48.7303 48.3696 47.9965 47.6594 47.3048 46.9454 46.5865 46.2257 45.8612 45.4926 45.1219 44.7500
+  12  49.7500 49.3976 49.0409 48.6924 48.3473 47.9961 47.6444 47.2923 46.9394 46.5815 46.2207 45.8567 45.4895 45.1203 44.7500
+  13  49.7500 49.3971 49.0431 48.6924 48.3446 47.9943 47.6423 47.2896 46.9355 46.5777 46.2171 45.8535 45.4872 45.1191 44.7500
+  14  49.7500 49.3972 49.0444 48.6933 48.3438 47.9931 47.6411 47.2880 46.9331 46.5753 46.2147 45.8514 45.4858 45.1184 44.7500
+  15  49.7500 49.3973 49.0449 48.6937 48.3435 47.9926 47.6405 47.2871 46.9319 46.5741 46.2136 45.8505 45.4851 45.1180 44.7500
 
  HEAD WILL BE SAVED ON UNIT   30 AT END OF TIME STEP   1, STRESS PERIOD    1
 1
@@ -543,24 +548,24 @@
            IN:                                      IN:
            ---                                      ---
              STORAGE =           0.0000               STORAGE =           0.0000
-       CONSTANT HEAD =         158.2266         CONSTANT HEAD =         158.2266
-       RIVER LEAKAGE =         142.0659         RIVER LEAKAGE =         142.0659
-    PARENT FLUX B.C. =          51.1392      PARENT FLUX B.C. =          51.1392
+       CONSTANT HEAD =         147.8465         CONSTANT HEAD =         147.8465
+      STREAM LEAKAGE =          43.3488        STREAM LEAKAGE =          43.3488
+    PARENT FLUX B.C. =          44.5196      PARENT FLUX B.C. =          44.5196
 
-            TOTAL IN =         351.4316              TOTAL IN =         351.4316
+            TOTAL IN =         235.7148              TOTAL IN =         235.7148
 
           OUT:                                     OUT:
           ----                                     ----
              STORAGE =           0.0000               STORAGE =           0.0000
-       CONSTANT HEAD =         154.0541         CONSTANT HEAD =         154.0541
-       RIVER LEAKAGE =          22.2891         RIVER LEAKAGE =          22.2891
-    PARENT FLUX B.C. =         175.5628      PARENT FLUX B.C. =         175.5628
+       CONSTANT HEAD =         185.8731         CONSTANT HEAD =         185.8731
+      STREAM LEAKAGE =           0.0000        STREAM LEAKAGE =           0.0000
+    PARENT FLUX B.C. =          49.8531      PARENT FLUX B.C. =          49.8531
 
-           TOTAL OUT =         351.9060             TOTAL OUT =         351.9060
+           TOTAL OUT =         235.7263             TOTAL OUT =         235.7263
 
-            IN - OUT =          -0.4744              IN - OUT =          -0.4744
+            IN - OUT =      -1.1475E-02              IN - OUT =      -1.1475E-02
 
- PERCENT DISCREPANCY =          -0.13     PERCENT DISCREPANCY =          -0.13
+ PERCENT DISCREPANCY =           0.00     PERCENT DISCREPANCY =           0.00
 
 
 

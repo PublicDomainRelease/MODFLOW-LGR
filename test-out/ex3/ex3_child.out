@@ -1,6 +1,6 @@
                                   MODFLOW-LGR      
       U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
-                            VERSION 1.1.02 06/18/2009
+                            VERSION 1.2.0  05/18/2010
 
  LIST FILE: ex3_child.out
                          UNIT   26
@@ -498,7 +498,7 @@
  HEAD PRINT FORMAT CODE IS   6    DRAWDOWN PRINT FORMAT CODE IS   0
  HEADS WILL BE SAVED ON UNIT   31    DRAWDOWNS WILL BE SAVED ON UNIT    0
 
- LGR -- LOCAL GRID REFINEMENT, VERSION 1.1, 11/10/2006
+ LGR -- LOCAL GRID REFINEMENT, VERSION 1.2.0 05/18/2010
         INPUT READ FOR MODEL  2 DEFINED BY NAME FILE ex3_child.nam
 
  LOCAL GRID REFINEMENT IS ACTIVE FOR CHILD ONLY
@@ -1226,6 +1226,6 @@
  TOTAL OUT TO PARENT =          51.1392   TOTAL OUT TO PARENT =          51.1392
 
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2009/05/29 15:06:20
- Elapsed run time:  0.328 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2010/05/24 13:38:22
+ Elapsed run time:  0.297 Seconds
 

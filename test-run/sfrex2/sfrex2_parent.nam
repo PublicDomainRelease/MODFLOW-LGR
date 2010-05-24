@@ -1,0 +1,14 @@
+LIST   16 sfrex2_parent.out
+BAS6    1 sfrex2_parent.ba6
+BCF6   11 sfrex2_parent.bc6
+DIS     9 sfrex2_parent.dis
+OC     10 sfrex2_parent.oc
+PCG    12 sfrex2_parent.pcg
+SFR    15 sfrex2_parent.sfr
+DATA   50 sfrex2_parent.bot
+#
+DATA(BINARY) 30 sfrex2_parent.hed
+DATA(BINARY) 40 sfrex2_parent.flw
+#DATA 70 sfrex2_parent_bfh.hed
+#DATA 71 sfrex2_parent_bfh.flw
+DATA  19 sfrex2_parent_sfr.out

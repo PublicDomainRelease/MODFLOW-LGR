@@ -107,7 +107,7 @@ C     ------------------------------------------------------------------
 C1------PRINT A MESSAGE IDENTIFYING LGR PACKAGE
       WRITE(IOUT,500)IGRID,TRIM(FNAME)
   500 FORMAT(1X,/1X,'LGR -- LOCAL GRID REFINEMENT',
-     &    ', VERSION 1.1, 11/10/2006',/8X,'INPUT READ FOR MODEL ',
+     &    ', VERSION 1.2.0 05/18/2010',/8X,'INPUT READ FOR MODEL ',
      &    I2,' DEFINED BY NAME FILE ',A)
 
       ZERO = 0.
@@ -2688,5 +2688,36 @@ C4B-----BOTTOM FACE - MOVE DOWN ROWS
   520   CONTINUE
       ENDIF
 C5----RETURN
+      RETURN
+      END
+C***********************************************************************
+C-----VERSION 1.0 20JULY2009 SGWF2LGR1INTERIOR
+      SUBROUTINE SGWF2LGR1INTERIOR(IGRID,NGRIDS,J,I,LINT)
+C     ******************************************************************
+C     DETERMINE IF THE CELL INDEX IS INSIDE OF THE PARENT AREA THAT IS
+C     COVERED BY A CHILD.
+C     ******************************************************************
+C
+C        SPECIFICATIONS:
+C     ------------------------------------------------------------------
+      USE LGRMODULE,   ONLY:LGRDAT
+      INTEGER LINT
+C     ------------------------------------------------------------------
+C1------INITIALIZE LINT TO ZERO.  
+      LINT = 0
+C
+C2------SEARCH THROUGH ALL SUBGRIDS AND DETERMINE IF CELL IS INSIDE AN 
+C2------AREA COVERED BY A CHILD.  IF SO, SET LINT=1 AND EXIT SEARCH. 
+C NOTE: WILL NOT WORK FOR IRREGULARLY SHAPED AREAS
+      DO LG = IGRID+1,NGRIDS
+        IF (I .GT. LGRDAT(LG)%NPRBEG .AND. I .LT. LGRDAT(LG)%NPREND 
+     &     .AND. 
+     &     J .GT. LGRDAT(LG)%NPCBEG .AND. J .LT. LGRDAT(LG)%NPCEND) THEN
+          LINT = 1
+          EXIT
+        ENDIF
+      END DO
+C
+C3------RETURN
       RETURN
       END

@@ -1,25 +1,24 @@
 readme.txt
 
 
-                      MODFLOW-LGR - Version: 1.1.02
-         Three-dimensional finite-difference ground-water flow model
+                      MODFLOW-LGR - Version: 1.2.0
+         Three-dimensional finite-difference groundwater flow model
 
 
 NOTE: Any use of trade, product or firm names is for descriptive purposes 
       only and does not imply endorsement by the U.S. Government.
 
-This version of MODFLOW-LGR is packaged for personal computers using the
-Microsoft Windows XP or Vista operating systems.  An executable file for
-personal computers is provided as well as the source code.  The source code
-can be compiled to run on other computers.
+This version of MODFLOW-LGR is packaged for personal computers using
+one of the Microsoft Windows operating systems.  An executable file for
+personal computers is provided as well as the source code.  The executable
+file was created using the Intel Visual Fortran 11.1 and Microsoft
+Visual C++ .NET compilers.  The source code can be compiled to run on
+other computers.
 
 IMPORTANT: Users should review the file mflgr.txt for a description of, and
 references for, this software. Users should also review the file release.txt,
 which describes changes that have been introduced into MODFLOW-LGR with each
 official release; these changes may substantially affect users.
-
-Instructions for installation, execution, and testing of MODFLOW-LGR are
-provided below.
 
 
 
@@ -37,7 +36,7 @@ A. DISTRIBUTION FILE
 The following self-extracting distribution file is for use on personal
 computers:
 
-         mflgr1_1_2.exe
+         mflgr1_2.exe
 
 The distribution file is a self-extracting program.  Execution of the
 distribution file creates numerous individual files.  The extraction
@@ -48,29 +47,33 @@ will be created in C:\WRDAPP:
 
 
    |
-   |--mflgr.1_1_2
+   |--mflgr.1_2
    |    |--bin       ; Compiled MODFLOW-LGR executable for personal computers
+   |    |--doc       ; Documentation files
    |    |--test-run  ; Input data to run verification tests
-   |    |--test-out  ; Output files from running the test
+   |    |   |--ex3     ; Input data for example 3
+   |    |   |--dual    ; Input data for two refined areas
+   |    |   |--sfrex2  ; Input data for streamflow routing
+   |    |--test-out  ; Output files from running the test problems
    |    |--src       ; MODFLOW-LGR source code for use on any computer
 
 
-It is recommended that no user files are kept in the mflgr.1_1_2 directory
-structure.  If you do plan to put your own files in the mflgr.1_1_2
+It is recommended that no user files are kept in the mflgr.1_2 directory
+structure.  If you do plan to put your own files in the mflgr.1_2
 directory structure, do so only by creating additional subdirectories.
 
 
 B. INSTALLING
 
 To make the executable version of MODFLOW-LGR accessible from any
-directory, the directory containing the executable (mflgr.1_1_2\bin)
+directory, the directory containing the executable (mflgr.1_2\bin)
 should be included in the PATH environment variable.  Also, if a
 prior release of MODFLOW-LGR is installed on your system, the
 directory containing the executables for the prior release should
 be removed from the PATH environment variable.
 
 As an alternative, the executable file, mflgr.exe, in the
-mflgr.1_1_2\bin directory can be copied into a directory already
+mflgr.1_2\bin directory can be copied into a directory already
 included in the PATH environment variable.
 
        HOW TO ADD TO THE PATH ENVIRONMENT VARIABLE
@@ -78,7 +81,7 @@ included in the PATH environment variable.
           
 Add the following line to the AUTOEXEC.BAT file:
 
-  PATH=%PATH%;C:\WRDAPP\mflgr.1_1_2\bin
+  PATH=%PATH%;C:\WRDAPP\mflgr.1_2\bin
 
 Note, reboot your system after modifying AUTOEXEC.BAT.
 
@@ -90,11 +93,11 @@ From the Start menu, select Settings and then Control Panel.  Double click
 System and select the Environment tab. To add a new user variable, enter
 "PATH" in the Variable field and enter
 
-   %PATH%;C:\WRDAPP\mflgr.1_1_2\bin
+   %PATH%;C:\WRDAPP\mflgr.1_2\bin
 
 in the Value field.  Click Set and then click OK.  If a PATH user variable
 already is defined, click on it in the User Variables pane, add
-";C:\WRDAPP\mflgr.1_1_2\bin" to its definition in the Value field, and click
+";C:\WRDAPP\mflgr.1_2\bin" to its definition in the Value field, and click
 OK.  Initiate and use a new Windows Command Prompt window after making this
 change.
 
@@ -106,7 +109,7 @@ From the Start menu, select Settings and then Control Panel.  Double click
 System and select the Advanced tab.  Click on Environment Variables.  If
 a PATH user variable already is defined, click on it in the User Variables
 pane, then click Edit.  In the Edit User Variable window, add
-";C:\WRDAPP\mflgr.1_1_2\bin" to the end of the Variable Value (ensure that
+";C:\WRDAPP\mflgr.1_2\bin" to the end of the Variable Value (ensure that
 the current contents of the User Value are not deleted) and click OK.  If
 a PATH user variable is not already defined, in the User variables pane of
 the Environment Variables window, click New.  In the New User Variable
@@ -117,7 +120,7 @@ window.  Initiate and use a new Windows Command Prompt window.
 
 C. EXECUTING THE SOFTWARE
 
-After the executable file in the mflgr.1_1_2\bin directory is installed in
+After the executable file in the mflgr.1_2\bin directory is installed in
 a directory that is included in your PATH, MODFLOW-LGR is initiated in
 a Windows Command-Prompt window using the command:
 
@@ -165,33 +168,39 @@ executable:  Zonebudget, MODPATH, and MODPATH-PLOT.
 D. TESTING
 
 Test data for example 3 in the original LGR documentation (USGS Techniques
-and Methods 6-A12) and the example with two refined areas in the new LGR
-documentation (USGS Techniques and Methods 6-A21) are provided to verify
+and Methods 6-A12), the example with two refined areas as documented in
+the USGS Techniques and Methods 6-A21, and the example with streamflow 
+routing (USGS Techniques and Methods 6-A34) are provided to verify
 that MODFLOW-LGR is correctly installed and running on the system. The
-directory mflgr.1_1_2\test-run contains the input data for running the tests.
-Directory mflgr.1_1_2\test-out contains the output files from running the
-tests.
+directories under mflgr.1_2\test-run contain the input data for running 
+the tests.  Directories under mflgr.1_2\test-out contain the output files 
+from running the tests.
 
-Directory mflgr.1_1_2\test-run can be used to conveniently run the tests
-without destroying the original results in directory mflgr.1_1_2\test-out.
-MODFLOW-LGR should be run in a command-prompt window with the current
-directory being mflgr.1_1_2\test-run. The LGR control file for example 3 is
-ex3.lgr.  The control file for the example with two refined areas is
-dualrefine.lgr.  The output files that are created in mflgr.1_1_2\test-run
-can then be compared to those in mflgr.1_1_2\test-out. 
+Directories under mflgr.1_2\test-run can be used to conveniently run the 
+tests without destroying the original results in directories under 
+mflgr.1_2\test-out.  To run example 3, MODFLOW-LGR should be run in a 
+command-prompt window with the current directory being 
+mflgr.1_2\test-run\ex3 . The LGR control file for example 3 is ex3.lgr.
+To run the example with two refined areas, MODFLOW-LGR should be run in
+a command-prompt window with the current directory being
+mflgr.1_2\test-run\dual. The control file for the example with two refined 
+is dualrefine.lgr.  To run the example with streamflow routing, MODFLOW-LGR 
+should be run in a command-prompt window with the current directory being
+mflgr.1_2\test-run\sfrex2 . The control file for the example with two refined 
+areas is sfrex2.lgr.  The output files that are created in directories 
+under mflgr.1_2\test-run can then be compared to those in directories 
+under mflgr.1_2\test-out. 
 
 
 E. COMPILING
 
-The executable file provided in mflgr.1_1_2\bin was created using the Intel
-Visual Fortran 11.0 and Microsoft Visual C++ .NET compilers.  Although an
-executable version of the program is provided, the source code is provided
-in the mflgr.1_1_2\src directory so that MODFLOW can be recompiled if
-necessary.  However, the USGS cannot provide assistance to those compiling
-MODFLOW. In general, the requirements are a Fortran compiler, a compatible
-C compiler, and the knowledge of using the compilers.
+Although an executable version of the program is provided, the source code
+is provided in the mflgr.1_2\src directory so that MODFLOW can be
+recompiled if necessary.  However, the USGS cannot provide assistance to
+those compiling MODFLOW. In general, the requirements are a Fortran
+compiler, a compatible C compiler, and the knowledge of using the compilers.
 
 The C compiler is used for the GMG solver.  If a compatible C compiler is
 not available, the GMG solver can be removed so that only a Fortran compiler
-is required.  File Nogmg.txt in mflgr.1_1_2\src contains instructions for
+is required.  File Nogmg.txt in mflgr.1_2\src contains instructions for
 removing GMG from MODFLOW.
