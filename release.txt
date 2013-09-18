@@ -10,6 +10,12 @@ For information and references related to these packages, see mflgr.txt.
 NOTE: Any use of trade, product or firm names is for descriptive purposes 
       only and does not imply endorsement by the U.S. Government.
       
+o Version 2.0 /9/19/2013:
+
+This is the initial release of the ghost-node version of LGR2.  The Boundary 
+Flow and Head Package (BFH2) is also included.  This version is based on 
+MODFLOW-2005 release 1.10.
+
 o Version 1.2. /5/18/2010:
 
 Added support for routing of water across parent and child grids with 

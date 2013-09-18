@@ -57,7 +57,7 @@
       END MODULE GWFHUFMODULE
 
 ! Time of File Save by ERB: 7/16/2004 5:20PM
-      SUBROUTINE GWF2HUF7AR(IN,ILVDA,IKDEP,IGRID)
+      SUBROUTINE GWF2HUF7AR(IN,ILVDA,IKDEP,ILGR,IGRID)
 C
 C     ******************************************************************
 C     ALLOCATE ARRAY STORAGE FOR HYDROGEOLOGIC UNIT PACKAGE
@@ -66,8 +66,9 @@ C
 C        SPECIFICATIONS:
 C     ------------------------------------------------------------------
       USE GLOBAL,      ONLY:NCOL,NROW,NLAY,BOTM,ITRSS,LAYHDT,LAYHDS,
-     1                      IOUT,ISSFLG,NPER,IBOUND,LBOTM
+     1                      IOUT,ISSFLG,NPER,IBOUND,LBOTM,HNEW
       USE GWFBASMODULE,ONLY:HDRY
+      USE LGRMODULE,   ONLY:VK
       USE GWFHUFMODULE,ONLY:IHUFCB,NHUF,NPHUF,IWETIT,IHDWET,IOHUFHDS,
      1                      IOHUFFLWS,WETFCT,HGUNAM,LTHUF,LAYWT,
      2                      IHGUFLG,HGUHANI,HGUVANI,HUFHK,HUFVK,HUFSS,
@@ -548,9 +549,8 @@ C9------READ DATA FOR KDEP
 C
 C-------SUBSTITUTE AND PREPARE DATA FOR HYDROGEOLOGIC-UNIT FLOW PACKAGE
 
-      CALL SGWF2HUF7SP(0,0,0,ILVDA)    
+      CALL SGWF2HUF7SP(0,0,0,ILVDA,ILGR)    
 C
-C-------RETURN
       CALL GWF2HUF7PSV(IGRID)
 !  RGN DEFINE SECONDARY STORAGE COEFFICIENT FOR SFR2 AND UZF1
 !  DETERMINE IF THERE IS A TRANSIENT STRESS PERIOD
@@ -572,9 +572,11 @@ C   IF CONVERTIBLE LAYER GET PRIMARY STORAGE
                 KK = KK + 1
               END IF
             END DO UPLAY
-            IF(LTHUF(K).NE.0) THEN
-              IF ( K.GT.0 ) THEN
-! TRICK SUBROUTINE TO THINK UPERMOST LAYER IS UNCONFINED
+C            IF(LTHUF(K).NE.0) THEN
+C              IF ( K.GT.0 ) THEN
+            IF ( K.GT.0 ) THEN
+              IF(LTHUF(K).NE.0) THEN
+! TRICK SUBROUTINE TO THINK UPPERMOST LAYER IS UNCONFINED
                 TOP=BOTM(J,I,LBOTM(K)-1)
                 BOT=BOTM(J,I,LBOTM(K))
                 HO=TOP-1.0E-1
@@ -587,6 +589,16 @@ C   IF CONVERTIBLE LAYER GET PRIMARY STORAGE
           END DO
         END DO
       END IF  
+C
+C-------IF LGR IS ACTIVE AND THERE IS MORE THAN 1 LAYER THEN STORE VK
+      IF(ILGR .NE. 0 .AND. NLAY .GT. 1) THEN
+        DO K=1,NLAY
+          CALL SGWF2HUF7VKL(VK(:,:,K),K,NCOL,NROW,NLAY,BOTM,NBOTM,HNEW,
+     &                      IBOUND,IOUT,GS,HUFTHK,NHUF)
+        END DO
+      END IF
+C
+C-------RETURN
       RETURN
       END
 
@@ -625,7 +637,7 @@ C
       RETURN
       END
 c======================================================================
-      SUBROUTINE SGWF2HUF7SP(KITER,KSTP,KPER,ILVDA)
+      SUBROUTINE SGWF2HUF7SP(KITER,KSTP,KPER,ILVDA,ILGR)
 C
 C     ******************************************************************
 C     SUBSTITUTE AND PREPARE DATA FOR HYDROGEOLOGIC-UNIT FLOW PACKAGE
@@ -667,7 +679,7 @@ C Check for cells that GO DRY/REWET
       DO 5 K=1,NLAY
         CALL SGWF2HUF7WETCHK(HNEW,IBOUND,CC,BOTM,
      &   NBOTM,K,KITER,KSTP,KPER,NCOL,NROW,NLAY,IOUT,WETDRY,
-     &   WETFCT,IWETIT,IHDWET,HDRY)
+     &   WETFCT,IWETIT,IHDWET,HDRY,ILGR)
     5 CONTINUE
 C
 C Zero out arrays
@@ -753,6 +765,9 @@ C       computing SC1 that every layer is confined
             IFLG=0
             CALL SGWF2HUF7HSRCH(NCOL,NROW,NLAY,BOTM,NBOTM,I,J,TOPU,BOTU,
      &                        HNEW,IBOUND,KT,KB,IFLG)
+C-----Note that a check for IFLG=1 is not needed here, as such a
+C        condition would have been caught after the earlier call
+C        to subroutine SGWF2HUF7HSRCH
 C-----Populate SC1 array
             CALL SGWF2HUF7SC1(NCOL,NROW,NLAY,BOTM,NBOTM,I,J,TOPU,
      &                        BOTU,SC1,HUFSS,KT,KB,NHUF,NU)
@@ -1014,7 +1029,7 @@ C     ------------------------------------------------------------------
 C           FIND TOP AND BOTTOM LAYERS THIS UNIT APPLIES TO
             TOPU=HUFTHK(J,I,NU,1)
             THCKU=HUFTHK(J,I,NU,2)
-            IF(ABS(THCKU).LT.1E-4) GOTO 210
+            IF(ABS(THCKU).LT.1E-4) GOTO 210 !swm: This needs to be reconsidered
             BOTU=TOPU-THCKU
 C-----------Determine which layer(s) unit applies to
             IFLG=1
@@ -1637,7 +1652,7 @@ C7------RETURN.
 c======================================================================
       SUBROUTINE SGWF2HUF7WETCHK(HNEW,IBOUND,CC,BOTM,
      & NBOTM,K,KITER,KSTP,KPER,NCOL,NROW,NLAY,IOUT,WETDRY,
-     & WETFCT,IWETIT,IHDWET,HDRY)
+     & WETFCT,IWETIT,IHDWET,HDRY,ILGR)
 C     ******************************************************************
 C     CHECK FOR CELLS THAT GO DRY/REWET
 C     ******************************************************************
@@ -1664,7 +1679,7 @@ C2------IF LAYER IS WETTABLE CONVERT DRY CELLS TO WET WHEN APPROPRIATE.
       IF(LAYWT(K).NE.0) ITFLG=MOD(KITER,IWETIT)
       IF(ITFLG.EQ.0) CALL SGWF2HUF7WET(HNEW,IBOUND,BOTM,NBOTM,K,KITER,
      &      KSTP,KPER,NCOL,NROW,NLAY,IOUT,WETDRY,WETFCT,IHDWET,
-     &      IHDCNV,NCNVRT,ICNVRT,JCNVRT,ACNVRT)
+     &      IHDCNV,NCNVRT,ICNVRT,JCNVRT,ACNVRT,ILGR)
 C
 C3------LOOP THROUGH EACH CELL, AND CALCULATE SATURATED THICKNESS.
       DO 200 I=1,NROW
@@ -1772,7 +1787,7 @@ C3-----RETURN
 c======================================================================
       SUBROUTINE SGWF2HUF7WET(HNEW,IBOUND,BOTM,NBOTM,K,KITER,KSTP,KPER,
      &      NCOL,NROW,NLAY,IOUT,WETDRY,WETFCT,IHDWET,IHDCNV,
-     &      NCNVRT,ICNVRT,JCNVRT,ACNVRT)
+     &      NCNVRT,ICNVRT,JCNVRT,ACNVRT,ILGR)
 C
 C%%%%%
 C  PLEASE NOTE: THIS SUBROUTINE WAS COPIED DIRECTLY FROM THE LPF
@@ -1814,6 +1829,10 @@ C4------REACHED.
          IF(K.NE.NLAY) THEN
             HTMP=HNEW(J,I,K+1)
             IF(IBOUND(J,I,K+1).GT.0 .AND. HTMP.GE.TURNON) GO TO 50
+         ELSE IF (ILGR.NE.0) THEN    !swm
+            HTMP=TURNON-1.
+            CALL SGWF2LGR2WETCHK(J,I,K,HTMP,0)
+            IF (HTMP.GE.TURNON) GO TO 50
          END IF
 C
 C5------CHECK HEAD IN ADJACENT HORIZONTAL CELLS TO SEE IF WETTING
@@ -1836,6 +1855,11 @@ C5------ELEVATION HAS BEEN REACHED.
             IF(I.NE.NROW) THEN
                HTMP=HNEW(J,I+1,K)
                IF(IBOUND(J,I+1,K).GT.0 .AND. HTMP.GE.TURNON) GO TO 50
+            ENDIF
+            IF (ILGR.NE.0) THEN    !swm
+                HTMP=TURNON-1.
+                CALL SGWF2LGR2WETCHK(J,I,K,HTMP,1)
+                IF (HTMP.GE.TURNON) GO TO 50
             END IF
          END IF
 C
@@ -1976,7 +2000,7 @@ C4------RETURN
       END
 
 c======================================================================
-      SUBROUTINE GWF2HUF7FM(KITER,KSTP,KPER,ILVDA,IGRID)
+      SUBROUTINE GWF2HUF7FM(KITER,KSTP,KPER,ILVDA,ILGR,IGRID)
 C     ******************************************************************
 C     ADD LEAKAGE CORRECTION AND STORAGE TO HCOF AND RHS, AND CALCULATE
 C     CONDUCTANCE AS REQUIRED.
@@ -2002,7 +2026,7 @@ C          BRANCH CONDUCTANCES
         IF(LTHUF(K).NE.0) KLAYFLG=1
   100 CONTINUE
       IF (KLAYFLG.NE.0) THEN
-        CALL SGWF2HUF7SP(KITER,KSTP,KPER,ILVDA)
+        CALL SGWF2HUF7SP(KITER,KSTP,KPER,ILVDA,ILGR)
       ENDIF
 
       IF(ILVDA.GT.0) CALL GWF2HUF7VDFM(HNEW,IBOUND,CR,CC,VDHT,
@@ -2484,7 +2508,8 @@ C4B-----FOR EACH CELL CALCULATE FLOW THRU FRONT FACE & STORE IN BUFFER.
       IF(ILVDA.GT.0) THEN
         CALL SGWF2HUF7VDF9(I,J,K,VDHT,HNEW,IBOUND,NLAY,NROW,NCOL,
      &                 DFL,DFR,DFT,DFB)
-        BUFF(J,I,K) = DFT
+C        BUFF(J,I,K) = DFT
+        BUFF(J,I,K) = DFB
       ELSE
         HDIFF=HNEW(J,I,K)-HNEW(J,I+1,K)
         BUFF(J,I,K)=HDIFF*CC(J,I,K)
@@ -3007,15 +3032,19 @@ C        WRITE(IHUFCB) HNWHGU
       IF(IBD.EQ.2) THEN
 C
 C1------WRITE TWO UNFORMATTED RECORDS IDENTIFYING DATA.
-        IF(IOUT.GT.0) WRITE(IOUT,2) TEXT(ICNT),IHUFCB,KSTP,KPER
-    2   FORMAT(1X,'SGWF2HUF7FLOT SAVING "',A16,'" ON UNIT',I4,
-     &       ' AT TIME STEP',I3,', STRESS PERIOD',I3)
-        WRITE(IHUFCB) KSTP,KPER,TEXT(ICNT),NCOL,NROW,NHUF
-        WRITE(IHUFCB) 1,DELT,PERTIM,TOTIM
-C
-C2------WRITE AN UNFORMATTED RECORD CONTAINING VALUES FOR
-C2------EACH CELL IN THE GRID.
-        WRITE(IHUFCB) HNWHGU
+        CALL UBDSV1(KSTP,KPER,TEXT(ICNT),
+     &                   IHUFCB,HNWHGU,NCOL,NROW,NHUF,IOUT,
+     &                   DELT,PERTIM,TOTIM,IBOUND)
+C        IF(IOUT.GT.0) WRITE(IOUT,2) TEXT(ICNT),IHUFCB,KSTP,KPER
+C    2   FORMAT(1X,'SGWF2HUF7FLOT SAVING "',A16,'" ON UNIT',I4,
+C     &       ' AT TIME STEP',I3,', STRESS PERIOD',I3)
+C        WRITE(IHUFCB) KSTP,KPER,TEXT(ICNT),NCOL,NROW,NHUF
+C        WRITE(IHUFCB) 1,DELT,PERTIM,TOTIM
+CC
+CC
+CC2------WRITE AN UNFORMATTED RECORD CONTAINING VALUES FOR
+CC2------EACH CELL IN THE GRID.
+C        WRITE(IHUFCB) HNWHGU
       ENDIF
 
    50 CONTINUE
@@ -3554,7 +3583,7 @@ C     ------------------------------------------------------------------
 5       indx(l+1)=indx(j)
         indx(j)=indxt
         jstack=jstack+2
-        if(jstack.gt.NSTACK)pause 'NSTACK too small in indexx'
+        if(jstack.gt.NSTACK) call ustop('NSTACK too small in indexx')
         if(ir-i+1.ge.j-l)then
           istack(jstack)=ir
           istack(jstack-1)=i

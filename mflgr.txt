@@ -22,10 +22,18 @@ ABSTRACT
      allows smaller parts of a larger model domain to be refined
      without refining the entire model.  Mehl and Hill (2007)
      expanded the original scope of MODFLOW-LGR to include multiple
-     areas of refinement within a single model domain.
+     areas of refinement within a single model domain.  This version
+     (2013) couples grids using the ghost-node method rather than the 
+     shared node method
 
 
 HISTORY
+
+      MODFLOW-LGR Version 2.0 09/19/2013 - This is the initial release
+	 of the ghost-node version of LGR2.  Grids are coupled at the
+	 cell faces rather than at the shared nodes.  The Boundary Flow
+	 and Head Package (BFH2) is also included.
+	 This version is based on MODFLOW-2005 release 1.10.  
 
       MODFLOW-LGR Version 1.2 05/18/2010 - Added support for routing 
          of water across parent and child grids with streamflow routing
@@ -74,6 +82,11 @@ ground-water model -- the Ground-Water Flow Process: U.S. Geological Survey
 Techniques and Methods 6-A16, variously p.
 
   The addition of LGR to MODFLOW-2005 is documented in:
+
+Mehl, S.W., and Hill, M.C., 2013, MODFLOW–LGR --Documentation of ghost node local 
+grid refinement (LGR2) for multiple areas and the boundary flow and head (BFH2) 
+package: U.S. Geological Survey Techniques and Methods book 6, chap. A44, 43 p., 
+http://pubs.usgs.gov/tm/6a44/.
 
 Mehl, S.W. and Hill, M.C., 2005, MODFLOW-2005, the U.S. Geological Survey modular
 ground-water model -- documentation of shared node local grid refinement (LGR)
